@@ -1,0 +1,972 @@
+<!DOCTYPE html><html lang="vi" class="light-style layout-wide customizer-hide"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Login RIGRTnWDLd5f.vn - Kích hoạt UnlockTool. Nạp tiền auto</title>
+    <meta name="description" content="Dịch Vụ Kích hoạt UnlockTool | Nạp Tiền Tự Động Qua QR Code">
+    <meta name="og:image" content="/home/images/daochieu.png">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;ampdisplay=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home/fonts/remixicon/remixicon.css">
+    <link rel="stylesheet" href="home/css/core.css">
+    <link rel="stylesheet" href="home/css/theme-default.css">
+    <link rel="stylesheet" href="home/css/style.css">
+    <link rel="stylesheet" href="home/plugins/form-validation/form-validation.css">
+    <link rel="stylesheet" href="home/plugins/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="home/css/pages/dang-nhap.css">
+  </head>
+
+  <body>
+    <marquee>Gia Hạn Và Kích Hoạt Tài Khoản UnlockTool | 3 Tháng | 6 Tháng | 12 Tháng. Nạp Tiền Tự Động</marquee>
+    <div class="position-relative">
+      <div class="authentication-wrapper authentication-basic container-p-y p-4 p-sm-0">
+        <div class="authentication-inner py-6">
+          <div class="card p-md-7 p-1">
+            <div class="app-brand justify-content-center mt-5"><img src="home/images/logo.png" alt="Logo">
+            </div>
+            <div class="card-body mt-1">
+              <form id="frm-dang-nhap" class="mb-5" autocomplete="off">
+                <div class="form-floating form-floating-outline mb-5">
+                  <input type="text" class="form-control" id="dien-thoai" name="dien_thoai" placeholder="VD: 09xxxxxxxx" autofocus="">
+                  <label for="dien-thoai">Số điện thoại</label>
+                </div>
+                <div class="mb-5">
+                  <div class="form-password-toggle">
+                    <div class="input-group input-group-merge">
+                      <div class="form-floating form-floating-outline">
+                        <input type="password" id="mat-khau" class="form-control" name="mat_khau" placeholder="············" aria-describedby="password">
+                        <label for="mat-khau">Mật khẩu</label>
+                      </div>
+                      <span class="input-group-text cursor-pointer"><i class="ri-eye-off-line"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-5 d-flex justify-content-between mt-5">
+                  <a href="javascript:quenMatKhau()" class="float-end mb-1 mt-2">
+                    <span>Quên mật khẩu?</span>
+                  </a>
+                </div>
+                <div class="mb-5">
+                  <button id="btn-dang-nhap" class="btn btn-primary d-grid w-100" type="button">Đăng nhập</button>
+                </div>
+              </form>
+
+              <p class="text-center">
+                <span>Bạn chưa có tài khoản? Hãy</span>
+                <a href="https://RIGRTnWDLd5f.vn/dang-ky.html">
+                  <span>đăng ký</span>
+                </a>
+                <span>một tài khoản mới!</span>
+              </p>
+              <!--<div class="d-flex justify-content-center gap-2">-->
+              <!--  <button type="button" id="btn-check-imei-free" class="btn btn-primary d-grid w-100 text-white">Kiểm tra IMEI/Serial (Free)</button>-->
+              <!--</div>-->
+            </div>
+          </div>
+          <img alt="mask" src="home/images/auth-basic-login-mask-light.png" class="authentication-image d-none d-lg-block" data-app-light-img="https://RIGRTnWDLd5f.vn/home/images/ZUXaTSeHkk6E.png" data-app-dark-img="https://RIGRTnWDLd5f.vn/home/images/auth-basic-login-mask-dark.png"> </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-quen-mk" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Quên mật khẩu</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="frm-quen-mk" class="" autocomplete="off">
+                    <div class="row">
+                        <div class="col-12 mt-2">
+                            <div class="mb-4">
+                                <label for="q-email" class="form-label">Vui lòng nhập email để tiến hành khôi phục mật khẩu!</label>
+                                <input id="q-email" name="q_email" class="form-control" type="email" placeholder="VD: johndoe@gmail.com" autofocus="">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" id="btn-quen-mk" class="btn btn-primary waves-effect waves-light">Khôi phục mật khẩu</button>
+            </div>
+        </div>
+    </div>
+</div>    
+    <script src="home/plugins/jquery.js"></script>
+    <script src="home/plugins/bootstrap.js"></script>
+    <script src="home/plugins/form-validation/popular.js"></script>
+    <script src="home/plugins/form-validation/bootstrap5.js"></script>
+    <script src="home/plugins/form-validation/auto-focus.js"></script>
+    <script src="home/plugins/form-validation/transformer.min.js"></script>
+    <script src="home/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="home/plugins/axios.min.js"></script>
+    <script src="home/js/helpers.js"></script>
+    <script src="home/js/common.js"></script>
+
+    <script type="text/javascript">
+        window.Helpers.initPasswordToggle();
+        var $modalQuenMK = $("#modal-quen-mk");
+        var $formQuenMK = $("#frm-quen-mk");
+        function quenMatKhau() {
+          $modalQuenMK.modal('show');
+        }
+        var fvQuenMK;
+        $modalQuenMK.on('hidden.bs.modal', function() {
+            $formQuenMK.trigger("reset");
+            fvQuenMK.resetForm(true);
+            fvQuenMK.destroy();
+        });
+
+        $modalQuenMK.on('shown.bs.modal', function() {
+          fvQuenMK = FormValidation.formValidation(document.getElementById('frm-quen-mk'), {
+            fields: {
+              q_email: {
+                validators: {
+                  notEmpty: {
+                    message: 'Vui lòng nhập email!'
+                  },
+                  callback: {
+                    message: 'Email không hợp lệ!',
+                    callback: function (input) {
+                      const value = input.value;
+                      if (value === '') {
+                        return true;
+                      }
+                      return (
+                        FormValidation.validators.emailAddress().validate({
+                          value: value,
+                        }).valid &&
+                        FormValidation.validators.regexp().validate({
+                          value: value,
+                          options: {
+                              regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                          },
+                        }).valid
+                      );
+                    },
+                  },
+                  remote: {
+                      message: 'Xin lỗi, Email này không tồn tại trong hệ thống!',
+                      method: 'GET',
+                      url: `https://RIGRTnWDLd5f.vn/quen-mat-khau/kiem-tra`
+                  }
+                }
+              }
+            },
+            plugins: {
+              trigger: new FormValidation.plugins.Trigger(),
+              bootstrap5: new FormValidation.plugins.Bootstrap5({
+                eleValidClass: '',
+              }),
+              autoFocus: new FormValidation.plugins.AutoFocus(),
+              transformer: new FormValidation.plugins.Transformer({
+                q_email: {
+                  notEmpty: function (field, element, validator) {
+                      const value = element.value;
+                      return value.trim();
+                  },
+                  callback: function (field, element, validator) {
+                      const value = element.value;
+                      return value.trim();
+                  },
+                  remote: function (field, element, validator) {
+                      const value = element.value;
+                      return value.trim();
+                  }
+                }
+              })
+            },
+            init: instance => {
+              instance.on('plugins.message.placed', function (e) {
+                if (e.element.parentElement.classList.contains('input-group')) {
+                  e.element.parentElement.insertAdjacentElement('afterend', e.messageElement);
+                }
+              });
+            }
+          }).on('core.validator.validated', function (e) {
+            if (!e.result.valid) {
+              const messages = [].slice.call(
+                document.getElementById('frm-quen-mk').querySelectorAll('[data-field="' + e.field + '"][data-validator]')
+              );
+
+              messages.forEach((messageEle) => {
+                const validator = messageEle.getAttribute('data-validator');
+                messageEle.style.display = validator === e.validator ? 'block' : 'none';
+              });
+            }
+          });
+
+          $("#btn-quen-mk").click(function() {
+            fvQuenMK.validate().then(function(status) {
+              if(status == "Valid") {
+                showPleaseWait();
+                axios.post("https://RIGRTnWDLd5f.vn/quen-mat-khau", {
+                  email: $("#q-email").val().trim()
+                }, {
+                  headers: {
+                    'X-CSRF-TOKEN': "IiG7maoyprIXefyQIEmQ5Lr6Q7YU5hZO0288g2Yq"
+                  }
+                }).then(function (response) {
+                  Swal.close();
+                  Swal.fire({
+                    icon: response.data.success ? 'success' : 'error',
+                    showClass: {
+                      popup: 'animate__animated animate__bounceIn'
+                    },
+                    customClass: {
+                      confirmButton: 'btn btn-primary waves-effect waves-light'
+                    },
+                    text: response.data.message
+                  });
+                  if (response.data.success) {
+                    $modalQuenMK.modal('hide');
+                  }
+                }).catch(function (error) {
+                  console.log("Error", error);
+                });
+              }
+            });
+          });
+        });
+
+        $(document).ready(function() {
+          const fvDangNhap = FormValidation.formValidation(document.getElementById('frm-dang-nhap'), {
+            fields: {
+              dien_thoai: {
+                validators: {
+                  notEmpty: {
+                    message: 'Vui lòng nhập số điện thoại!'
+                  },
+                  stringLength: {
+                    min: 9,
+                    max: 15,
+                    message: 'Số điện thoại không hợp lệ!'
+                  }
+                }
+              },
+              mat_khau: {
+                validators: {
+                  notEmpty: {
+                    message: 'Vui lòng nhập mật khẩu!'
+                  },
+                  stringLength: {
+                    min: 6,
+                    message: 'Mật khẩu phải có ít nhất 6 ký tự!'
+                  }
+                }
+              }
+            },
+            plugins: {
+              trigger: new FormValidation.plugins.Trigger(),
+              bootstrap5: new FormValidation.plugins.Bootstrap5({
+                eleValidClass: '',
+                rowSelector: '.mb-5'
+              }),
+              autoFocus: new FormValidation.plugins.AutoFocus(),
+              transformer: new FormValidation.plugins.Transformer({
+                dien_thoai: {
+                  notEmpty: function (field, element, validator) {
+                      const value = element.value;
+                      return value.trim();
+                  },
+                  stringLength: function (field, element, validator) {
+                      const value = element.value;
+                      return value.trim();
+                  }
+                }
+              })
+            },
+            init: instance => {
+              instance.on('plugins.message.placed', function (e) {
+                if (e.element.parentElement.classList.contains('input-group')) {
+                  e.element.parentElement.insertAdjacentElement('afterend', e.messageElement);
+                }
+              });
+            }
+          }).on('core.validator.validated', function (e) {
+            if (!e.result.valid) {
+              const messages = [].slice.call(
+                document.getElementById('frm-dang-nhap').querySelectorAll('[data-field="' + e.field + '"][data-validator]')
+              );
+
+              messages.forEach((messageEle) => {
+                const validator = messageEle.getAttribute('data-validator');
+                messageEle.style.display = validator === e.validator ? 'block' : 'none';
+              });
+            }
+          });
+
+          $("#btn-dang-nhap").click(function() {
+            fvDangNhap.validate().then(function(status) {
+              if(status == "Valid") {
+                axios.post("https://RIGRTnWDLd5f.vn/dang-nhap", {
+                  dien_thoai: $("#dien-thoai").val().trim(),
+                  mat_khau: $("#mat-khau").val(),
+                }, {
+                  headers: {
+                    'X-CSRF-TOKEN': "IiG7maoyprIXefyQIEmQ5Lr6Q7YU5hZO0288g2Yq"
+                  }
+                }).then(function (response) {
+                  if (response.data.success) {
+                    if (response.data.verify_otp !== undefined) {
+                      var verify_otp = response.data.verify_otp;
+                      Swal.fire({
+                        title: 'Xác minh 2 bước?',
+                        text: 'Vui lòng nhập OTP từ Authenticator App',
+                        input: 'text',
+                        inputAttributes: {
+                          autocapitalize: 'off'
+                        },
+                        allowOutsideClick: false,
+                        showCancelButton: true,
+                        confirmButtonText: 'Đồng ý',
+                        cancelButtonText: 'Huỷ bỏ',
+                        showLoaderOnConfirm: true,
+                        customClass: {
+                          confirmButton: 'btn btn-primary me-3 waves-effect waves-light',
+                          cancelButton: 'btn btn-outline-danger waves-effect'
+                        },
+                        preConfirm: async (otp) => {
+                          if (otp.trim().length == 0) {
+                            return Swal.showValidationMessage('Vui lòng nhập OTP!');
+                          }
+                          try {
+                            const response = await axios.post("https://RIGRTnWDLd5f.vn/xac-thuc-otp", {'user': verify_otp, 'otp': otp.trim()}, {
+                              headers: {
+                                'X-CSRF-TOKEN': "IiG7maoyprIXefyQIEmQ5Lr6Q7YU5hZO0288g2Yq"
+                              }
+                            })
+                            var responseData = await response.data;
+                            if (!responseData.success) {
+                              return Swal.showValidationMessage(responseData.message);
+                            }
+                            return responseData;
+                          } catch (error) {
+                            Swal.showValidationMessage(` Request failed: ${error} `);
+                          }
+                        },
+                        backdrop: true,
+                      }).then(result => {
+                        if (result.isConfirmed) {
+                          window.location.replace(result.value.redirect);
+                        }
+                      });
+                    } else {
+                      window.location.replace(response.data.redirect);
+                    }
+                    return;
+                  }
+                  Swal.fire({
+                    icon: 'error',
+                    showClass: {
+                      popup: 'animate__animated animate__bounceIn'
+                    },
+                    customClass: {
+                      confirmButton: 'btn btn-primary waves-effect waves-light'
+                    },
+                    text: response.data.message
+                  }); 
+                }).catch(function (error) {
+                  console.log("Error", error);
+                });
+              }
+            });
+          });
+
+          $("#btn-check-imei-free").click(function() {
+            $("#modal-check-free").modal('show');
+          })
+        });
+    </script>
+  
+  <div class="modal fade" id="modal-check-free" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Kiểm tra IMEI/Serial FREE</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="frm-check-free" class="" autocomplete="off">
+                    <div class="row">
+                        <div class="col-12 mt-2">
+                            <div class="mb-4">
+                                <label for="imei class=" form-label"="">IMEI/Serial</label>
+                                <input id="imei" name="imei" class="form-control" type="text" placeholder="VD: 123456789012347" autofocus="">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" id="btn-check-free" class="btn btn-primary waves-effect waves-light">Kiểm tra</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var $modalCheckFree = $("#modal-check-free");
+    var $formCheckFree = $("#frm-check-free");
+    var fvCheckFree;
+    
+    $modalCheckFree.on('hidden.bs.modal', function() {
+        $formCheckFree.trigger("reset");
+        fvCheckFree.resetForm(true);
+        fvCheckFree.destroy();
+    });
+
+    $modalCheckFree.on('shown.bs.modal', function() {
+        fvCheckFree = FormValidation.formValidation(document.getElementById('frm-check-free'), {
+            fields: {
+                imei: {
+                validators: {
+                    notEmpty: {
+                        message: 'Vui lòng nhập IMEI/Serial!'
+                    },
+                    }
+                }
+            },
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap5: new FormValidation.plugins.Bootstrap5({
+                eleValidClass: '',
+                }),
+                autoFocus: new FormValidation.plugins.AutoFocus()
+            }
+        });
+
+        $("#btn-check-free").click(function() {
+            fvCheckFree.validate().then(function(status) {
+                if(status == "Valid") {
+                    showPleaseWait();
+                    axios.post("https://RIGRTnWDLd5f.vn/check-imei-free", {
+                        imei: $("#imei").val().trim()
+                    }, {
+                        headers: {
+                        'X-CSRF-TOKEN': "IiG7maoyprIXefyQIEmQ5Lr6Q7YU5hZO0288g2Yq"
+                        }
+                    }).then(function (response) {
+                        Swal.close();
+                        Swal.fire({
+                            icon: response.data.success ? 'success' : 'error',
+                            showClass: {
+                                popup: 'animate__animated animate__bounceIn'
+                            },
+                            customClass: {
+                                confirmButton: 'btn btn-primary waves-effect waves-light'
+                            },
+                            html: response.data.message
+                            });
+                            if (response.data.success) {
+                                $modalCheckFree.modal('hide');
+                            }
+                    }).catch(function (error) {
+                        console.log("Error", error);
+                    });
+                }
+            });
+        });
+    });
+</script>  
+  
+  <style>
+    .custom-footer {
+        background-color: #f8fafc;
+        margin-top: 50px;
+        padding-top: 100px;
+        color: #333;
+    }
+
+    .custom-footer-top {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .custom-footer-top h2 {
+        font-size: 2.2em; /* Increased font size */
+        font-weight: bold; /* Increased font weight */
+        margin-bottom: 20px;
+        color: #2d3958;
+    }
+
+    .custom-newsletter {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+    }
+
+    .newsletter-text {
+        font-size: 1.5em; /* Increased font size for visibility */
+        font-weight: 500; /* Increased font weight */
+        color: #333; /* Darker text color for contrast */
+        margin-bottom: 15px; /* Space below the text */
+    }
+
+    .purchase-button {
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s, transform 0.2s; /* Add a slight transformation on hover */
+        font-size: 1em; /* Increased button font size */
+        font-weight: bold; /* Increased font weight for button */
+    }
+
+    .purchase-button:hover {
+        background: linear-gradient(135deg, #0072ff, #00c6ff);
+        transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    .custom-footer-bottom {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .custom-footer-column {
+        flex: 1;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+
+    .custom-footer-column h3 {
+        font-size: 1.5em; /* Increased heading font size */
+        font-weight: bold; /* Increased font weight */
+        margin-bottom: 15px;
+        color: #2d3958;
+    }
+
+    .custom-footer-column p,
+    .custom-footer-column a {
+        font-size: 1em; /* Increased font size */
+        font-weight: 400; /* Normal font weight */
+        color: #666;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+        transition: color 0.3s;
+    }
+
+    .custom-footer-column a:hover {
+        color: #0072ff;
+    }
+
+    .custom-footer-column ul {
+        list-style: none;
+        padding: 0; /* Added to remove default padding */
+    }
+
+    .custom-footer-column ul li {
+        display: flex;
+        align-items: center; /* Center align icons with text */
+        margin-bottom: 10px;
+        font-size: 1em; /* Increased font size for list items */
+        font-weight: 400; /* Normal font weight for list items */
+    }
+
+    .custom-footer-column ul li i {
+        margin-right: 8px; /* Space between icon and text */
+        color: #0072ff; /* Change icon color */
+    }
+
+    .custom-footer-copyright {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #373737;
+        margin-top: 40px;
+        font-size: 1em; /* Increased copyright font size */
+        font-weight: 300; /* Light font weight for copyright */
+        color: #999;
+    }
+</style>
+
+
+  
+  <!--chat-button-->
+  <div id="whatsapp-chat" class="hide">
+        <div class="header-chat">
+            <div class="info-avatar"><img src="home/images/daochieu.png" alt="Avatar"><p class="whatsapp-name">Support Team</p></div>
+            <h3><font color="white">Chat with us</font></h3>
+            <p>We are here to help you. Chat with us on WhatsApp or Telegram!</p>
+        </div>
+        <div class="chat-buttons">
+            <a href="https://wa.me/+84886963456" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+            <a href="https://t.me/chieumobile" target="_blank" class="telegram"><i class="fab fa-telegram-plane"></i>Telegram</a>
+        </div>
+    </div>
+
+   <a href="javascript:void(0);" class="blantershow-chat">
+    <img src="../vFkP0hL0swzH.co/Qv70CHJ/jr0hTOmnDmhn.png" alt="Chat with us" style="vertical-align: middle; margin-right: 5px;">
+    Chat with us
+</a>
+
+
+    <script>
+var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
+      
+        const whatsappChat = document.querySelector("#whatsapp-chat");
+        document.querySelector(".blantershow-chat").addEventListener("click", () => {
+            whatsappChat.classList.toggle("show");
+        });
+    </script>
+
+
+
+<style>
+    
+    /* whatspp */
+
+/* CSS Multiple WhatsApp & Telegram Chat */
+        .whatsapp-name {
+            font-size: 16px;
+            font-weight: 600;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            line-height: 0.5;
+        }
+
+        #whatsapp-chat {
+            box-sizing: border-box !important;
+            outline: none !important;
+            position: fixed;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+            bottom: 150px;
+            right: 30px;
+            overflow: hidden;
+            z-index: 99;
+            animation-name: showchat;
+            animation-duration: 1s;
+            transform: scale(1);
+        }
+        a.blantershow-chat {
+            background: rgb(9,94,84);
+background: linear-gradient(90deg, rgba(9,94,84,1) 0%, rgba(37,211,102,1) 100%);
+            color: #fff;
+		text-decoration:none;
+            position: fixed;
+            display: flex;
+            font-weight: 400;
+            justify-content: space-between;
+            z-index: 98;
+            bottom: 80px;
+            right: 30px;
+            font-size: 15px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+        }
+        a.blantershow-chat svg {
+            transform: scale(1.2);
+            margin: 0 10px 0 0;
+        }
+        .header-chat {
+            background: #095e54;
+            color: #fff;
+            padding: 20px;
+        }
+        .header-chat h3 {
+            margin: 0 0 10px;
+        }
+        .header-chat p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .info-avatar {
+            position: relative;
+        }
+        .info-avatar img {
+            border-radius: 100%;
+            width: 50px;
+            float: left;
+            margin: 0 10px 0 0;
+        }
+
+        a.informasi {
+            padding: 20px;
+            display: block;
+            overflow: hidden;
+            animation-name: showhide;
+            animation-duration: 0.5s;
+        }
+        a.informasi:hover {
+            background: #f1f1f1;
+        }
+        .info-chat span {
+            display: block;
+        }
+        #get-label, span.chat-label {
+            font-size: 12px;
+            color: #888;
+        }
+        #get-nama, span.chat-nama {
+            margin: 5px 0 0;
+            font-size: 15px;
+            font-weight: 700;
+            color: #222;
+        }
+        #get-label, #get-nama {
+            color: #fff;
+        }
+        span.my-number {
+            display: none;
+        }
+        textarea#chat-input {
+            border: none;
+            font-family: "Arial", sans-serif;
+            width: 100%;
+            height: 20px;
+            outline: none;
+            resize: none;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        a#send-it {
+            width: 30px;
+            font-weight: 700;
+            padding: 10px 10px 0;
+            background: #eee;
+            border-radius: 10px;
+        }
+
+        a#send-it svg {
+            fill: #a6a6a6;
+            height: 24px;
+            width: 24px;
+        }
+
+        .first-msg {
+            background: transparent;
+            padding: 30px;
+            text-align: center;
+        }
+        .first-msg span {
+            background: #e2e2e2;
+            color: #333;
+            font-size: 14.2px;
+            line-height: 1.7;
+            border-radius: 10px;
+            padding: 15px 20px;
+            display: inline-block;
+        }
+
+        .start-chat .blanter-msg {
+            display: flex;
+        }
+        #get-number {
+            display: none;
+        }
+        a.close-chat {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        @keyframes  showhide {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+        }
+        @keyframes  showchat {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+        @media  screen and (max-width: 480px) {
+            #whatsapp-chat {
+                width: auto;
+                left: 5%;
+                right: 5%;
+                font-size: 80%;
+            }
+        }
+        .hide {
+            display: none;
+            animation-name: showhide;
+            animation-duration: 0.5s;
+            transform: scale(1);
+            opacity: 1;
+        }
+        .show {
+            display: block;
+            animation-name: showhide;
+            animation-duration: 0.5s;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .whatsapp-message-container {
+            display: flex;
+            z-index: 1;
+        }
+
+        .whatsapp-message {
+            padding: 7px 14px 6px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 0px 8px 8px;
+            position: relative;
+            transition: all 0.3s ease 0s;
+            opacity: 0;
+            transform-origin: center top 0px;
+            z-index: 2;
+            box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+            margin-top: 4px;
+            margin-left: -54px;
+            max-width: calc(100% - 66px);
+        }
+
+        .whatsapp-chat-body {
+            padding: 20px;
+            background-color: rgb(230, 221, 212);
+            position: relative;
+        }
+        .whatsapp-chat-body::before {
+            display: block;
+            position: absolute;
+            content: "";
+            left: 0px;
+            top: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            opacity: 0.08;
+            background-image: url("../AG7VDkpCKLG0.com/assets/chats/patterns/q84UErvICX3k.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .dAbFpq {
+            display: flex;
+            z-index: 1;
+        }
+
+        .eJJEeC {
+            background-color: rgb(255, 255, 255);
+            width: 52.5px;
+            height: 32px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            opacity: 0;
+            transition: all 0.1s ease 0s;
+            z-index: 1;
+            box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+        }
+
+        .hFENyl {
+            position: relative;
+            display: flex;
+        }
+
+        .ixsrax, .dRvxoz {
+            height: 5px;
+            width: 5px;
+            margin: 0px 2px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            top: 0px;
+        }
+
+        .ixsrax {
+            background-color: rgb(158, 157, 162);
+            animation-name: ZpjSY;
+        }
+
+        .dRvxoz {
+            background-color: rgb(182, 179, 187);
+            animation-name: bWYmCn;
+        }
+
+        @keyframes  ZpjSY {
+            0% {
+                transform: scale(0.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes  bWYmCn {
+            0% {
+                transform: scale(0.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+        }
+
+        .chat-buttons {
+            display: flex;
+		background-color: #fff;
+            justify-content: space-between;
+          padding:10px;
+        }
+        .chat-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45%;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+            text-align: center;
+            color: #444;
+            font-size: 16px;
+            text-decoration: none;
+            margin-right: 10px; /* Add margin to the right */
+        }
+        .chat-buttons i {
+            margin-right: 8px;
+        }
+        .chat-buttons .whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        .chat-buttons .telegram {
+            background-color: #0088cc;
+            color: white;
+            margin-right: 0; /* Reset margin on the last button */
+        }
+
+
+</style>
+  
+</body></html>
