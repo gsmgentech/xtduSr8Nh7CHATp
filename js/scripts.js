@@ -54,15 +54,22 @@ document.getElementById("openModalBtn").addEventListener("click", async function
 });
 
 const backButton = document.getElementById("backButton");
-        let initialHeight = window.innerHeight;
+const submitButton = document.getElementById("openModalBtn");
+let initialHeight = window.innerHeight;
 
-        window.addEventListener("resize", () => {
-            if (window.innerHeight < initialHeight * 0.75) { 
-                backButton.style.opacity = "0"; 
-                backButton.style.pointerEvents = "none"; 
-            } else { 
-                backButton.style.opacity = "1"; 
-                backButton.style.pointerEvents = "auto"; 
-            }
-        });
+window.addEventListener("resize", () => {
+    if (window.innerHeight < initialHeight * 0.75) { 
+        // Hide both buttons when keyboard is detected
+        backButton.style.opacity = "0"; 
+        backButton.style.pointerEvents = "none"; 
+        submitButton.style.opacity = "0"; 
+        submitButton.style.pointerEvents = "none"; 
+    } else { 
+        // Show both buttons when keyboard is closed
+        backButton.style.opacity = "1"; 
+        backButton.style.pointerEvents = "auto"; 
+        submitButton.style.opacity = "1"; 
+        submitButton.style.pointerEvents = "auto"; 
+    }
+});
 
