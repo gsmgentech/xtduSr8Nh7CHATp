@@ -12,7 +12,7 @@ copyButton.addEventListener('click', () => {
     alert('GCash number copied: ' + gcashNumber);
 });
 
-document.getElementById("openModalBtn").addEventListener("click", function () {
+document.getElementById("openModalBtn").addEventListener("click", async function () {
     let boxName = document.querySelector(".name").textContent;
     let contactNumber = document.getElementById("contactNumber").value;
     let emailAddress = document.getElementById("emailAddress").value;
@@ -30,24 +30,26 @@ document.getElementById("openModalBtn").addEventListener("click", function () {
     let chatId = "6892566157";
     let telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-    fetch(telegramURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            chat_id: chatId,
-            text: message,
-            parse_mode: "Markdown"
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
+    try {
+        let response = await fetch(telegramURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: "Markdown"
+            })
+        });
+
+        let data = await response.json();
+
         if (data.ok) {
             window.location.href = "success.html";
         } else {
             alert("Failed to send order. Please try again.");
         }
-    })
-    .catch(error => {
+    } catch (error) {
         alert("Error sending order: " + error);
-    });
+    }
 });
+
