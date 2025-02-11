@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>RENT OPTIONS</title>
-    <style>
-    </style>
+    <title>UNLOCK TOOL</title>
 </head>
 <body> 
     <img class="gentech-image" src="../../img/gentechserver.png">
+
     <nav>
         <div class="nav">
             <a class="navbt" href="../../index.html">IMEI</a>
@@ -21,8 +20,10 @@
 
     <div class="box">
         <a class="name" style="margin-top: -15px;">UNLOCKTOOL RENT OPTIONS</a>
+
         <div id="buttons-container"></div>
-        <a class="back" href="../rent.html">BACK</a>
+
+        <a class="back" href="javascript:history.back()">BACK</a>
     </div>
 
     <script>
@@ -33,48 +34,44 @@
             { label: '24 HOURS ₱450', href: '24hours/paymentopions.html', imgSrc: '../../img/gentechserver.png' },   
         ];
     
-        const itemsPerPage = 20;
+        const itemsPerPage = 200;
         let currentPage = 1;
-        let filteredData = [...buttonsData]; // A copy of the original data for filtering
-    
+        let filteredData = [...buttonsData];
+
         function displayButtons() {
             const start = (currentPage - 1) * itemsPerPage;
             const end = currentPage * itemsPerPage;
             const buttonsContainer = document.getElementById('buttons-container');
             buttonsContainer.innerHTML = '';
-    
+
             filteredData.slice(start, end).forEach(button => {
                 const btnElement = document.createElement('a');
                 btnElement.className = 'button';
                 btnElement.href = button.href;
-    
-                // Create the image element
+
                 const imgElement = document.createElement('img');
-                imgElement.src = button.imgSrc; // Set image source from button data
-                imgElement.alt = button.label; // Alt text for the image
-                imgElement.className = 'button-icon'; // Optional class for styling
-    
-                // Create a span for the label
+                imgElement.src = button.imgSrc;
+                imgElement.alt = button.label;
+                imgElement.className = 'button-icon';
+
                 const labelSpan = document.createElement('span');
                 labelSpan.textContent = button.label;
-    
-                // Add the image and label to the button
+
                 btnElement.appendChild(imgElement);
                 btnElement.appendChild(labelSpan);
-    
+
                 buttonsContainer.appendChild(btnElement);
             });  
         }
-    
+
         function searchButtons() {
             const searchTerm = document.getElementById('search-box').value.toLowerCase();
             filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
-            currentPage = 1; // Reset to the first page on search
+            currentPage = 1;
             displayButtons();
         }
-    
-        // Initial load
+
         displayButtons();
     </script>    
 </body>
-</html>
+</html>  

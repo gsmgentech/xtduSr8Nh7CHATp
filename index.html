@@ -35,12 +35,12 @@
             { label: 'IPAD FMI OFF', href: '', imgSrc: 'img/gentechserver.png' },
             { label: 'APPLE ID OWNER INFO', href: '', imgSrc: 'img/gentechserver.png' },
             { label: 'TECNO INFINIX ITEM MDM', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'ITEL NETWORK UNLOCK CODE VIA IMEI', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'ITEL NETWORK UNLOCK CODE VIA IMEI', href: '', imgSrc: 'img/gentechserver.png' }
         ];
     
-        const itemsPerPage = 20;
+        const itemsPerPage = 200;
         let currentPage = 1;
-        let filteredData = [...buttonsData]; // A copy of the original data for filtering
+        let filteredData = [...buttonsData];
     
         function displayButtons() {
             const start = (currentPage - 1) * itemsPerPage;
@@ -53,17 +53,14 @@
                 btnElement.className = 'button';
                 btnElement.href = button.href;
     
-                // Create the image element
                 const imgElement = document.createElement('img');
-                imgElement.src = button.imgSrc; // Set image source from button data
-                imgElement.alt = button.label; // Alt text for the image
-                imgElement.className = 'button-icon'; // Optional class for styling
+                imgElement.src = button.imgSrc;
+                imgElement.alt = button.label;
+                imgElement.className = 'button-icon';
     
-                // Create a span for the label
                 const labelSpan = document.createElement('span');
                 labelSpan.textContent = button.label;
     
-                // Add the image and label to the button
                 btnElement.appendChild(imgElement);
                 btnElement.appendChild(labelSpan);
     
@@ -74,11 +71,10 @@
         function searchButtons() {
             const searchTerm = document.getElementById('search-box').value.toLowerCase();
             filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
-            currentPage = 1; // Reset to the first page on search
+            currentPage = 1;
             displayButtons();
         }
     
-        // Initial load
         displayButtons();
     </script>  
 </body>
