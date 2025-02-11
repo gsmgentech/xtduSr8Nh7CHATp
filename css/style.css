@@ -219,7 +219,7 @@ nav {
     justify-content: center;
 }
 
-.confirm {
+.submit {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: #2f6636;
     border-radius: 5px;
@@ -241,6 +241,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 75px;
 }
 
 .back {
@@ -265,6 +267,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 20px;
 }
 
 @keyframes gradient {
@@ -422,4 +426,11 @@ h2 {
     width: 40%;
     background-color: #e74c3c;
     color: white;
+}
+
+.maintenance-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
