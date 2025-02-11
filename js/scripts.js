@@ -53,3 +53,16 @@ document.getElementById("openModalBtn").addEventListener("click", async function
     }
 });
 
+const backButton = document.getElementById("backButton");
+        let initialHeight = window.innerHeight;
+
+        window.addEventListener("resize", () => {
+            if (window.innerHeight < initialHeight * 0.75) { 
+                backButton.style.opacity = "0"; 
+                backButton.style.pointerEvents = "none"; 
+            } else { 
+                backButton.style.opacity = "1"; 
+                backButton.style.pointerEvents = "auto"; 
+            }
+        });
+
