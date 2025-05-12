@@ -1,81 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/style.css">
-    <title>IMEI</title>
-    <style>
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tool Account Info</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #455a64;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .receipt {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    .receipt h2 {
+      margin: 0 0 20px;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .info-label {
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .info-value {
+      font-size: 18px;
+      color: #111;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .history-container {
+      margin-top: 30px;
+      background: #ffffffbb;
+      border-radius: 8px;
+      padding: 15px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .history-container h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #222;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .history-list {
+      font-size: 16px;
+      color: #333;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+
+    .history-item {
+      padding: 5px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .clear-button {
+      background: #dc3545;
+    }
+
+    .clear-button:hover {
+      background: #a71d2a;
+    }
+  </style>
 </head>
-<body> 
-    <img class="gentech-image" src="img/gentechserver.png">
-    <nav>
-        <div class="nav">
-            <a class="navbt active" href="">IMEI</a>
-            <a class="navbt" href="rent/rent.html">RENT</a>
-            <a class="navbt" href="server.html">SERVER</a>
-            <a class="navbt" href="remote.html">REMOTE</a>
-        </div>        
-    </nav>
+<body>
 
-    <div class="box">
-        <input type="text" id="search-box" placeholder="sᴇᴀʀᴄʜ" onkeyup="searchButtons()">
-        <div id="buttons-container"></div>
-    </div>
+<div class="receipt" id="accountDetails">
+  <h2>UnlockTool Account</h2>
+  <div class="info-label">Username:</div>
+  <div class="info-value" id="username">Genrev</div>
 
-    <script>
-        const buttonsData = [
-            { label: 'VIVO IT ADMIN REMOVE', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'SAMSUNG FRP REMOVE BY IMEI/SN', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'HONOR FRP KEY', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'HONOR NETWORK UNLOCK', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'NOTHING PHONE UNLOCK', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'SMD NO SIGNAL BYPASS (5S TO X)', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'IPAD FMI OFF', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'APPLE ID OWNER INFO', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'TECNO INFINIX ITEM MDM', href: '', imgSrc: 'img/gentechserver.png' },
-            { label: 'ITEL NETWORK UNLOCK CODE VIA IMEI', href: '', imgSrc: 'img/gentechserver.png' }
-        ];
-    
-        const itemsPerPage = 200;
-        let currentPage = 1;
-        let filteredData = [...buttonsData];
-    
-        function displayButtons() {
-            const start = (currentPage - 1) * itemsPerPage;
-            const end = currentPage * itemsPerPage;
-            const buttonsContainer = document.getElementById('buttons-container');
-            buttonsContainer.innerHTML = '';
-    
-            filteredData.slice(start, end).forEach(button => {
-                const btnElement = document.createElement('a');
-                btnElement.className = 'button';
-                btnElement.href = button.href;
-    
-                const imgElement = document.createElement('img');
-                imgElement.src = button.imgSrc;
-                imgElement.alt = button.label;
-                imgElement.className = 'button-icon';
-    
-                const labelSpan = document.createElement('span');
-                labelSpan.textContent = button.label;
-    
-                btnElement.appendChild(imgElement);
-                btnElement.appendChild(labelSpan);
-    
-                buttonsContainer.appendChild(btnElement);
-            });
-        }
-    
-        function searchButtons() {
-            const searchTerm = document.getElementById('search-box').value.toLowerCase();
-            filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
-            currentPage = 1;
-            displayButtons();
-        }
-    
-        displayButtons();
-    </script>  
+  <div class="info-label">Password:</div>
+  <div class="info-value" id="password"></div>
+</div>
+
+<div class="btn-container">
+  <button onclick="generatePassword()">Generate New Password</button>
+  <button onclick="copyPassword()">Copy Password</button>
+  <button onclick="screenshotDetails()">Screenshot</button>
+</div>
+
+<div class="history-container">
+  <h3>Copied Passwords</h3>
+  <div class="history-list" id="historyList"></div>
+  <button class="clear-button" onclick="clearPasswordHistory()">Clear Copied Passwords</button>
+</div>
+
+<script>
+  function generatePassword() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+    let password = '';
+    for (let i = 0; i < 8; i++) {
+      password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById('password').innerText = password;
+  }
+
+  function copyPassword() {
+    const password = document.getElementById('password').innerText;
+    if (password) {
+      navigator.clipboard.writeText(password)
+        .then(() => {
+          alert('Password copied to clipboard!');
+          savePasswordToHistory(password);
+        })
+        .catch(err => alert('Failed to copy password.'));
+    } else {
+      alert('No password to copy.');
+    }
+  }
+
+  function savePasswordToHistory(password) {
+    let saved = JSON.parse(localStorage.getItem('passwordHistory')) || [];
+    saved.unshift(password); // add to top
+    localStorage.setItem('passwordHistory', JSON.stringify(saved));
+    updateHistoryDisplay();
+  }
+
+  function updateHistoryDisplay() {
+    const historyList = document.getElementById('historyList');
+    historyList.innerHTML = '';
+    const saved = JSON.parse(localStorage.getItem('passwordHistory')) || [];
+    saved.forEach(pw => {
+      const item = document.createElement('div');
+      item.className = 'history-item';
+      item.textContent = pw;
+      historyList.appendChild(item);
+    });
+  }
+
+  function clearPasswordHistory() {
+    if (confirm('Are you sure you want to clear all copied passwords?')) {
+      localStorage.removeItem('passwordHistory');
+      updateHistoryDisplay();
+    }
+  }
+
+  function screenshotDetails() {
+    const element = document.getElementById('accountDetails');
+    html2canvas(element).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'unlocktool_info.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  }
+
+  window.onload = () => {
+    generatePassword();
+    updateHistoryDisplay();
+  };
+</script>
+
 </body>
 </html>
