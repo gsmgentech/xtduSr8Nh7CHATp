@@ -186,11 +186,18 @@
 
   function screenshotDetails() {
     const element = document.getElementById('accountDetails');
-    html2canvas(element).then(canvas => {
+    html2canvas(element, {
+      useCORS: true,
+      allowTaint: true,
+      logging: true
+    }).then(canvas => {
       const link = document.createElement('a');
       link.download = 'unlocktool_info.png';
       link.href = canvas.toDataURL();
       link.click();
+    }).catch(error => {
+      alert("Screenshot failed: " + error.message);
+      console.error(error);
     });
   }
 
