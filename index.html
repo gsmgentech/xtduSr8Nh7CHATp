@@ -114,7 +114,7 @@
 <body>
 
 <div class="receipt" id="accountDetails">
-  <h2>UnlockTool Account v3</h2>
+  <h2>UnlockTool Account</h2>
   <div class="info-label">Username:</div>
   <div class="info-value" id="username">Genrev</div>
 
@@ -185,26 +185,13 @@
   }
 
   function screenshotDetails() {
-    if (typeof Android !== "undefined" && Android.takeScreenshot) {
-      Android.takeScreenshot();
-    } else {
-      // Browser fallback
-      const element = document.getElementById('accountDetails');
-      html2canvas(element, {
-        useCORS: true,
-        allowTaint: true
-      }).then(canvas => {
-        canvas.toBlob(blob => {
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          link.download = 'unlocktool_info.png';
-          link.click();
-        });
-      }).catch(error => {
-        alert("Screenshot failed: " + error.message);
-        console.error(error);
-      });
-    }
+    const element = document.getElementById('accountDetails');
+    html2canvas(element).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'unlocktool_info.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
   }
 
   window.onload = () => {
