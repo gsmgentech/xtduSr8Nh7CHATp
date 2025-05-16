@@ -11,9 +11,8 @@
       background: #455a64;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
-      min-height: 100vh;
+      max-height: none;
       margin: 0;
       padding: 20px;
       justify-content: center;
@@ -46,6 +45,12 @@
       color: #111;
       margin-bottom: 10px;
       font-weight: bold;
+    }
+
+    .timer-display {
+      font-size: 16px;
+      margin-top: 5px;
+      color: green;
     }
 
     .btn-container {
@@ -92,8 +97,9 @@
     .history-list {
       font-size: 16px;
       color: #333;
-      max-height: 200px;
-      overflow-y: auto;
+      height: auto;
+      max-height: none;
+      overflow: hidden;
       margin-bottom: 10px;
     }
 
