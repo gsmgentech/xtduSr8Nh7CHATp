@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tool Account Info</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
@@ -12,7 +12,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-height: none;
+      height: 90vh;
       margin: 0;
       padding: 20px;
       justify-content: center;
@@ -131,7 +131,7 @@
 <div class="btn-container">
   <button onclick="generatePassword()">Generate New Password</button>
   <button onclick="copyPassword()">Copy Password</button>
-  <button onclick="screenshotDetails()">Screenshot</button>
+  <!--button onclick="screenshotDetails()">Screenshot</button-->
 </div>
 
 <div class="history-container">
