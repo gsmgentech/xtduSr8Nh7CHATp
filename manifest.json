@@ -1,5 +1,5 @@
 {
-  "name": "GTServer APP",
+  "name": "GTServer",
   "short_name": "GTServer",
   "start_url": "index.html",
   "display": "standalone",
