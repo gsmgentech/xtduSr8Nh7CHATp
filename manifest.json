@@ -1,10 +1,10 @@
 {
-  "name": "Gentech Sample Site",
-  "short_name": "Gentech",
+  "name": "GENTECH SERVER APP",
+  "short_name": "GTServer",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0080ff",
+  "theme_color": "#0d1420",
   "icons": [
     {
       "src": "icons/icon-192.png",
