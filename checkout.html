@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Place A New IMEI Order</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    html, body {
+      overflow: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      background-color: #0f1624;
+      color: #fff;
+    }
+
+    .header {
+      background-color: #0d1420;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header img {
+      height: 35px;
+    }
+
+    .group-section, .search-bar-section {
+      padding: 10px;
+    }
+
+    .group-select {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      background-color: #1e2a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: -30px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      margin: 1px 0;
+      background-color: #1e2a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .section-title {
+      padding: 10px;
+      background-color: #0f1624;
+      font-weight: bold;
+      font-size: 16px;
+      border-top: 1px solid #1e2a3a;
+    }
+
+    .service-card {
+      background-color: #1e2a3a;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .service-card:hover {
+      background-color: #2a3a4f;
+    }
+
+    .service-title {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .badge-new {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .badge-instant {
+      background-color: #ffc107;
+      color: #000;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 4px;
+      margin-left: 5px;;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    .price-instant-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="img/gentechserver.png" alt="Unlockprice Logo">
+  </div>
+
+  <div class="group-section">
+    <div class="section-title">Place A New IMEI Order</div>
+    <select class="group-select">
+      <option>All Group</option>
+      <option>Rent</option>
+      <option>Remote Bypass</option>
+      <option>Tool Activation</option>
+    </select>
+  </div>
+
+  <div class="search-bar-section">
+    <input type="text" class="search-bar" id="searchInput" placeholder="Search Service...">
+  </div>
+
+  <div class="section-title">IREMOVAL PRO A12+ | REBPYPASS</div>
+  <div class="service-card" onclick="goToCheckout('checkout-iremoval.html')">
+    <div class="service-title">
+      <span class="badge-new">New</span> 
+      IREMOVAL PRO A12+ | REBPYPASS ELIGIBILITY CHECK
+    </div>
+    <div class="price-instant-wrapper">
+      <div class="price-tag">₱5.00</div>
+      <span class="badge-instant">Instant</span>
+    </div>
+  </div>
+
+  <div class="section-title">SAMSUNG FRP REMOVE BY IMEI/SN</div>
+  <div class="service-card" onclick="goToCheckout('checkout-samsung1.html')">
+    <div class="service-title">
+      <span class="badge-new">New</span> 
+      SAMSUNG FRP REMOVE | S25 Ultra | Flip 6 | A26 | A36 | A56 | WORLDWIDE | HOT SERVICE | LEVEL-5
+    </div>
+    <div class="price-instant-wrapper">
+      <div class="price-tag">₱1,200.00</div>
+      <span class="badge-instant">Instant</span>
+    </div>
+  </div>
+
+  <div class="service-card" onclick="goToCheckout('checkout-samsung2.html')">
+    <div class="service-title">
+    ⚡ SAMSUNG FRP REMOVE | IMEI SERVICE - SERVER 1 | BRAZIL | WORLDWIDE | MDM KNOX KG NOT SUPPORT
+    </div>
+    <div class="price-instant-wrapper">
+      <div class="price-tag">₱600.00</div>
+      <span class="badge-instant">Instant</span>
+    </div>
+  </div>
+
+  <div class="service-card" onclick="goToCheckout('checkout-samsung3.html')">
+    <div class="service-title">
+    ⚡ SAMSUNG FRP REMOVE | SERIAL NUMBER - SERVER 1 | BRAZIL | WORLDWIDE | MDM KNOX KG NOT SUPPORT
+    </div>
+    <div class="price-instant-wrapper">
+      <div class="price-tag">₱600.00</div>
+      <span class="badge-instant">Instant</span>
+    </div>
+  </div>
+
+  <div class="service-card" onclick="goToCheckout('checkout-samsung-refund.html')">
+    <div class="service-title">
+    ⚡ SAMSUNG FRP | VERIFY / REFUND
+    </div>
+    <div class="price-instant-wrapper">
+      <div class="price-tag">₱0.00</div>
+      <span class="badge-instant">1-12 Hours</span>
+    </div> 
+  </div>
+
+  <script>
+    function goToCheckout(page) {
+      window.location.href = page;
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const filter = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Unlock iPhone and Android smartphones with the latest SIM carrier factory services, digital licenses, and instant online activations. GenTechServer is a trusted global provider of software, remote unlock tools, and wholesale solutions for mobile services.">
+  <title>Place A New IMEI Order</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
+  <link rel="icon" href="icon-192.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    html, body {
+      overflow: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      background-color: #0f1624;
+      color: #fff;
+      padding-top: 60px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .header {
+      background-color: #0d1420;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #222;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header img {
+      height: 35px;
+    }
+
+    .group-section, .search-bar-section {
+      margin-top: 10px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      background-color: #1e2a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .group-select {
+      width: 100%;
+      padding: 10px;
+      background-color: #1e2a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0;
+      margin-bottom: -10px;
+      margin-top: -5px;
+    }
+
+    .section-title {
+      padding: 10px;
+      background-color: #0f1624;
+      font-weight: bold;
+      font-size: 16px;
+      border-top: 1px solid #1e2a3a;
+    }
+
+    .service-card {
+      background-color: #1e2a3a;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .service-card:hover {
+      background-color: #2a3a4f;
+    }
+
+    .service-title {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .badge-new {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .badge-instant {
+      background-color: #ffc107;
+      color: #000;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    .price-instant-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    @media (min-width: 768px) {
+      .service-title {
+        font-size: 16px;
+      }
+
+      .price-tag, .badge-instant, .badge-new {
+        font-size: 11px;
+      }
+
+      .service-card {
+        padding: 20px;
+      }
+
+      .group-select, .search-bar {
+        max-width: 400px;
+      }
+
+      .header img {
+        height: 40px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="img/gentechserver.png" alt="Unlockprice Logo">
+  </div>
+
+  <div class="container">
+    <div class="group-section">
+      <select class="group-select" id="groupSelect">
+        <option value="">All Group</option>
+        <!--option value="index.html">IMEI Service</option-->
+        <option value="tool-activation.html">Tool Activation</option>
+        <option value="rent.html">Tool Rental</option>
+        <option value="remote-bypass.html">Remote Bypass</option>
+      </select>
+    </div>
+
+    <div class="search-bar-section">
+      <input type="text" class="search-bar" id="searchInput" placeholder="Search Service...">
+    </div>
+
+    <div class="section-title">IREMOVAL PRO A12+ | REBPYPASS</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        <span class="badge-new">New</span> 
+        IREMOVAL PRO A12+ | REBYPASS ELIGIBILITY CHECK
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱5.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="section-title">SAMSUNG FRP REMOVE BY IMEI/SN</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        <span class="badge-new">New</span> 
+        SAMSUNG FRP REMOVE | S25 Ultra | Flip 6 | A26 | A36 | A56 | WORLDWIDE | HOT SERVICE | LEVEL-5
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,200.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡SAMSUNG FRP REMOVE | IMEI SERVICE - SERVER 1 | BRAZIL | WORLDWIDE | MDM KNOX KG NOT SUPPORT
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱600.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡SAMSUNG FRP REMOVE | SERIAL NUMBER - SERVER 1 | BRAZIL | WORLDWIDE | MDM KNOX KG NOT SUPPORT
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱600.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡SAMSUNG FRP | VERIFY / REFUND
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱0.00</div>
+        <span class="badge-instant">1-12 Hours</span>
+      </div> 
+    </div>
+
+    <div class="section-title">IREMOVAL PRO V4 | BYPASS WITHOUT SIGNAL | XR-16 PRO MAX</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        <span class="badge-new">New</span> 
+        IREMOVAL PRO HELLO BYPASS NO SIGNAL (XR/XS/XS MAX) - IOS SUPPORTED 18.2 TILL 18.5
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱2,500.00</div>
+        <span class="badge-instant">1-7 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        <span class="badge-new">New</span> 
+        IREMOVAL PRO HELLO BYPASS NO SIGNAL (IPHONE SE 2ND GEN) - IOS SUPPORTED 18.2 TILL 18.5
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱600.00</div>
+        <span class="badge-instant">1-7 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        <span class="badge-new">New</span> 
+        IREMOVAL PRO HELLO BYPASS NO SIGNAL (IPHONE SE 3RD GEN) - IOS SUPPORTED 18.2 TILL 18.5
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱600.00</div>
+        <span class="badge-instant">1-7 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">VORTEX SIM UNLOCK CODE</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡VORTEX SIM UNLOCK CODE BY IMEI
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱500.00</div>
+        <span class="badge-instant">1-24 Hours</span>
+      </div>
+    </div>
+
+    <div class="section-title">TRACFONE USA UNLOCK CODE</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡TRACFONE UNLOCK CODE ALL MODELS SUPPORTED
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱700.00</div>
+        <span class="badge-instant">1-4 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">HONOR FRP KEY</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡HONOR FRP KEY | GOOGLE ACCOUNT REMOVE | ALL MODELS SUPPORTED | EMERGENCY SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱2,500.00</div>
+        <span class="badge-instant">1-2 Hours</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡HONOR FRP KEY | GOOGLE ACCOUNT REMOVE | ALL MODELS SUPPORTED | FAST SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱2,000.00</div>
+        <span class="badge-instant">1-24 Hours</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡HONOR FRP KEY | GOOGLE ACCOUNT REMOVE | ALL MODELS SUPPORTED | SLOW SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,600.00</div>
+        <span class="badge-instant">1-3 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">HONOR NETWORK UNLOCK</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡HONOR NETWORK UNLOCK CODE ALL LEVEL (HUAWEI MODELS NOT SUPPORTED)
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱2,000.00</div>
+        <span class="badge-instant">1-5 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">T2 MDM UNLOCK PERMANENT BY HFZ TOOL</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡T2 MDM UNLOCK PERMANENTLY | SN CHANGE METHOD | HFZ T2 MDM TOOL 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,500.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="section-title">T2 MDM UNLOCK PERMANENT BY HFZ TOOL</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡T2 MDM UNLOCK PERMANENTLY | SN CHANGE METHOD | HFZ T2 MDM TOOL 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,500.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="section-title">USA VERIZON</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡VERIZON USA | IPHONE CARRIER UNLOCK | FULL PREMIUM | ALL MODEL SUPPORTED | SUCCESS RATE 100%
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱12,500.00</div>
+        <span class="badge-instant">1-8 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡VERIZON USA | IPHONE CARRIER UNLOCK | FULL PREMIUM | ALL MODEL SUPPORTED | SUCCESS RATE 90%
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱5,500.00</div>
+        <span class="badge-instant">1-3 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">NOTHING PHONE SIM UNLOCK</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡NOTHING PHONE | NETWORK UNLOCK | INDIAN REGION | SIM UNLOCK | CMF,1,2,2A, PLUS | ALL MODEL SUPPORTED 100% 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱200.00</div>
+        <span class="badge-instant">1-2 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">ONEPLUS NETWORK UNLOCK</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡ONEPLUS SIM NETWORK | REGION UNLOCK CODE VIA IMEI 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱300.00</div>
+        <span class="badge-instant">1-30 Minutes</span> 
+      </div>
+    </div>
+
+    <div class="section-title">TECNO INFINIX ITEL MDM</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡#1 TECNO | INFINIX | MDM REMOVE | PERMANENT UNLOCK | ALL MODEL SUPPORT | MONDAY TO FRIDAY | PREMIUM | FAST SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱700.00</div>
+        <span class="badge-instant">1-4 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡#2 TECNO | INFINIX | MDM REMOVE | PERMANENT UNLOCK | ALL MODEL SUPPORT | MONDAY TO FRIDAY | PREMIUM | SLOW SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱400.00</div>
+        <span class="badge-instant">1-8 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">ITEL NETWORK UNLOCK</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡ITEL SIM NETWORK UNLOCK CODE VIA IMEI 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱200.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="section-title">XIAOMI WORLDWIDE</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡XIAOMI MI ACCOUNT OFFICIAL REMOVE - WORLDWIDE | FAST SERVICE | ALL COUNTRY SUPPORT 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,700.00</div>
+        <span class="badge-instant">1-2 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">XIAOMI EUROPE</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡XIAOMI MI ACCOUNT OFFICIAL REMOVE - EUROPE FAST SERVICE 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱400.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡XIAOMI MI ACCOUNT OFFICIAL REMOVE - EUROPE FAST SERVICE 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱350.00</div>
+        <span class="badge-instant">1-3 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">XIAOMI BRAZIL</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡XIAOMI MI ACCOUNT OFFICIAL REMOVE - BRAZIL FAST SERVICE 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,600.00</div>
+        <span class="badge-instant">1-24 Hours</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡XIAOMI MI ACCOUNT OFFICIAL REMOVE - BRAZIL FAST SERVICE 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,400.00</div>
+        <span class="badge-instant">1-3 Days</span>
+      </div>
+    </div>
+
+    <div class="section-title">REALME SIM UNLOCK CODE</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡REALME NETWORK UNLOCK | CHINA ONLY | 172 DIGIT CODE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱800.00</div>
+        <span class="badge-instant">1-4 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡REALME NETWORK UNLOCK | EUROPE | MIDDLE EAST | 172 DIGIT CODE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱400.00</div>
+        <span class="badge-instant">1-3 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡REALME NETWORK UNLOCK | INDIA ONLY | 172 DIGIT CODE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱700.00</div>
+        <span class="badge-instant">1-3 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡REALME NETWORK UNLOCK | WORLDWIDE | 16 DIGIT CODE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱250.00</div>
+        <span class="badge-instant">1-30 Minutes</span>
+      </div>
+    </div>
+
+    <div class="section-title">OPPO DUAL SIM UNLOCK</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡OPPO NETWORK UNLOCK | INDIA | EUROPE | 172 DIGIT CODE 
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱800.00</div>
+        <span class="badge-instant">1-4 Days</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡OPPO NETWORK UNLOCK | 16 DIGITAL CODE | DUAL SIM PHONES | FAST SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱500.00</div>
+        <span class="badge-instant">Instant</span>
+      </div>
+    </div>
+
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡OPPO NETWORK UNLOCK | 16 DIGITAL CODE | DUAL SIM PHONES | SLOW SERVICE
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱250.00</div>
+        <span class="badge-instant">1-3 Hours</span>
+      </div>
+    </div>
+
+    <div class="section-title">USA US GSM</div>
+    <div class="service-card" onclick="goToCheckout('')">
+      <div class="service-title">
+        ⚡USA CARRIER UNLOCK | US GSM N51/ N52 / N56 / N61 SERVICE POLICY | IPHONE ALL MODEL SUPPORT  
+      </div>
+      <div class="price-instant-wrapper">
+        <div class="price-tag">₱1,200.00</div>
+        <span class="badge-instant">1-8 Days</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goToCheckout(page) {
+      window.location.href = page;
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const filter = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+  <script>
+    document.getElementById('groupSelect').addEventListener('change', function () {
+      const page = this.value;
+      if (page) {
+        window.location.href = page;
+      }
+    });
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('js/service-worker.js')
+          .then(reg => console.log('Service worker registered.'))
+          .catch(err => console.log('Service worker not registered', err));
+      });
+    }
+  </script>
+</body>
+</html>
