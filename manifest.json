@@ -1,5 +1,5 @@
 {
-  "name": "GENTECH SERVER APP",
+  "name": "GTServer APP",
   "short_name": "GTServer",
   "start_url": "index.html",
   "display": "standalone",
