@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <link rel="icon" href="icons/icon-192.png">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">REPAIR FIX AUTH TOOL | XIAOMI FLASH/EFS/MI CLOUD | FOR EXISTING USER</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="qnt">Qnt</label>
+    <input type="number" id="qnt" min="5" max="100" placeholder="">
+    <div class="note" id="qnt-note"></div>
+
+    <label for="username">Username</label>
+    <textarea id="username" rows="3" placeholder=""></textarea>
+    <div class="note" id="username-note"></div>
+
+    <label for="email">Email Address</label>
+    <textarea id="email" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱0</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+  </div>
+
+  <script>
+    const qntInput = document.getElementById('qnt');
+    const priceDisplay = document.querySelector('.price');
+    const submitOrderBtn = document.getElementById('submitOrderBtn');
+    const orderVerificationModal = document.getElementById('orderVerificationModal');
+
+    window.closeModalWithFade = function () {
+      if (orderVerificationModal) {
+        orderVerificationModal.style.display = 'none';
+      }
+    };
+
+    qntInput.addEventListener('input', () => {
+      let qntValue = parseInt(qntInput.value.trim());
+
+      if (isNaN(qntValue) || qntValue < 1) {
+        priceDisplay.textContent = '₱0';
+        return;
+      }
+
+      if (qntValue > 100) {
+        qntValue = 100;
+        qntInput.value = qntValue;
+      }
+
+      const totalPrice = qntValue * 50;
+      priceDisplay.textContent = `₱${totalPrice}`;
+    });
+
+    submitOrderBtn.addEventListener('click', () => {
+      let qntValue = parseInt(qntInput.value.trim());
+
+      if (isNaN(qntValue) || qntValue < 5) {
+        alert("⚠️ Minimum order quantity is 5.\nPlease enter at least 5 to proceed.");
+        return;
+      }
+
+      orderVerificationModal.style.display = 'flex';
+    });
+
+    priceDisplay.textContent = '₱50';
+  </script>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/T54HP36D.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/W2CXS3DD.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

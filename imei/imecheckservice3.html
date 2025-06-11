@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE GSX CASES ID INFO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">CASE ID</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱100</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides GSX Case Id Details.<br><br>
+      ➤  Case Id - Example: 1015675889984.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+    <div class="modal-content" style="max-height: 80vh; overflow-y: auto; padding: 20px;">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <strong>Id:</strong> 1015675889984<br>
+      <strong>Title:</strong> Activation Lock Request<br>
+      <strong>Type:</strong> TECH<br>
+      <strong>Source:</strong> CAS<br>
+      <strong>Customer Country:</strong> USA<br>
+      <strong>Origin:</strong> ILOG<br>
+      <strong>Customer First Name:</strong> Kh***d<br>
+      <strong>Customer Last Name:</strong> Al***ti<br>
+      <strong>Product Serial:</strong> FFMXTXX0KPH3<br>
+      <strong>Issue Code:</strong> ICL0147<br>
+      <strong>Last Modified:</strong> 16386501118678<br>
+      <strong>Last Modified By:</strong> 2700111870<br>
+      <strong>Created:</strong> 1638641118046<br>
+      <strong>Created By:</strong> 999999999999996<br>
+      <strong>Customer Region:</strong> AMERICAS<br>
+      <strong>Status:</strong> RESOL<br>
+      <strong>Domain:</strong> AC<br>
+      <strong>Owner:</strong> 999999999999996<br>
+
+      <hr>
+
+      <h4>Additional Details</h4>
+      <strong>Id:</strong> 50<br>
+      <strong>Title:</strong> Activation Lock Request<br>
+      <strong>Owner:</strong> 999999999999996<br>
+      <strong>Type:</strong> INCCL<br>
+      <strong>Created By:</strong> 2700111870<br>
+      <strong>Created:</strong> 1638650111680<br>
+      <strong>Last Modified:</strong> 1638650111680<br>
+      <strong>Last Modified By:</strong> 2700911870<br>
+      <strong>Summary:</strong> PROBING<br>
+      <strong>Which version of iOS?:</strong> Version unknown<br>
+      <strong>Device:</strong> iPhone<br>
+
+      <hr>
+
+      <h4>Configuration & Notes</h4>
+      <strong>Additional Note:</strong><br>
+      <pre style="white-space: pre-wrap; font-family: monospace; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+  ISSUE SYNOPSIS:
+  - activation lock request status
+
+  PREVIOUS STEPS:
+  - no contact within the last 30 days
+
+  CURRENT STEPS:
+  - customer provided a case ID however, it’s associated with a different apple id and name.
+  - customer is not able to confirm the information for that case ID
+  - shared HT201441 and asked customer to submit all the attachments he sent on the website to start a request
+  - but customer is insisting to continue with the case Id
+  - advised customer to confirm the information first and chat back for assistance
+
+  NEXT STEPS:
+  - if customer chats back, assist with activation lock request
+      </pre>
+
+      <strong>Phone #:</strong> (Not Provided)<br>
+      <strong>Caller Email:</strong> alk****297@gmail.com<br>
+      <strong>Affected Product:</strong> iCloud<br>
+      <strong>Find My [Device]:</strong> Activation Lock issue<br>
+
+      <hr>
+
+      <h4>Related Contacts & Support</h4>
+      <ul>
+        <li>Alyssa Aubrey</li>
+        <li>Manalili</li>
+        <li>Tier 1 Continuity+ Business Chat</li>
+        <li>Majorel_Clark</li>
+        <li>Stephen Francis Florendo Lansangan</li>
+      </ul>
+
+      <strong>Issue Code:</strong> ICL0147<br>
+      <strong>Email:</strong> alk****297@gmail.com<br>
+
+      <hr>
+
+      <h4>Other Case</h4>
+      <strong>Id:</strong> 30<br>
+      <strong>Title:</strong> "Your account has been disabled in the App Store and iTunes" alert<br>
+      <strong>Owner:</strong> 999999999999996<br>
+      <strong>Type:</strong> OCC<br>
+      <strong>Created By:</strong> 999999999999996<br>
+      <strong>Created:</strong> 1638647118046<br>
+      <strong>Last Modified:</strong> 1638611678046<br>
+      <strong>Last Modified By:</strong> 999999999999996<br>
+      <strong>Summary:</strong> CUSTOMER: Kh****d A****kati<br>
+      <strong>Product:</strong> Apple ID<br>
+
+      <strong>Symptom:</strong><br>
+      • Disabled Apple ID<br>
+      • "Your account has been disabled in the App Store and iTunes" alert<br>
+
+      <strong>Solution:</strong> Chat<br>
+
+      <ul>
+        <li>Khalid AlMokati - Customer (YE)</li>
+        <li>Contact Apple Support (en_FR)</li>
+      </ul>
+
+      <strong>Super Group:</strong> SG006<br>
+      <strong>Group:</strong> SG006<br>
+      <strong>Family Class:</strong> PFC6003<br>
+      <strong>Symptom Code:</strong> 23362<br>
+      <strong>Family:</strong> PGF63005<br>
+      <strong>Category:</strong> SC0245<br>
+      <strong>Origin:</strong> OCC<br>
+      <strong>Solution Offered:</strong> C2CH
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

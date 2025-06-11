@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE MDM & ICLOUD & GSX STATUS</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / MEID / SN</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱60</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides MDM & iCloud Status, Carrier Policies, Warranty and extra info.<br><br>
+      ➤ Supports IMEI/MEID/SN checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <strong>Device Configuration:</strong> SVC, IPHONE 8, JPN MM, 256GB, SPACE GRAY, AEX<br>
+        <strong>Material Number:</strong> J661-09214<br>
+        <strong>Basic Material:</strong> A1906<br>
+        <strong>DeviceID:</strong> 356094095083xxx<br>
+        <strong>IMEI:</strong> 356094095083xxx<br>
+        <strong>SERIAL:</strong> FFMYW0LPJxxx<br>
+        <strong>Old DeviceID:</strong> F4GX43RDJxxx<br>
+        <strong>Old IMEI:</strong> 352997098250xxx<br>
+        <strong>Old MEID:</strong> 35299709825xxx<br>
+        <strong>AppleCare Description:</strong> ACS KDDI for iPhone 8, 7, 6s, 6 (Refer to CP401338 for iCloud)<br>
+        <strong>AppleCare Order Description:</strong> Order creation completed<br>
+        <strong>Coverage Duration:</strong> Ends on 11/09/22<br>
+        <strong>Initial Unbrick:</strong> 10/08/19<br>
+        <strong>Device Activation:</strong> No<br>
+        <strong>Limited Warranty:</strong> No<br>
+        <strong>Incidents Available:</strong> No<br>
+        <strong>MDM Lock:</strong> OFF<br>
+        <strong>iCloud Lock:</strong> ON<br>
+        <strong>iCloud Status:</strong> CLEAN<br>
+        <strong>Unlock Status:</strong> UNLOCK<br>
+        <strong>Initial Activation Policy Description:</strong> 2322 - Japan Service Policy (S2322 - JAPAN_N51_N48_SERVICE)<br>
+        <strong>Last Activation Policy Description:</strong> 2432 - Japan KDDI Unlock Policy (F2432 - UNLOCK)<br>
+        <strong>Next Activation Policy Description:</strong> 2432 - Japan KDDI Unlock Policy (F2432 - UNLOCK)<br>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

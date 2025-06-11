@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>GCASH</title>
+  <link rel="stylesheet" href="../css/NPHN4AEQ.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 120px);
+      font-weight: bold;
+    }
+
+    .info-box {
+      padding: 5px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .info-item {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: hsl(0, 0%, 50%);
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+    <div class="info-box">
+      <div class="info-item">
+        <i class="fa-regular fa-calendar"></i>
+        <span class="label">Transaction ID:</span>
+        <span class="value" id="orderIdDisplay"></span>
+      </div>
+
+      <div class="info-item">
+        <i class="fa-solid fa-dollar-sign"></i>
+        <span class="label">Amount:</span>
+        <span class="value" id="priceDisplay"></span>
+      </div>
+
+      <div class="info-item">
+        <i class="fa-solid fa-circle-info"></i>
+        <span class="label">Details:</span>
+        <span class="value" id="orderDetails"></span>
+      </div>
+
+      <div class="info-item status-message">
+        <i class="fa-regular fa-comment-dots"></i>
+        <span class="label">Status:</span>
+        <span class="value">
+          Admin is currently verifying your order. Once the verification is complete, the details will be sent to your registered email address.
+        </span>
+      </div>
+
+      <a class="back-link" onclick="window.history.back();">← Back</a>
+    </div>
+  </div>
+
+  <script>
+    const orderDetails = localStorage.getItem('orderName');
+    const price = localStorage.getItem('orderPrice');
+
+    const orderDetailsEl = document.getElementById('orderDetails');
+    const priceDisplayEl = document.getElementById('priceDisplay');
+    const statusMessageEl = document.querySelector('.status-message');
+
+    const orderText = orderDetails || '';
+    const priceText = price ? `₱${price}` : '';
+
+    orderDetailsEl.textContent = orderText;
+    priceDisplayEl.textContent = priceText;
+ 
+    if (priceText === 'No price found.' || orderText === '') {
+      statusMessageEl.style.display = 'none';
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedOrderId = localStorage.getItem('orderId');
+      if (savedOrderId) {
+        document.getElementById('orderIdDisplay').textContent = savedOrderId;
+      }
+    });
+  </script>
+</body>
+</html>

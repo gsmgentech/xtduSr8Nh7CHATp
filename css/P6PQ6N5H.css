@@ -1,0 +1,164 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    html, body {
+      overflow: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      background-color: #0f1624;
+      color: #fff;
+      padding-top: 60px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .header {
+      background-color: #0d1420;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #222;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header img {
+      height: 35px;
+    }
+
+    .group-section, .search-bar-section {
+      margin-top: 10px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      background-color: #1e2a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .group-select {
+      width: 100%;
+      padding: 10px;
+      background-color: #1e2a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0;
+      margin-bottom: -10px;
+    }
+
+    .section-title {
+      padding: 10px;
+      background-color: #0f1624;
+      font-weight: bold;
+      font-size: 16px;
+      border-top: 1px solid #1e2a3a;
+    }
+
+    .service-card {
+      background-color: #1e2a3a;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .service-card:hover {
+      background-color: #2a3a4f;
+    }
+
+    .service-title {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .badge-new {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .badge-instant {
+      background-color: #ffc107;
+      color: #000;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    .price-instant-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    @media (min-width: 768px) {
+      .service-title {
+        font-size: 16px;
+      }
+
+      .price-tag, .badge-instant, .badge-new {
+        font-size: 11px;
+      }
+
+      .service-card {
+        padding: 20px;
+      }
+
+      .group-select, .search-bar {
+        max-width: 100%;
+      }
+
+      .header img {
+        height: 35px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+    }

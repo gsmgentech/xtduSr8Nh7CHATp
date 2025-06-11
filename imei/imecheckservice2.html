@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE GSX CASES & REPAIRS</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / MEID / SN</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱100</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides GSX Repair & Case History.<br><br>
+      ➤ Supports IMEI/MEID/SN checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <strong>Description:</strong> IPHONE X SILVER 64GB AT&T-USA<br>
+        <strong>Model:</strong> iPhone X 64GB Silver Cellular [A1901] [iPhone10,6]<br>
+        <strong>IMEI:</strong> 35940508999xxxx<br>
+        <strong>SN:</strong> DNxxxxCDJCLJ<br>
+        <strong>Warranty Status:</strong> Out Of Warranty<br>
+        <strong>Replaced Device:</strong> Yes<br><br>
+
+        <strong>Case Details</strong><br>
+        <strong>Status:</strong> OPEN<br>
+        <strong>Last Modified:</strong> 2019-07-05T13:19:22.519Z<br>
+        <strong>Id:</strong> 100848854611<br>
+        <strong>Title:</strong> iPhone<br>
+        <strong>Support Topic:</strong> iPhone<br>
+        <strong>Status Description:</strong> Open<br>
+        <strong>Repair Id:</strong> G369065111<br><br>
+
+        <strong>Repair Details</strong><br>
+        <strong>Parts Details [1]</strong><br>
+        S6259Z/A IPHONE X FLAT RATE CHARGE CNTC<br>
+        RU661-08695 64GB, Silver, GSM, iPhone X, CI/AR, RUS MOD<br>
+        S6259Z/A IPHONE X FLAT RATE CHARGE DEP<br><br>
+
+        <strong>Component Issues [1]</strong><br>
+        <strong>Order:</strong> 1<br>
+        <strong>Priority:</strong> 1<br>
+        <strong>Type:</strong> RV_TECH<br>
+        <strong>Previous Comptia Code:</strong> B35<br>
+        <strong>Previous Comptia Description:</strong> Touch ID/Face ID Functionality<br>
+        <strong>Component Code:</strong> 26112D<br>
+        <strong>Issue Code:</strong> IP304<br>
+        <strong>Type:</strong> TECH<br>
+        <strong>Component Description:</strong> Physical Damage<br>
+        <strong>Issue Description:</strong> Swollen battery<br>
+        <strong>Repair Type:</strong> WUMS<br>
+        <strong>Repair Id:</strong> G369065111<br>
+        <strong>Repair Status:</strong> SCOM<br>
+        <strong>Repair Status Description:</strong> Closed and completed<br>
+        <strong>Repair Create Date:</strong> 2019-01-05T13:17:55Z<br>
+        <strong>Last Modified Date:</strong> 2019-01-20T07:58:12.819Z<br>
+        <strong>Closed Date:</strong> 2019-01-20T07:58:12.819Z<br>
+        <strong>Repair Type Description:</strong> Mail In Return to Service Location
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

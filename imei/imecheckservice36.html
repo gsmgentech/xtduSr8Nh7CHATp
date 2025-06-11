@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">XIAOMI | REDMI | POCO MI LOCK CLEAN/LOST INFO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / SN / Unlock Code</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱40</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service will show Mi Activation Lock status (Clean/Lost) for Xiaomi/Poco/Redmi.<br><br>
+      ➤ Service works with IMEI/SN or Unlock Number (10 Chars)<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <div>
+          <p><strong>Model Name:</strong> Redmi Note 11 Pro 5G Graphite Gray 6GB RAM 128GB ROM</p>
+          <p><strong>Model Code:</strong> 2201116SG</p>
+          <p><strong>Search Term:</strong> 86067706390xxxx</p>
+          <p><strong>IMEI Number:</strong> 86067706390xxxx</p>
+          <p><strong>IMEI2 Number:</strong> 8606770639xxxx</p>
+          <p><strong>Serial Number:</strong> 38081/K2Q70xxx</p>
+          <p><strong>Unlock Number:</strong> KN210K00xxx</p>
+          <p><strong>SKU Number:</strong> MZB0xxx</p>
+          <p><strong>Purchase Country:</strong> United Kingdom</p>
+          <p><strong>Activation Country:</strong> United Kingdom</p>
+          <p><strong>Warranty Status:</strong> Non-Local device</p>
+          <p><strong>Warranty Description:</strong> Non-local sale and Non-global warranty</p>
+          <p><strong>Warranty Start Date:</strong> 2022-06-16 06:01:40</p>
+          <p><strong>Warranty End Date:</strong> 2024-06-15</p>
+          <p><strong>Delivery Date:</strong> 2022-03-25 15:31:06</p>
+          <p><strong>Activation Date:</strong> 2022-03-25 15:31:06</p>
+          <p><strong>Production Date:</strong> 2022-03-10 17:09:45</p>
+          <p><strong>MI Activation Lock:</strong> <span style="color: red; font-weight: bold;">ON</span></p>
+          <p><strong>MI Activation Status:</strong> <span style="color: red; font-weight: bold;">Lost</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

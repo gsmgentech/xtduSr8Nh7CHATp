@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE PART NUMBER - MPN</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / MEID / SN</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱10</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides the part number for Apple devices.<br><br>
+      ➤ Supports IMEI/MEID/SN checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <strong>Description:</strong> IPHONE 14 PRO MAX DEEP PURPLE 256GB-USA<br>
+        <strong>IMEI:</strong> 358001689953XXX<br>
+        <strong>IMEI2:</strong> 358001688241XXX<br>
+        <strong>MEID:</strong> 35800168995XXX<br>
+        <strong>Serial Number:</strong> K204TXXXX<br>
+        <strong>Part Number:</strong> MQ8W3LL/A<br>
+        <strong>Model Number:</strong> A2651<br>
+        <strong>Warranty Status:</strong> Out Of Warranty<br>
+        <strong>Purchase Date:</strong> 2023-01-04<br>
+        <strong>Replaced Device:</strong> No<br>
+        <strong>SIM-Lock:</strong> Locked<br><br>
+
+        <strong>Description:</strong> IMAC PRO 27/3.2 8C/VG56/32GB/1TB-DEU<br>
+        <strong>Model:</strong> iMac Pro (2017) Space Gray [A1862] [iMacPro1,1]<br>
+        <strong>Serial Number:</strong> C02VV4TWHXXX<br>
+        <strong>Part Number:</strong> MQ2Y2D/A<br>
+        <strong>Warranty Status:</strong> Out Of Warranty<br>
+        <strong>Purchase Date:</strong> 2018-01-26<br>
+        <strong>Replaced Device:</strong> No<br>
+        <strong>SIM-Lock:</strong> N/A
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

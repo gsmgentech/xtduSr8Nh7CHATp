@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">CSPIRE USA STATUS - PRO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱10</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides Blacklist Status & info for CSPIRE USA devices.<br><br>
+      ➤ Supports IMEI checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <strong>Unlock Call Success:</strong> true<br>
+        <strong>Is Already Unlocked:</strong> false<br>
+        <strong>Success Status Description:</strong> This device is locked. Click Unlock Device to submit your unlock request.<br>
+        <strong>Error:</strong> This device is locked by the current carrier.<br>
+        <strong>Incompatible Features To Be Removed:</strong> true<br>
+        <strong>Esim Capable:</strong> true<br>
+        <strong>Current Device Esim Capable:</strong> true<br>
+        <strong>Eid Required:</strong> true<br>
+        <strong>Non Cspire Device:</strong> false<br>
+        <strong>Is Mvno:</strong> false<br>
+        <strong>Is Coamable:</strong> false<br>
+        <strong>Is Swapable:</strong> false<br>
+        <strong>Is Eligible For Sim Purchase:</strong> false<br>
+        <strong>Search By:</strong> cspireESN<br>
+        <strong>Search For:</strong> 350278023269xxx<br>
+        <strong>Number Found:</strong> 0<br>
+        <strong>Is AppleCare Covered:</strong> false<br>
+        <strong>Code:</strong> NO_SALE_DEVICE_NON_CS_WITH_GSMA_TAC_DEVICE<br>
+        <strong>Description:</strong> The device cannot be sold. This is a 3rd carrier device with a mapping csn into our system.<br>
+        <strong>Code:</strong> CARRIER_LOCKED<br>
+        <strong>Is Device Compatible:</strong> false<br>
+        <strong>Message:</strong> Tap "Learn More" to find out how to unlock your device with your current carrier.<br>
+        <strong>Title:</strong> Your device is C Spire Switch compatible but can't be used yet.<br>
+        <strong>Has Account Password:</strong> false<br>
+        <strong>Serial Number:</strong> 350278023269xxx<br>
+        <strong>Is VoLTE Compatible:</strong> true<br>
+        <strong>Network Type:</strong> LTE<br>
+        <strong>Carrier:</strong> CSPIRE<br>
+        <strong>Manufacturer Name:</strong> APPLE<br>
+        <strong>Is Dpp Active:</strong> false<br>
+        <strong>Is Esim Device:</strong> true<br>
+        <strong>Is Cspire Device:</strong> false<br>
+        <strong>CSN:</strong> NCS-IPH15PM<br>
+        <strong>Is Available For Sale:</strong> false<br>
+        <strong>Is Prepaid Subsidy:</strong> false<br>
+        <strong>Is Active In Billing System:</strong> false<br>
+        <strong>Is Device Eligible For Activation:</strong> true<br>
+        <strong>Dch Id:</strong> 501118<br>
+        <strong>Item Name:</strong> iPhone 15 Pro Max A2849<br>
+        <strong>Is Wearable:</strong> false<br>
+        <strong>Is Carrier Unlock:</strong> false<br>
+        <strong>Success:</strong> false<br>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

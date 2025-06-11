@@ -1,0 +1,316 @@
+* {
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    html, body {
+      overflow: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #11192d;
+      color: white;
+      padding-top: 10px;
+    }
+
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none;
+    }
+
+    .close {
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .highlight {
+      color: #ffcc00;
+      font-size: 14px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: #0e1425;
+      border: 1px solid #2a3658;
+      color: white;
+      border-radius: 4px;
+      resize: none;
+      font-size: 16px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    .description {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 20px;
+      margin-bottom: 20PX;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #177240;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+
+    button:hover {
+      background-color: #177240;
+    }
+
+    .cart {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 30px;
+    }
+
+    @media (max-width: 480px) {
+
+      .header img {
+        height: 40px;
+      }
+
+      .highlight {
+        font-size: 13px;
+      }
+
+      label {
+        font-size: 13px;
+      }
+
+      textarea {
+        font-size: 13px;
+      }
+
+      .price {
+        font-size: 28px;
+      }
+
+      button {
+        font-size: 15px;
+      }
+
+      .cart {
+        font-size: 26px;
+      }
+    }
+
+    .header {
+      background-color: #0d1420;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #222;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header img {
+      height: 35px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      margin-top: 50px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #0f1624;
+      color: #e6c233;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 95%;
+      max-width: 500px;
+      line-height: 1.6;
+      margin-top: 70px;
+      text-align: left;
+    }
+
+    .modal-content strong {
+      display: inline-block;
+      width: 160px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .description {
+      margin-top: 20px;
+    }
+
+    .sample-link {
+      color: rgb(50, 50, 247);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .verification {
+      cursor: pointer;
+      font-size: 2rem;
+      padding: 10px;
+      animation: glitch 0.9s infinite alternate;
+      text-align: center;
+      color: #ffd900;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red, -2px -2px blue; }
+      25% { text-shadow: -2px -2px red, 2px 2px blue; }
+      50% { text-shadow: 2px -2px red, -2px 2px blue; }
+      75% { text-shadow: -2px 2px red, 2px -2px blue; }
+      100% { text-shadow: 2px 2px red, -2px -2px blue; }
+    }
+
+    input {
+      width: 350px;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      color: whitesmoke;
+      background-color: #37474F;
+      text-align: center;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    .pay-btn {
+      display: flex;
+      justify-content: center;
+      background-color: #177240;
+      color: white;
+      border: none;
+      font-size: 18px;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 350px;
+    }
+
+    .back-link {
+      margin-left: -20px;
+      margin-top: 20px;
+      display: block;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+
+    #orderVerificationModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input#qnt {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #0e1425;
+      border: 1px solid #2a3658;
+      border-radius: 4px;
+      box-sizing: border-box;
+      display: block;
+      height: 50px;
+      margin-bottom: 5px;
+    }
+
+    
+
+
+
+    

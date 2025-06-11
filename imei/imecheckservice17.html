@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE ACTIVATION STATUS - PRO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / SN</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱15</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides info Apple Device was ever activated, warranty and extra info.<br><br>
+      ➤ Supports IMEI/SN checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <strong>Description:</strong> IPHONE 16 PRO MAX NATURAL 256GB-SPA<br>
+        <strong>Model:</strong> iPhone 16 Pro Max<br>
+        <strong>IMEI Number:</strong> 3577282xxxxx543<br>
+        <strong>IMEI2 Number:</strong> 357728xxx3232<br>
+        <strong>MEID Number:</strong> 3577282xxxxx54<br>
+        <strong>Serial Number:</strong> DG1MGX2K90<br>
+        <strong>Serial Key:</strong> 67f1addcddd1c2cbed0b5cff<br>
+        <strong>Lost Mode:</strong> Yes<br>
+        <strong>Loaner Device:</strong> No<br>
+        <strong>Replaced Device:</strong> No<br>
+        <strong>AppleCare Eligible:</strong> No<br>
+        <strong>Valid Purchase Date:</strong> Yes<br>
+        <strong>Activation Status:</strong> Activated<br>
+        <strong>Registration Status:</strong> Registered<br>
+        <strong>Warranty Status:</strong> AppleCare+<br>
+        <strong>Telephone Technical Support:</strong> Active<br>
+        <strong>Telephone Technical Support Expires In:</strong> 1 Year, 5 Months and 15 Days<br>
+        <strong>Telephone Technical Support Expiration Date:</strong> 2026-09-22<br>
+        <strong>Repairs and Service Expires In:</strong> 1 Year, 5 Months and 14 Days<br>
+        <strong>Repairs and Service Expiration Date:</strong> 2026-09-21<br>
+        <strong>Estimated Purchase Date:</strong> 2025-09-22<br>
+        <strong>AppleCare Offer Conversion Date:</strong> 2026-09-24<br>
+        <strong>AppleCare Estimated Expiration Date:</strong> 2026-09-22<br>
+        <strong>AppleCare Agreement Code:</strong> 100XXX3190XXX<br>
+        <strong>AppleCare Agreement Number:</strong> 3264XXX160XXX<br>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

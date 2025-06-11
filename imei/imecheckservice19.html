@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE DEMO DEVICES INFO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / MEID / SN</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱15</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides Store, Country and extra info for Apple Demo Devices.<br><br>
+      ➤ Supports IMEI/MEID/SN checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <strong>Serial Number:</strong> FLXY2X296N<br>
+        <strong>Device Family:</strong> iPhone<br>
+        <strong>Product Description:</strong> IPHONE 16 PRO MAX DESERT 256GB DEMO-ZFR<br>
+        <strong>Marketing Name:</strong> iPhone 16 Pro Max<br>
+        <strong>Capacity:</strong> 256GB<br>
+        <strong>Valid:</strong> Yes<br>
+        <strong>Enroll Status:</strong> ACTIVATED<br><br>
+
+        <strong>Store Name:</strong> POWER GLOSTRUP<br>
+        <strong>Company:</strong> POWER INTERNATIONAL AS (DENMARK)<br>
+        <strong>Store ID:</strong> 1147602<br>
+        <strong>Store Number:</strong> 3801<br>
+        <strong>Address:</strong> HOVEDVEJEN 197, GLOSTRUP, 2600, DENMARK<br>
+        <strong>Latitude:</strong> 55.663637<br>
+        <strong>Longitude:</strong> 12.3740447<br>
+        <strong>Timezone:</strong> Europe/Copenhagen<br><br>
+
+        <strong>Apple ID:</strong> 1147602<br>
+        <strong>HQ Apple ID:</strong> 1001480<br>
+        <strong>HQ:</strong> No<br>
+        <strong>Role Type:</strong> RTL STOREFRONT<br>
+        <strong>Hub Type:</strong> CACHING<br><br>
+
+        <strong>Store Hours:</strong> 08:30 - 22:00<br>
+        <strong>POS DDL:</strong> Enabled (Overridden)<br>
+        <strong>POS DDL By:</strong> 2701019934<br>
+        <strong>POS DDL Timestamp:</strong> 2022-09-13T12:58:10.223+00:00<br><br>
+
+        <strong>Master Program Name:</strong> Apple Shop 2.0, Apple Shop 3.0, Tier 2 Multibrand<br>
+        <strong>Best Network Tier:</strong> Best<br>
+        <strong>Priority Program:</strong> Apple Shop 2.0<br>
+        <strong>Dcota Status:</strong> ENABLED<br>
+        <strong>Feed Name:</strong> iuCSiXSgn0ZH33WSUxDgsZoj0DShUwo<br>
+        <strong>Created:</strong> 2020-05-27<br>
+        <strong>Last Updated:</strong> 2024-11-23<br>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

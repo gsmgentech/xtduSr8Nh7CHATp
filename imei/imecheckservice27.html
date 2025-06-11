@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">XFINITY USA STATUS - PRO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱10</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides Blacklist Status & info for Xfinity USA devices.<br><br>
+      ➤ Supports IMEI checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <strong>IMEI:</strong> 351906514310823<br>
+        <strong>Alternate IMEI:</strong> 35190651419xxxx<br>
+        <strong>Model:</strong> iPhone 14 Plus (A2632)<br>
+        <strong>Marketing Name:</strong> iPhone 14 Plus<br>
+        <strong>Product Code:</strong> a2632-iphone-14-plus<br>
+        <strong>Manufacturer:</strong> Apple<br>
+        <strong>Brand:</strong> Apple (Code: APL)<br>
+        <strong>Device OS:</strong> iOS<br>
+        <strong>Find My Device:</strong> ENABLED<br>
+        <strong>Dual SIM:</strong> Yes<br>
+        <strong>eSIM Compatible:</strong> <span style="color: green; font-weight: bold;">CONFIRMED</span><br>
+        <strong>5G Capable:</strong> Yes<br>
+        <strong>GSM:</strong> Yes<br>
+        <strong>Requires SIM:</strong> Yes<br>
+        <strong>Added On:</strong> 2022-09-08<br>
+        <strong>Eligible Status:</strong> <span style="color: red; font-weight: bold;">NO</span><br>
+        <strong>Reason:</strong> Device is a <span style="color: red; font-weight: bold;">blacklisted</span> device<br>
+        <strong>Code:</strong> BYO1500<br>
+        <strong>Additional Reason:</strong> LTE DEVICE<br>
+        <strong>Additional Code:</strong> BYO1300<br>
+        <strong>Sales Channels:</strong> ONLINE, RETAIL_INSTORE, RETAIL_SHIP, TELESALES<br>
+        <strong>Description:</strong><br>
+        <em>iPhone 14 Plus. Think big with a larger 6.7-inch display and all-day battery life. Capture stunning photos in low light and bright light with the new dual-camera system. Get peace of mind with groundbreaking safety features.</em><br>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMEI</title>
+  <link rel="stylesheet" href="../css/ETU581JD.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../img/gentechserver.png" alt="Logo">
+  </div>
+
+  <div class="container">
+
+    <div class="highlight">APPLE FULL GSX - PREMIUM INFO</div>
+
+    <div id="txn-id" style="display:none;"></div>
+
+    <label for="imei">IMEI / MEID / SN</label>
+    <textarea id="imei" rows="5" placeholder=""></textarea>
+    <div class="note" id="imei-note"></div>
+
+    <label for="comments">Email Address</label>
+    <textarea id="comments" rows="3" placeholder=""></textarea>
+    <div class="note" id="email-note"></div>
+
+    <div class="price">₱180</div>
+
+    <button id="submitOrderBtn" onclick="placeOrder()">Place an order</button>
+    <button style="background-color: #ec4040;" onclick="goBackAndClear()">Back</button>
+
+    <div class="cart">🛒</div>
+
+    <div class="description">
+      ➤ This service provides GSX cases, replacements, iCCID, Wi-Fi MAC, carrier policies, company, country, warranty, and extra information.<br><br>
+      ➤ Supports IMEI/MEID/SN checks for all Apple devices.<br><br>
+      <div class="note" style="margin-bottom: 10px;">
+        Note: Results depend on what info is available in the carrier/source database.
+      </div>
+      <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+      <span style="color: red; font-weight: bold;">
+        🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+      </span>
+    </div>
+
+    <div id="orderVerificationModal">
+      <h1 id="verification" class="verification"></h1>
+      <input 
+        type="text" 
+        placeholder="Enter Verification Code" 
+        id="verificationInput" 
+        maxlength="6" 
+        required 
+        autocomplete="one-time-code"
+      >
+      <form id="verificationForm">
+        <button class="pay-btn" id="submitButton" disabled>CONFIRM</button>
+      </form>
+      <a class="back-link" onclick="closeModalWithFade()">← Back</a>
+    </div>
+
+    <div id="sampleModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <strong>Model Description:</strong> IPHONE 13 PRO MAX ROW 256GB ALPINE GREEN<br>
+      <strong>Product Description:</strong> SVC,IPHONE 13 PRO MAX,ROW,256GB,GRN,MTUB<br>
+      <strong>Search Term:</strong> 35038139137xxxx<br>
+      <strong>IMEI:</strong> 35038139137xxxx<br>
+      <strong>IMEI2:</strong> 35038139116xxxx<br>
+      <strong>MEID:</strong> 3503813913xxxx<br>
+      <strong>Serial:</strong> J2xxxx7YF<br>
+      <strong>Config Code:</strong> 000WN8<br>
+      <strong>Product Line:</strong> 300430<br>
+      <strong>Product Version:</strong> 16.6.1<br>
+      <strong>Last Unbrick OS Build:</strong> 20G81<br>
+      <strong>Wireless Mac Address:</strong> F465xxxx096<br>
+      <strong>CSN/CSN2/EID:</strong> 89049032007008xxxx0122688064014<br>
+      <strong>Purchase Date:</strong> 2022-09-23T00:00:00Z<br>
+      <strong>Registration Date:</strong> 2022-09-22T00:00:00Z<br>
+      <strong>First Activation Date:</strong> 2023-02-02T04:36:49Z<br>
+      <strong>Last Restore Date:</strong> 2023-09-11T16:45:51Z<br>
+      <strong>Unlock Date:</strong> 2023-02-11T13:02:06Z<br>
+      <strong>Warranty Status Description:</strong> Out Of Warranty<br>
+      <strong>Loaner:</strong> False<br>
+      <strong>Unlocked:</strong> True<br>
+      <strong>Personalized:</strong> False<br>
+      <strong>Part Covered:</strong> False<br>
+      <strong>Labor Covered:</strong> False<br>
+      <strong>Onsite Coverage:</strong> False<br>
+      <strong>Limited Warranty:</strong> False<br>
+      <strong>Initial Activation Policy:</strong> 3003 - Multi-Mode Unlock Service<br>
+      <strong>Applied Activation Policy:</strong> 10 - Unlock.<br>
+      <strong>Next Tether Policy:</strong> 10 - Unlock.<br>
+      <strong>Carrier Name:</strong> Viettel<br>
+      <strong>Sold To Name:</strong> THE GIOI DI DONG JOINT STOCK<br>
+      <strong>Purchase Country:</strong> Vietnam<br>
+      <strong>MDM Lock:</strong> ON *Optional info<br>
+      <strong>iCloud Lock:</strong> ON<br>
+      <strong>iCloud Status:</strong> LOST *Optional info<br>
+      <strong>SIM Lock:</strong> Unlocked<br><br>
+
+      <strong>Case Details</strong><br>
+      Case Id: 101822xx5856 Created Date Time: 2022-10-04T17:59:17.72Z Summary: iPhone<br>
+      Case Id: 101816xx9857 Created Date Time: 2022-09-28T19:24:58.666Z Summary: Cellular service<br>
+      Case Id: 101766xx6084 Created Date Time: 2022-08-04T19:29:47.847Z Summary: Mic quality during phone calls<br><br>
+
+      <strong>Replacement History</strong><br>
+      Imei2: 353050111478xxx Meid: 35305011107xxx Serial: DNPDH22Y0xxx Imei: 353050111075xxx Serial Status Code: Active<br>
+      Imei2: 351109222892xxx Meid: 35110922287xxx Serial: F17G60ST0xxx Imei: 351109222873xxx Replacement Date: 2022-10-10T08:50:26Z Serial Status Code: Original
+    </div>
+  </div> 
+
+  <script src="../js/M2TTMXQD.js"></script>
+  <script src="../js/BHKN5UL4.js"></script>
+  <script src="../js/MUBWE6S7.js"></script>
+  <script src="../js/1WF8DZWG.js"></script>
+  <script src="../js/HKZCFHX1.js"></script>
+</body>
+</html>
