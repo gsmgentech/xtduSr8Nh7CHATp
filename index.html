@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="Unlock iPhone and Android smartphones with the latest SIM carrier factory services, digital licenses, and instant online activations. GenTechServer is a trusted global provider of software, remote unlock tools, and wholesale solutions for mobile services.">
   <title>IMEI Service</title>
+  <link rel="icon" href="../icons/icon-192.png">
   <style>
     * {
       margin: 0;
@@ -13,7 +15,7 @@
 
     body, html {
       height: 100%;
-      background: #ffffff;
+      background: linear-gradient(135deg, #ffffff, #ffffff);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,17 +26,23 @@
       width: 200px;
       height: 200px;
       opacity: 0;
-      transform: scale(0.8);
-      animation: fadeInScale 1.5s ease-out forwards;
+      transform: scale(0.5);
+      animation: proFadeBounce 1.6s ease-out forwards;
     }
 
-    @keyframes fadeInScale {
+    @keyframes proFadeBounce {
       0% {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.5);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      80% {
+        transform: scale(0.95);
       }
       100% {
-        opacity: 1;
         transform: scale(1);
       }
     }
