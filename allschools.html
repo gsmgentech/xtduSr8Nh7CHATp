@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ICI SCHOOLS</title>
+  <link rel="stylesheet" href="css/P6PQ6N5H.css">
+  <link rel="icon" href="icons/icon-192.png">
+  <style>
+    .school {
+      cursor: grab;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 5px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .school:active {
+      cursor: grabbing;
+      opacity: 0.6;
+    }
+    .pinned-section-title {
+      font-weight: bold;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+      color: #007bff;
+    }
+    .pinned-schools {
+      border-bottom: 2px dashed #ccc;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+    .trip-count {
+      font-size: 14px;
+      color: #444;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="img/gentechserver.png">
+  </div>
+  <div class="container">
+    <div class="group-section">
+      <select class="group-select" id="groupSelect">
+        <option value="">Bulacan</option>
+        <option value="">Rizal</option>
+        <option value="">Laguna</option>
+        <option value="">Testpoint 401</option>
+      </select>
+    </div>
+    <div class="search-bar-section">
+      <input type="text" class="search-bar" id="searchInput" placeholder="Search Schools">
+    </div>
+    <div class="pinned-schools" id="pinnedSchools">
+      <div class="pinned-section-title">📌 MY TRIP TODAY</div>
+      <div class="trip-count" id="tripCount">Trip Count: 0</div>
+    </div>
+    <div class="section-title">BULACAN</div>
+    <div class="school">
+      <div class="school-name">Colegio de San Barachiel</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">15.0715771, 120.9211509 📍</div>
+        <span class="school-location">San Ildefonso Bulacan 🌍</span>
+      </div>
+    </div>
+    <div class="school">
+      <div class="school-name">Glorious Joy Kiddie</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">15.001889,120.930827 📍</div>
+        <span class="school-location">San Rafael Bulacan 🌍</span>
+      </div>
+    </div>
+    <div class="school">
+      <div class="school-name">Second Home Child Dev. Center</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">14.9668677, 120.9140015 📍</div>
+        <span class="school-location">Baliwag Bulacan 🌍</span>
+      </div>
+    </div>
+    <div class="school">
+      <div class="school-name">Sunbeam Kiddie Center</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">14.8411586, 120.8378956 📍</div>
+        <span class="school-location">Malolos Bulacan 🌍</span>
+      </div>
+    </div>
+    <div class="school">
+      <div class="school-name">Stewart Christian School</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">14.8479122, 121.0512458 📍</div>
+        <span class="school-location">SJDM Bulacan 🌍</span>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script>
+    const pinnedContainer = document.getElementById('pinnedSchools');
+    const tripCountEl = document.getElementById('tripCount');
+
+    function updateTripCount() {
+      const count = pinnedContainer.querySelectorAll('.school').length;
+      tripCountEl.textContent = `Trip Count: ${count}`;
+    }
+
+    function savePinnedSchools() {
+      const pinned = Array.from(pinnedContainer.querySelectorAll('.school'))
+        .map(el => el.querySelector('.school-name').textContent);
+      localStorage.setItem('pinnedSchools', JSON.stringify(pinned));
+    }
+
+    function restorePinnedSchools() {
+      const saved = JSON.parse(localStorage.getItem('pinnedSchools')) || [];
+      const allSchools = document.querySelectorAll('.school');
+      saved.forEach(name => {
+        const school = Array.from(allSchools).find(s => s.querySelector('.school-name').textContent === name);
+        if (school) pinnedContainer.appendChild(school);
+      });
+      updateTripCount();
+    }
+
+    function getDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371, dLat = (lat2 - lat1) * Math.PI / 180, dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat/2)**2 + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLon/2)**2;
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function reorderNearestSchool() {
+      navigator.geolocation.getCurrentPosition(pos => {
+        const lat = pos.coords.latitude, lon = pos.coords.longitude;
+        let nearest = null, minDist = Infinity;
+
+        const pinned = Array.from(pinnedContainer.querySelectorAll('.school'));
+        pinned.forEach(school => {
+          const coord = school.querySelector('.coordenates').innerText.split('📌')[0].trim().split(',').map(Number);
+          const dist = getDistance(lat, lon, coord[0], coord[1]);
+          if (dist < minDist) {
+            minDist = dist;
+            nearest = school;
+          }
+        });
+
+        if (nearest) {
+          pinnedContainer.insertBefore(nearest, tripCountEl.nextElementSibling);
+          nearest.style.backgroundColor = '#d1f7c4';
+          nearest.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const [nLat, nLon] = nearest.querySelector('.coordenates').innerText.split('📌')[0].trim().split(',');
+          setTimeout(() => {
+            alert(`📍 Nearest Trip is "${nearest.querySelector('.school-name').textContent}"\n\nOpening Google Maps...`);
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${nLat},${nLon}`, '_blank');
+          }, 400);
+        }
+      });
+    }
+
+    function pinSchool(school) {
+      if (!pinnedContainer.contains(school)) {
+        pinnedContainer.appendChild(school);
+        updateTripCount();
+        savePinnedSchools();
+        reorderNearestSchool();
+      }
+    }
+
+    function unpinSchool(school) {
+      const ref = document.querySelector('.section-title');
+      ref.parentNode.insertBefore(school, ref.nextSibling);
+      updateTripCount();
+      savePinnedSchools();
+    }
+
+    document.querySelectorAll('.school').forEach(school => {
+      let startX = 0;
+      school.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+      school.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].clientX - startX;
+        if (diff < -50) pinSchool(school);
+        else if (diff > 50) unpinSchool(school);
+      });
+      school.addEventListener('click', () => {
+        const coords = school.querySelector('.coordenates').innerText.split('📌')[0].trim();
+        if (coords && coords !== '-') {
+          window.open(`https://www.google.com/maps/search/?api=1&query=${coords}`, '_blank');
+        }
+      });
+    });
+
+    new Sortable(pinnedContainer, {
+      animation: 150,
+      ghostClass: 'sortable-ghost',
+      filter: '.pinned-section-title, .trip-count',
+      preventOnFilter: false,
+      onEnd: savePinnedSchools
+    });
+
+    new Sortable(document.querySelector('.container'), {
+      animation: 150,
+      ghostClass: 'sortable-ghost',
+      draggable: '.school'
+    });
+
+    window.addEventListener('load', restorePinnedSchools);
+  </script>
+</body>
+</html>
