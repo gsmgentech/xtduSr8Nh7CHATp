@@ -14,6 +14,7 @@
       margin-bottom: 5px;
       border-radius: 8px;
       transition: background-color 0.3s;
+      position: relative;
     }
     .school:active {
       cursor: grabbing;
@@ -36,6 +37,25 @@
       text-align: center;
       margin-bottom: 10px;
     }
+    .reset-button, .reorder-button {
+      display: block;
+      margin: 10px auto;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .reset-button {
+      background-color: #dc3545;
+    }
+    .distance {
+      font-size: 12px;
+      color: #444;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -57,46 +77,50 @@
     <div class="pinned-schools" id="pinnedSchools">
       <div class="pinned-section-title">📌 MY TRIP TODAY</div>
       <div class="trip-count" id="tripCount">Trip Count: 0</div>
+      <button class="reorder-button" onclick="reorderNearestSchool()">📍 Reorder by Nearest</button>
+      <button class="reset-button" onclick="resetPinnedSchools()">🧹 Clear My Trip</button>
     </div>
     <div class="section-title">BULACAN</div>
     <div class="school">
       <div class="school-name">Colegio de San Barachiel</div>
       <div class="coordenates-school-location-wrapper">
-        <div class="coordenates">15.0715771, 120.9211509 📍</div>
-        <span class="school-location">San Ildefonso Bulacan 🌍</span>
+        <div class="coordenates">15.0715771, 120.9211509</div>
+        <span class="school-location">San Ildefonso Bulacan</span>
       </div>
     </div>
     <div class="school">
       <div class="school-name">Glorious Joy Kiddie</div>
       <div class="coordenates-school-location-wrapper">
-        <div class="coordenates">15.001889,120.930827 📍</div>
-        <span class="school-location">San Rafael Bulacan 🌍</span>
+        <div class="coordenates">15.001889,120.930827</div>
+        <span class="school-location">San Rafael Bulacan</span>
       </div>
     </div>
     <div class="school">
       <div class="school-name">Second Home Child Dev. Center</div>
       <div class="coordenates-school-location-wrapper">
-        <div class="coordenates">14.9668677, 120.9140015 📍</div>
-        <span class="school-location">Baliwag Bulacan 🌍</span>
+        <div class="coordenates">14.9668677, 120.9140015</div>
+        <span class="school-location">Baliwag Bulacan</span>
       </div>
     </div>
     <div class="school">
       <div class="school-name">Sunbeam Kiddie Center</div>
       <div class="coordenates-school-location-wrapper">
-        <div class="coordenates">14.8411586, 120.8378956 📍</div>
-        <span class="school-location">Malolos Bulacan 🌍</span>
+        <div class="coordenates">14.8411586, 120.8378956</div>
+        <span class="school-location">Malolos Bulacan</span>
       </div>
     </div>
     <div class="school">
       <div class="school-name">Stewart Christian School</div>
       <div class="coordenates-school-location-wrapper">
-        <div class="coordenates">14.8479122, 121.0512458 📍</div>
-        <span class="school-location">SJDM Bulacan 🌍</span>
+        <div class="coordenates">14.8479122, 121.0512458</div>
+        <span class="school-location">SJDM Bulacan</span>
       </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
   <script>
+    let longPressTimer;
+    let isLongPress = false;
     const pinnedContainer = document.getElementById('pinnedSchools');
     const tripCountEl = document.getElementById('tripCount');
 
@@ -105,53 +129,38 @@
       tripCountEl.textContent = `Trip Count: ${count}`;
     }
 
-    function savePinnedSchools() {
-      const pinned = Array.from(pinnedContainer.querySelectorAll('.school'))
-        .map(el => el.querySelector('.school-name').textContent);
-      localStorage.setItem('pinnedSchools', JSON.stringify(pinned));
-    }
-
-    function restorePinnedSchools() {
-      const saved = JSON.parse(localStorage.getItem('pinnedSchools')) || [];
-      const allSchools = document.querySelectorAll('.school');
-      saved.forEach(name => {
-        const school = Array.from(allSchools).find(s => s.querySelector('.school-name').textContent === name);
-        if (school) pinnedContainer.appendChild(school);
-      });
-      updateTripCount();
-    }
-
     function getDistance(lat1, lon1, lat2, lon2) {
-      const R = 6371, dLat = (lat2 - lat1) * Math.PI / 180, dLon = (lon2 - lon1) * Math.PI / 180;
+      const R = 6371;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
       const a = Math.sin(dLat/2)**2 + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLon/2)**2;
-      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
 
     function reorderNearestSchool() {
       navigator.geolocation.getCurrentPosition(pos => {
         const lat = pos.coords.latitude, lon = pos.coords.longitude;
-        let nearest = null, minDist = Infinity;
-
         const pinned = Array.from(pinnedContainer.querySelectorAll('.school'));
+
         pinned.forEach(school => {
           const coord = school.querySelector('.coordenates').innerText.split('📌')[0].trim().split(',').map(Number);
-          const dist = getDistance(lat, lon, coord[0], coord[1]);
-          if (dist < minDist) {
-            minDist = dist;
-            nearest = school;
+          const dist = getDistance(lat, lon, coord[0], coord[1]).toFixed(2);
+          let distEl = school.querySelector('.distance');
+          if (!distEl) {
+            distEl = document.createElement('div');
+            distEl.className = 'distance';
+            school.querySelector('.coordenates-school-location-wrapper').appendChild(distEl);
           }
+          distEl.textContent = `➤ ${dist} km away`;
         });
 
-        if (nearest) {
-          pinnedContainer.insertBefore(nearest, tripCountEl.nextElementSibling);
-          nearest.style.backgroundColor = '#d1f7c4';
-          nearest.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          const [nLat, nLon] = nearest.querySelector('.coordenates').innerText.split('📌')[0].trim().split(',');
-          setTimeout(() => {
-            alert(`📍 Nearest Trip is "${nearest.querySelector('.school-name').textContent}"\n\nOpening Google Maps...`);
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${nLat},${nLon}`, '_blank');
-          }, 400);
-        }
+        pinned.sort((a, b) => {
+          const aCoord = a.querySelector('.coordenates').innerText.split('📌')[0].trim().split(',').map(Number);
+          const bCoord = b.querySelector('.coordenates').innerText.split('📌')[0].trim().split(',').map(Number);
+          const distA = getDistance(lat, lon, aCoord[0], aCoord[1]);
+          const distB = getDistance(lat, lon, bCoord[0], bCoord[1]);
+          return distA - distB;
+        }).forEach(school => pinnedContainer.appendChild(school));
       });
     }
 
@@ -171,18 +180,56 @@
       savePinnedSchools();
     }
 
+    function savePinnedSchools() {
+      const pinned = Array.from(pinnedContainer.querySelectorAll('.school'))
+        .map(el => el.querySelector('.school-name').textContent);
+      localStorage.setItem('pinnedSchools', JSON.stringify(pinned));
+    }
+
+    function restorePinnedSchools() {
+      const saved = JSON.parse(localStorage.getItem('pinnedSchools')) || [];
+      const allSchools = document.querySelectorAll('.school');
+      saved.forEach(name => {
+        const school = Array.from(allSchools).find(s => s.querySelector('.school-name').textContent === name);
+        if (school) pinnedContainer.appendChild(school);
+      });
+      updateTripCount();
+      reorderNearestSchool();
+    }
+
+    function resetPinnedSchools() {
+      const saved = JSON.parse(localStorage.getItem('pinnedSchools')) || [];
+      const allSchools = document.querySelectorAll('.school');
+      saved.forEach(name => {
+        const school = Array.from(allSchools).find(s => s.querySelector('.school-name').textContent === name);
+        if (school) {
+          const sectionTitle = document.querySelector('.section-title');
+          sectionTitle.parentNode.insertBefore(school, sectionTitle.nextSibling);
+        }
+      });
+      localStorage.removeItem('pinnedSchools');
+      updateTripCount();
+    }
+
     document.querySelectorAll('.school').forEach(school => {
       let startX = 0;
-      school.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+      school.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isLongPress = false;
+        longPressTimer = setTimeout(() => isLongPress = true, 500);
+      });
       school.addEventListener('touchend', e => {
+        clearTimeout(longPressTimer);
         const diff = e.changedTouches[0].clientX - startX;
+        if (!isLongPress) return;
         if (diff < -50) pinSchool(school);
         else if (diff > 50) unpinSchool(school);
       });
       school.addEventListener('click', () => {
         const coords = school.querySelector('.coordenates').innerText.split('📌')[0].trim();
         if (coords && coords !== '-') {
-          window.open(`https://www.google.com/maps/search/?api=1&query=${coords}`, '_blank');
+          const [lat, lon] = coords.split(',');
+          window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lon}`, '_blank');
         }
       });
     });
@@ -190,15 +237,12 @@
     new Sortable(pinnedContainer, {
       animation: 150,
       ghostClass: 'sortable-ghost',
-      filter: '.pinned-section-title, .trip-count',
+      filter: '.pinned-section-title, .trip-count, .reorder-button, .reset-button',
       preventOnFilter: false,
-      onEnd: savePinnedSchools
-    });
-
-    new Sortable(document.querySelector('.container'), {
-      animation: 150,
-      ghostClass: 'sortable-ghost',
-      draggable: '.school'
+      onEnd: () => {
+        savePinnedSchools();
+        updateTripCount();
+      }
     });
 
     window.addEventListener('load', restorePinnedSchools);
