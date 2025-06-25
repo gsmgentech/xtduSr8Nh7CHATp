@@ -57,6 +57,7 @@
       border: none;
       border-radius: 5px;
       margin: 10px 0;
+      text-align: center;
     }
 
     .group-select {
@@ -75,10 +76,11 @@
       background-color: #0f1624;
       font-weight: bold;
       font-size: 16px;
+      text-align: center;
       border-top: 1px solid #1e2a3a;
     }
 
-    .service-card {
+    .school {
       background-color: #1e2a3a;
       margin: 10px 0;
       padding: 15px;
@@ -87,13 +89,14 @@
       transition: background-color 0.2s ease;
     }
 
-    .service-card:hover {
+    .school:hover {
       background-color: #2a3a4f;
     }
 
-    .service-title {
-      font-size: 14px;
+    .school-name {
+      font-size: 20px;
       margin-bottom: 5px;
+      text-align: center;
     }
 
     .badge-new {
@@ -105,26 +108,28 @@
       margin-right: 5px;
     }
 
-    .badge-instant {
+    .school-location {
       background-color: #ffc107;
       color: #000;
       padding: 2px 6px;
       font-size: 10px;
       border-radius: 4px;
       margin-left: 5px;
+      margin-top: 25px;
+      font-size: 12px;
     }
 
-    .price-tag {
+    .coordenates {
       display: inline-block;
       background-color: #28a745;
       color: #fff;
-      font-size: 10px;
       padding: 2px 6px;
       border-radius: 4px;
-      margin-top: 5px;
+      margin-top: 25px;
+      font-size: 12px;
     }
 
-    .price-instant-wrapper {
+    .coordenates-school-location-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -161,4 +166,16 @@
       .section-title {
         font-size: 18px;
       }
+    }
+
+    .pinned-section-title {
+      font-weight: bold;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+      color: #007bff;
+    }
+    .pinned-schools {
+      border-bottom: 2px dashed #ccc;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
     }
