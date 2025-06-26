@@ -21,6 +21,12 @@
       padding-top: 60px;
     }
 
+    body {
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -112,7 +118,6 @@
       background-color: #ffc107;
       color: #000;
       padding: 2px 6px;
-      font-size: 10px;
       border-radius: 4px;
       margin-left: 5px;
       margin-top: 25px;
@@ -121,7 +126,7 @@
 
     .coordenates {
       display: inline-block;
-      background-color: #28a745;
+      background-color: #00fa3aa9;
       color: #fff;
       padding: 2px 6px;
       border-radius: 4px;
