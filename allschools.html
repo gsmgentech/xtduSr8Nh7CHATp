@@ -270,20 +270,5 @@
       });
     });
   </script>
-
-  <script>
-    // Disable right click
-    document.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Disable key combinations like Ctrl+C, Ctrl+U, F12
-    document.addEventListener('keydown', function(e) {
-      if (
-        (e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 's' || e.key === 'a')) || 
-        e.key === 'F12'
-      ) {
-        e.preventDefault();
-      }
-    });
-  </script>
 </body>
 </html>
