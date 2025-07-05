@@ -2,57 +2,257 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>ICI SCHOOLS</title>
-  <link rel="icon" href="../icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
     }
 
-    body, html {
-      height: 100%;
-      background: linear-gradient(135deg, #ffffff, #ffffff);
+    .navbar {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
+      padding: 18px 16px;
+      background-color: #0d0d0d;
+      color: #5fa8ff;
     }
 
-    img {
-      max-width: 100%;
-      width: 200px;
-      height: 200px;
-      opacity: 0;
-      transform: scale(0.5);
-      animation: proFadeBounce 1.6s ease-out forwards;
+    .navbar img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
     }
 
-    @keyframes proFadeBounce {
-      0% {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-      60% {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-      80% {
-        transform: scale(0.95);
-      }
-      100% {
-        transform: scale(1);
-      }
+    .navbar-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      background-color: #0d0d0d;
+    }
+
+    .tabs div {
+      flex: 1;
+      text-align: center;
+      padding: 14px 0;
+      color: #7f7f7f;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .tabs .active {
+      color: #ffffffaf;
+      border-bottom: 2px solid #5fa8ff;
+    }
+
+    .order {
+      background-color: #1c2225;
+      margin: 5px 10px;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 13px;
+      line-height: 1.3;
+      display: flex;
+      align-items: center; 
+      font-weight: bolder;
+    }
+
+    .order-icon {
+      width: 30px;
+      height: 30px;
+      padding: 3px;
+      margin-right: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      margin-left: -12px;
+    }
+
+    .order-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .order-details {
+      flex: 1;
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .order-lines {
+      white-space: pre-line;
+      font-size: 13px;
+      color: #cfcfcf;
+    }
+
+    .order-meta {
+      text-align: right;
+    }
+
+    .order-date,
+    .order-status {
+      font-size: 13px;
+      color: #b0b0b0;
+      font-weight: normal;
+      line-height: 1.2;
     }
   </style>
-  <script>
-    setTimeout(() => {
-      window.location.href = "allschools.html";
-    }, 1800);
-  </script>
 </head>
 <body>
-  <img src="icons/splash512x512.png" alt="Splash Logo">
+
+  <div class="navbar">
+    <img src="img/arrows.png" alt="Back">
+    <div class="navbar-title">Order History</div>
+    <img src="img/glass.png" alt="Search" style="width:16px; height:16px;">
+  </div>
+
+  <div class="tabs">
+    <div class="active">IMEI</div>
+    <div>SERVER</div>
+    <div>REMOTE</div>
+  </div>
+
+  <div id="orders"></div>
+
+  <script>
+    const orders = [
+      {
+        id: '#148977',
+        date: '2025-07-05',
+        status: 'Completed',
+        icon: 'img/check1.png',
+        lines: [
+          '✅SAMSUNG',
+          'FRP REMOVE',
+          'BY IMEI/SN|',
+          'PREMIUM|',
+          'Android 15|',
+          'WORLDWIDE|',
+          '$7.50 USD|',
+          '⚡INSTANT'
+        ]
+      },
+      {
+        id: '#144292',
+        date: '2025-07-05',
+        status: 'Completed',
+        icon: 'img/check1.png',
+        lines: [
+          '✅SAMSUNG',
+          'FRP REMOVE',
+          'BY IMEI/SN|',
+          'PREMIUM|',
+          'Android 15|',
+          'WORLDWIDE|',
+          '$7.50 USD|',
+          '⚡INSTANT'
+        ]
+      },
+      {
+        id: '#141307',
+        date: '2025-07-05',
+        status: 'Completed',
+        icon: 'img/check1.png',
+        lines: [
+          '✅SAMSUNG',
+          'FRP REMOVE',
+          'BY IMEI/SN|',
+          'PREMIUM|',
+          'Android 15|',
+          'WORLDWIDE|',
+          '$7.50 USD|',
+          '⚡INSTANT'
+        ]
+      },
+      {
+        id: '#140824',
+        date: '2025-07-05',
+        status: 'Completed',
+        icon: 'img/check1.png',
+        lines: [
+          '✅SAMSUNG',
+          'FRP REMOVE',
+          'BY IMEI/SN|',
+          'PREMIUM|',
+          'Android 15|',
+          'WORLDWIDE|',
+          '$7.50 USD|',
+          '⚡INSTANT'
+        ]
+      },
+      {
+        id: '#139847',
+        date: '2025-07-05',
+        status: 'Completed',
+        icon: 'img/check1.png',
+        lines: [
+          '✅SAMSUNG',
+          'FRP REMOVE',
+          'BY IMEI/SN|',
+          'PREMIUM|',
+          'Android 15|',
+          'WORLDWIDE|',
+          '$7.50 USD|',
+          '⚡INSTANT'
+        ]
+      },
+      {
+        id: '#2034700',
+        date: '2025-06-20',
+        status: 'Rejected',
+        icon: 'img/cross-icon.png',
+        lines: [
+          '✅SAMSUNG',
+          'FRP REMOVE|',
+          'IMEI SERVICE',
+          '|LEVEL-2|❌',
+          'Android 14',
+          '❌|USA|',
+          'WORLDWIDE|',
+          '⚡INSTANT'
+        ]
+      }
+    ];
+
+    const ordersContainer = document.getElementById('orders');
+
+    orders.forEach(order => {
+      const orderDiv = document.createElement('div');
+      orderDiv.className = 'order';
+
+      const fullText = [
+        'Order Id',
+        order.id,
+        ...order.lines
+      ].join('\n');
+
+      orderDiv.innerHTML = `
+        <img class="order-icon" src="${order.icon}" alt="icon">
+        <div class="order-details">
+          <div class="order-header">
+            <div class="order-lines">${fullText}</div>
+            <div class="order-meta">
+              <div class="order-date">${order.date}</div>
+              <div class="order-status">${order.status}</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      ordersContainer.appendChild(orderDiv);
+    });
+  </script>
+
 </body>
 </html>
