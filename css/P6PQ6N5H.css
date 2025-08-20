@@ -178,9 +178,65 @@
       margin: 20px 0 10px;
       font-size: 1.2em;
       color: #007bff;
+      text-align: center;
     }
     .pinned-schools {
       border-bottom: 2px dashed #ccc;
       margin-bottom: 15px;
       padding-bottom: 10px;
+    }
+
+    .school {
+      cursor: grab;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 5px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      position: relative;
+      touch-action: pan-y;
+    }
+    .school:active {
+      cursor: grabbing;
+      opacity: 0.6;
+    }
+    .pinned-section-title {
+      font-weight: bold;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+      color: #007bff;
+    }
+    .pinned-schools {
+      border-bottom: 2px dashed #ccc;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+    .trip-count {
+      font-size: 14px;
+      color: #444;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .reset-button, .reorder-button {
+      display: block;
+      margin: 10px auto;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .reset-button {
+      background-color: #dc3545;
+    }
+    .distance {
+      background-color: #ffc107;
+      font-size: 12px;
+      color: #444;
+      margin-top: 25px;
+      margin-left: 5px;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
