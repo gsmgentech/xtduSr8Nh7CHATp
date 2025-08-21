@@ -7,43 +7,6 @@
   <link rel="stylesheet" href="css/P6PQ6N5H.css">
   <link rel="icon" href="icons/icon-192.png">
   <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      width: 80%;
-      max-width: 300px;
-    }
-    .modal-buttons {
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .modal-buttons button {
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .visit-btn { background: #4CAF50; color: #fff; }
-    .add-btn { background: #2196F3; color: #fff; }
-    .remove-btn { background: #ff9800; color: #fff; }
-    .cancel-btn { background: #f44336; color: #fff; }
-    .move-up-btn { background: #9c27b0; color: #fff; }
-    .move-down-btn { background: #3f51b5; color: #fff; }
   </style>
 </head>
 <body>
@@ -159,13 +122,47 @@
       <div class="trip-count" id="tripCount">Trip Count: 0</div>
       <button class="reset-button" onclick="resetPinnedSchools()">CLEAR ALL</button>
     </div>
-    <div class="section-title">ALL SCHOOLS</div>
 
+    <div class="section-title">MAKATI</div>
+    <div class="school">
+      <div class="school-name">HOLY REDEEMER</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">15.0715771, 120.9211509</div>
+        <span class="school-location">SANTIAGO MAKATI</span>
+      </div>
+    </div>
+
+    <div class="section-title">ISABELA</div>
+    <div class="school">
+      <div class="school-name">HOLY REDEEMER</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">15.0715771, 120.9211509</div>
+        <span class="school-location">SANTIAGO ISABELA</span>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-name">Ramon United Methodist School</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">15.69712, 120.89542</div>
+        <span class="school-location">TUGUEGARAO ISABELA</span>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-name">GLORIOUS JOY KIDDIE</div>
+      <div class="coordenates-school-location-wrapper">
+        <div class="coordenates">12.785156, 365.788545</div>
+        <span class="school-location">ISABELA</span>
+      </div>
+    </div>
+
+    <div class="section-title">BULACAN</div>
     <div class="school">
       <div class="school-name">COLEGIO DE SAN BARACHIEL</div>
       <div class="coordenates-school-location-wrapper">
         <div class="coordenates">15.0715771, 120.9211509</div>
-        <span class="school-location">San Ildefonso Bulacan</span>
+        <span class="school-location">SAN ILDEFONSO BULACAN</span>
       </div>
     </div>
 
@@ -173,7 +170,7 @@
       <div class="school-name">GLORIOUS JOY KIDDIE</div>
       <div class="coordenates-school-location-wrapper">
         <div class="coordenates">15.001889, 120.930827</div>
-        <span class="school-location">San Rafael Bulacan</span>
+        <span class="school-location">SAN RAFAEL BULACAN</span>
       </div>
     </div>
 
@@ -181,7 +178,7 @@
       <div class="school-name">SECOND HOME CHILD DEV. CENTER</div>
       <div class="coordenates-school-location-wrapper">
         <div class="coordenates">14.9668677, 120.9140015</div>
-        <span class="school-location">Baliwag Bulacan</span>
+        <span class="school-location">BALIWAG BULACAN</span>
       </div>
     </div>
 
@@ -189,7 +186,7 @@
       <div class="school-name">SUNBEAM KIDDIE CENTER</div>
       <div class="coordenates-school-location-wrapper">
         <div class="coordenates">14.8411586, 120.8378956</div>
-        <span class="school-location">Malolos Bulacan</span>
+        <span class="school-location">MALOLOS BULACAN</span>
       </div>
     </div>
 
@@ -197,7 +194,7 @@
       <div class="school-name">STEWART CHRISTIAN SCHOOL</div>
       <div class="coordenates-school-location-wrapper">
         <div class="coordenates">14.8479122, 121.0512458</div>
-        <span class="school-location">SJDM Bulacan</span>
+        <span class="school-location">SJDM BULACAN</span>
       </div>
     </div>
   </div>
@@ -205,7 +202,7 @@
   <div class="modal" id="actionModal">
     <div class="modal-content">
       <div id="modalSchoolName"></div>
-      <div id="modalMessage" style="margin-top:10px;color:#555;font-size:14px;"></div>
+      <div id="modalMessage" style="margin-top:10px;font-size:14px;"></div>
       <div class="modal-buttons" id="modalButtons"></div>
     </div>
   </div>
@@ -217,6 +214,7 @@
     const modalButtons = document.getElementById('modalButtons');
     const pinnedContainer = document.getElementById('pinnedSchools');
     const tripCount = document.getElementById('tripCount');
+    const searchInput = document.getElementById('searchInput');
     let selectedSchool = null;
 
     window.onload = () => {
@@ -226,7 +224,8 @@
         wrapper.innerHTML = html;
         const school = wrapper.firstElementChild;
         attachSchoolEvents(school, true);
-        pinnedContainer.appendChild(school);
+        const clearBtn = pinnedContainer.querySelector(".reset-button");
+        pinnedContainer.insertBefore(school, clearBtn);
       });
       updateTripCount();
     };
@@ -245,6 +244,7 @@
     function showModal(name, isPinned) {
       modalSchoolName.textContent = name;
       modalMessage.textContent = "";
+      modalMessage.classList.remove("warning");
       modalButtons.innerHTML = "";
 
       const visitBtn = document.createElement("button");
@@ -286,7 +286,8 @@
         moveDownBtn.className = "move-down-btn";
         moveDownBtn.onclick = () => {
           const next = selectedSchool.element.nextElementSibling;
-          if (next) {
+          const clearBtn = pinnedContainer.querySelector(".reset-button");
+          if (next && next !== clearBtn) {
             pinnedContainer.insertBefore(next, selectedSchool.element);
             savePinnedSchools();
           }
@@ -296,20 +297,18 @@
 
       } else {
         const alreadyPinned = [...pinnedContainer.querySelectorAll('.school')].some(
-          s => s.querySelector('.school-name').textContent === name
+          s => s.querySelector('.coordenates').textContent === selectedSchool.coords
         );
+
         if (alreadyPinned) {
-          modalMessage.textContent = "You already added this school.";
+          modalMessage.textContent = "THIS SCHOOL IS ALREADY IN YOUR TRIP";
+          modalMessage.classList.add("warning");
         } else {
           const addBtn = document.createElement("button");
           addBtn.textContent = "Add";
           addBtn.className = "add-btn";
           addBtn.onclick = () => {
-            const clone = selectedSchool.element.cloneNode(true);
-            attachSchoolEvents(clone, true);
-            pinnedContainer.appendChild(clone);
-            savePinnedSchools();
-            updateTripCount();
+            addSchoolToPinned(selectedSchool.element);
             closeModal();
           };
           modalButtons.appendChild(addBtn);
@@ -345,6 +344,51 @@
       savePinnedSchools();
       updateTripCount();
     }
+
+    function addSchoolToPinned(schoolElement) {
+      const clone = schoolElement.cloneNode(true);
+      attachSchoolEvents(clone, true);
+      const clearBtn = pinnedContainer.querySelector(".reset-button");
+      pinnedContainer.insertBefore(clone, clearBtn);
+      savePinnedSchools();
+      updateTripCount();
+    }
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      const allSchools = document.querySelectorAll(".school");
+      const pinnedSchools = document.querySelectorAll("#pinnedSchools .school");
+      const schools = [...allSchools].filter(s => ![...pinnedSchools].includes(s));
+
+      const titles = document.querySelectorAll(".section-title");
+
+      schools.forEach(school => {
+        const name = school.querySelector(".school-name").textContent.toLowerCase();
+        const location = school.querySelector(".school-location").textContent.toLowerCase();
+        if (name.includes(query) || location.includes(query)) {
+          school.classList.remove("hidden");
+        } else {
+          school.classList.add("hidden");
+        }
+      });
+
+      titles.forEach(title => {
+        let next = title.nextElementSibling;
+        let hasVisible = false;
+        while (next && next.classList.contains("school")) {
+          if (!next.classList.contains("hidden")) {
+            hasVisible = true;
+            break;
+          }
+          next = next.nextElementSibling;
+        }
+        if (hasVisible) {
+          title.classList.remove("hidden");
+        } else {
+          title.classList.add("hidden");
+        }
+      });
+    });
   </script>
 </body>
 </html>
