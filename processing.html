@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GTServer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  const referrer = document.referrer;
+
+  if (!referrer.includes('confirm.html')) {
+    window.location.replace('index.html');
+  }
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: #05080f;
+  overflow: hidden;
+}
+
+/* SPLASH */
+.splash {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  opacity: 0;
+  animation: fadeIn .6s ease forwards;
+}
+
+/* LOGO */
+.logo {
+  width: 82%;
+  max-width: 380px;
+  opacity: 0;
+  transform: translateY(20px) scale(.95);
+  animation: logoIn 1.2s cubic-bezier(.2,.8,.2,1) forwards;
+  filter:
+    drop-shadow(0 0 22px rgba(109,106,255,.28))
+    drop-shadow(0 0 60px rgba(109,106,255,.18));
+}
+
+/* PROGRESS */
+.progress-wrap {
+  width: 68%;
+  max-width: 320px;
+  height: 4px;
+  background: rgba(255,255,255,.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6d6aff, #8b88ff);
+  animation: loadBar 50s linear forwards;
+}
+
+@keyframes logoIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1 }
+}
+
+@keyframes loadBar {
+  to { width: 100% }
+}
+
+@media (max-width: 480px) {
+  .logo { max-width: 300px; }
+  .progress-wrap { width: 75%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="splash" id="splash">
+  <img src="img/headergentechservernew.png" alt="Gentech Server" class="logo">
+  <div class="progress-wrap">
+    <div class="progress"></div>
+  </div>
+</div>
+
+<script>
+  setTimeout(() => {
+    window.location.href = 'orders.html';
+  }, 50000);
+</script>
+
+</body>
+</html>

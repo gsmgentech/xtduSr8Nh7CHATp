@@ -1,0 +1,152 @@
+[
+  {
+    "title": "UNLOCKTOOL",
+    "subtitle": "6 HOURS",
+    "image": "img/unlocktool.png",
+    "price": "₱200",
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "UNLOCKTOOL",
+    "subtitle": "8 HOURS",
+    "image": "img/unlocktool.png",
+    "price": "₱250",
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "UNLOCKTOOL",
+    "subtitle": "12 HOURS",
+    "image": "img/unlocktool.png",
+    "price": "₱350",
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "UNLOCKTOOL",
+    "subtitle": "1 DAY",
+    "image": "img/unlocktool.png",
+    "price": "₱450",
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "TSM-TOOL PRO",
+    "image": "img/tsm.png",
+    "price": "₱250",
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "TSM-PRO EDITION",
+    "image": "img/tsm.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "DFT PRO TOOL",
+    "image": "img/dft-pro.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "MDM FIX TOOL",
+    "image": "img/mdmtool.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "TFM TOOL",
+    "image": "img/Tfm.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "GRIFFIN-UNLOCKER",
+    "image": "img/Griffin.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "SCORPION TOOL",
+    "image": "img/Scorpion.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "CF TOOLS",
+    "image": "img/CF.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "KG KILLER",
+    "image": "img/kg.png",
+    "price": "₱250",
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "HYDRA TOOL",
+    "image": "img/hydra.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "ANDROID MULTI TOOL",
+    "image": "img/amt.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "PANDORA TOOL",
+    "image": "img/Pandora.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "CHEETAH TOOL",
+    "image": "img/cheetah.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "TR TOOLS PRO",
+    "image": "img/trtools.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  },
+  {
+    "title": "EFT DONGLE SHARE",
+    "image": "img/eft.png",
+    "price": "Not available",
+    "unavailable": true,
+    "from": "rent",
+    "remarks": true
+  }
+]

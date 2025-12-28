@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment | GTServer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      !localStorage.getItem('theme')
+    ) {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <img src="img/headergentechservernew.png" alt="GTServer">
+    <i class="fa-solid fa-ellipsis-vertical menu-toggle" id="menuToggle"></i>
+  </header>
+
+<div class="wrapper payment-wrap">
+
+  <h2 class="page-title"></h2>
+
+  <div class="summary" id="summary" hidden>
+    <div>
+      <div class="total" id="totalPrice"></div>
+      <div class="unit" id="unitWrap" hidden>
+        ₱ <span id="unitPrice"></span> / unit
+      </div>
+    </div>
+  </div>
+
+  <div class="pay-modal" id="payModal" hidden>
+    <div class="pay-box">
+      <h3>InstaPay Transfer</h3>
+
+      <div class="summary">
+        <div class="total">₱<span id="cPrice"></span></div>
+        <div class="unit">Amount to Pay</div>
+      </div>
+
+      <img id="payQR" src="img/instapay.jpg" alt="InstaPay QR Code">
+
+      <div class="section">
+        <label for="refNumber">
+          Reference Number
+          <span class="hint">(Last 4 digits)</span>
+        </label>
+
+        <input
+          type="text"
+          id="refNumber"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="e.g., 1234"
+        >
+
+        <small class="help-text">
+          Use the last 4 digits from your InstaPay transaction receipt.
+        </small>
+
+        <small id="refError" style="color:#dc2626;font-size:12px;"></small>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelPay">Cancel</button>
+        <button type="button" id="confirmPay" disabled>
+          Confirm Payment
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <div class="section">
+    <label>Email</label>
+    <input type="email" id="email" required>
+  </div>
+
+  <div class="section" id="qtyWrap" hidden>
+    <label>Quantity</label>
+    <div class="qty">
+      <button type="button" id="minus">−</button>
+      <input id="quantity" value="1">
+    <button type="button" id="plus">+</button>
+    </div>
+  </div>
+
+  <div id="dynamicFields"></div>
+  <div id="paymentMethods"></div>
+
+  <button class="pay-btn">Proceed to Payment</button>
+
+</div>
+
+<script src="js/payment.js"></script>
+<script src="js/submit.js"></script>
+<script src="js/script.js?v=1.0.3" defer></script>
+
+</body>
+</html>

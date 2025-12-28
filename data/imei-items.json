@@ -1,0 +1,48 @@
+[
+  {
+    "title": "SAMSUNG FRP REMOVAL",
+    "subtitle": "VIA IMEI – LEVEL 1",
+    "price": "₱1,500",
+    "image": "img/samsung.png",
+    "from": "imei",
+    "link": "payment.html?from=imei",
+    "pricingType": "flat",
+    "minQty": 1,
+    "maxQty": 1,
+    "fields": ["imei"],
+    "remarks": true
+  },
+  {
+    "title": "HONOR FRP KEY",
+    "subtitle": "SLOW",
+    "price": "₱1,500",
+    "image": "img/honor.png",
+    "from": "imei",
+    "link": "payment.html?from=imei",
+    "pricingType": "flat",
+    "fields": ["serial"],
+    "remarks": true
+  },
+  {
+    "title": "HONOR FRP KEY",
+    "subtitle": "FAST",
+    "price": "₱1,800",
+    "image": "img/honor.png",
+    "from": "imei",
+    "link": "payment.html?from=imei",
+    "pricingType": "flat",
+    "fields": ["serial"],
+    "remarks": true
+  },
+  {
+    "title": "HONOR FRP KEY",
+    "subtitle": "EXPRESS",
+    "price": "₱2,300",
+    "image": "img/honor.png",
+    "from": "imei",
+    "link": "payment.html?from=imei",
+    "pricingType": "flat",
+    "fields": ["serial"],
+    "remarks": true
+  }
+]

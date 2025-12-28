@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | GTServer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      !localStorage.getItem('theme')
+    ) {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <img src="img/headergentechservernew.png" alt="GTServer">
+    <i class="fa-solid fa-ellipsis-vertical menu-toggle" id="menuToggle"></i>
+  </header>
+
+  <main class="wrapper">
+    <div class="search">
+      <i class="fa fa-search"></i>
+      <input id="searchInput" placeholder="Search for a service">
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <div class="whats-new-overlay" id="whatsNew">
+    <div class="whats-new">
+      <h3 class="whats-new-title">
+        🚀 What’s New <span class="version">v1.0.3</span>
+      </h3>
+
+      <ul>
+        <li>Header image and branding assets updated</li>
+        <li>Mobile touch highlight fixes</li>
+        <li>Improved dark/light mode contrast</li>
+        <li>UI interaction refinements</li>
+        <li>Order and payment stability improvements</li>
+      </ul>
+
+      <button id="hideForToday">Do not show again</button>
+
+      <p style="font-size:12px;color:#888;text-align:center;margin-top:10px">
+        You can always view updates in the "What's New" section.
+      </p>
+    </div>
+  </div>
+  
+  <script src="js/script.js?v=1.0.3" defer></script>
+
+</body>
+</html>
