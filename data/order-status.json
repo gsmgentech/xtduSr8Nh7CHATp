@@ -1,6 +1,75 @@
 {
-  "ORD-MJLPO24C": "invalid_reference",
-  "ORD-XYZ999": "invalid_reference",
-  "ORD-MJOH4FEQ": "processing",
-  "ORD-MJOGUEN5": "already_used"
+  "ORD-MJSX24I41": {
+    "status": "contact_support",
+    "auto": true
+  },
+
+  "ORD-PROCESS01": {
+    "status": "processing",
+    "auto": false
+  },
+
+  "ORD-INPROC01": {
+    "status": "in_process",
+    "auto": false
+  },
+
+  "ORD-MJSYBW53": {
+    "status": "success",
+    "auto": false,
+    "meta": {
+      "input1": "Username: ksefiniwg12",
+      "input2": "Password: 31535315"
+    }
+  },
+
+  "ORD-FAILED01": {
+    "status": "failed",
+    "auto": false
+  },
+
+  "ORD-INVALIDREF01": {
+    "status": "invalid_reference",
+    "auto": false
+  },
+
+  "ORD-INVALIDIMEI01": {
+    "status": "invalid_imei",
+    "auto": false
+  },
+
+  "ORD-INVALIDUSER01": {
+    "status": "invalid_username",
+    "auto": false
+  },
+
+  "ORD-INVALIDEMAIL01": {
+    "status": "invalid_email_address",
+    "auto": false
+  },
+
+  "ORD-INVALIDSERIAL01": {
+    "status": "invalid_serial_number",
+    "auto": false
+  },
+
+  "ORD-MJSX24I1": {
+    "status": "no_payment_received",
+    "auto": false
+  },
+
+  "ORD-NOTSUP01": {
+    "status": "not_supported",
+    "auto": false
+  },
+
+  "ORD-CONTACT01": {
+    "status": "contact_support",
+    "auto": false
+  },
+
+  "ORD-CANCEL01": {
+    "status": "cancelled",
+    "auto": false
+  }
 }

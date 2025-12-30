@@ -118,6 +118,7 @@
 
       const a = document.createElement('a')
       a.className = 'card'
+      a.dataset.from = item.from || ''
 
       /* BADGE (MATCH JSON) */
       if (item.from === 'imei' || currentPage === 'imei.html') {
@@ -194,6 +195,44 @@
 
   loadItems().catch(console.error)
 
+  /* =========================
+    SMART SEARCH FILTER
+  ========================= */
+  const searchInput = document.querySelector('.search input')
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase()
+      const emptyText = document.getElementById('emptyText')
+      const grid = document.getElementById('grid')
+
+      if (!grid) return
+
+      let visibleCount = 0
+
+      ;[...grid.children].forEach(card => {
+        const text = card.innerText.toLowerCase()
+        const category = (card.dataset.from || '').toLowerCase()
+
+        const isCategoryMatch =
+          q === 'imei' || q === 'server' || q === 'rent'
+            ? category === q
+            : false
+
+        const match =
+          q === '' ||
+          text.includes(q) ||
+          isCategoryMatch
+
+        card.style.display = match ? '' : 'none'
+        if (match) visibleCount++
+      })
+
+      if (emptyText) {
+        emptyText.style.display = visibleCount === 0 ? 'block' : 'none'
+      }
+    })
+  }
 })()
 
 /* =========================

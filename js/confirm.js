@@ -43,10 +43,12 @@ function showConfirmWarning() {
   box.innerHTML = `
     <button class="popup-close" aria-label="Close">&times;</button>
     <h3>Important Notice</h3>
-    <p>
-      Please double-check all details before submitting.
-      Orders with incorrect <b>IMEI, username, serial number, or email</b>
-      are <b>non-refundable</b> and cannot be modified once processed.
+    <p class="popup-text">
+      Ensure all submitted details are accurate before proceeding.
+      Requests containing incorrect information
+      (<strong>IMEI, username, serial number, or email address</strong>)
+      are <strong>final</strong>, <strong>non-refundable</strong>,
+      and <strong>cannot be changed</strong> after submission.
     </p>
   `
 

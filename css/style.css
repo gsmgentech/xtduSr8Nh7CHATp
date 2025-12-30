@@ -182,13 +182,44 @@ body.dark .menu-item:hover {
 }
 
 .wrapper{
-  padding-top: 84px;     /* header + breathing space */
+  padding-top: 84px;
   padding-left: 12px;
   padding-right: 12px;
-  padding-bottom: 170px; /* nav + card shadow */
-  position: relative;
-  z-index: 1;
+  padding-bottom: 100px; /* from 170px → 100px */
 }
+
+/* =========================
+   CLEAR ORDERS MODAL INPUT
+   (MATCH SEARCH STYLE)
+========================= */
+
+.confirm-popup input[type="text"] {
+  width: 100%;
+  height: 46px;
+
+  background: var(--card);
+  color: var(--text);
+
+  border: none;
+  outline: none;
+  border-radius: 14px;
+
+  padding: 0 16px;
+  font-size: 14px;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+/* placeholder color */
+.confirm-popup input[type="text"]::placeholder {
+  color: var(--muted);
+}
+
+/* focus behavior – same clean look */
+.confirm-popup input[type="text"]:focus {
+  box-shadow: 0 10px 24px rgba(0,0,0,.1);
+}
+
 
 .search{
   background:var(--card);
@@ -594,16 +625,21 @@ body.dark .price{
 }
 
 .payment-wrap {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  min-height: calc(100vh - 56px); /* minus header */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0; /* alisin extra space */
+  justify-content: space-between;
+}
+
+.payment-wrap > *:not(.pay-btn) {
+  flex-shrink: 0;
 }
 
 .page-title {
   text-align: center;
   font-weight: 700;
   margin: 24px 0 28px;
-  margin-top: 80px;
 }
 
 .section {
@@ -698,27 +734,68 @@ input[type="email"],
   background: #eef2ff;
 }
 
+/* =========================
+   CLEAR ORDERS MODAL BUTTONS
+========================= */
+
+#confirmClear {
+  background: #ce5454; /* same as .danger-btn */
+  color: #fff;
+  font-weight: 600;
+}
+
+#confirmClear:disabled {
+  background: #a15d5d;
+  cursor: not-allowed;
+}
+
+#cancelClear {
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: 600;
+}
+
+body.dark #cancelClear {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+
+/* =========================
+   PAYMENT BUTTON (STICKY)
+========================= */
+
 .pay-btn {
-  margin: 24px 20px 40px;
+  margin: 16px 20px;
   width: calc(100% - 40px);
   padding: 18px;
   border-radius: 18px;
+
   background: linear-gradient(90deg, #4f46e5, #6366f1);
   color: #fff;
   font-size: 17px;
   font-weight: 700;
-  border: none;
-  position: static;
-  margin-bottom: 90px;
-}
 
-.pay-btn {
+  border: none;
+
+  position: sticky;
+  bottom: 90px;
+  z-index: 20;
+
   backdrop-filter: blur(6px);
 }
 
+/* disabled */
 .pay-btn:disabled {
   cursor: not-allowed;
   background: #9ca3af;
+}
+
+.wrapper.payment-wrap {
+  min-height: calc(100vh - 56px);
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .sub-header {
@@ -1037,9 +1114,10 @@ body.dark .method.active {
   padding: 12px 14px;
   border-radius: 12px;
   border: none;
-  background: #dc2626;
+  background: #ce5454;
   color: #fff;
   font-weight: 600;
+  cursor: pointer;
 }
 
 /* order cards */
@@ -1252,21 +1330,23 @@ body.dark .card.order-card {
   }
 }
 
+/* Mobile default */
 .pay-box {
-  background: var(--card);
-  border-radius: 18px;
-  padding: 22px;
   width: 90%;
-  max-width: 360px; /* mobile default */
+  max-width: 360px;
 }
 
-/* =========================
-   PAYMENT MODAL – DESKTOP WIDTH
-========================= */
+/* Desktop only */
 @media (min-width: 768px) {
   .pay-box {
-    max-width: 580px; /* 👈 mas malapad sa desktop */
-    padding: 26px;
+    max-width: 460px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .payment-wrap {
+    max-width: 680px;
+    margin: 0 auto;
   }
 }
 
@@ -1359,4 +1439,13 @@ body.dark .card.order-card {
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+}
+
+.meta-label {
+  color: #cbd5e1;      /* normal label */
+}
+
+.meta-value {
+  color: #f59e0b;      /* orange value */
+  font-weight: 600;
 }
