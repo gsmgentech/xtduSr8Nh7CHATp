@@ -16,6 +16,24 @@ body.dark {
 }
 
 /* =========================
+   GLOBAL LINK / DRAG BLOCK
+========================= */
+a,
+button,
+.card,
+.nav a {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS long-press menu */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* disable drag preview */
+a {
+  -webkit-user-drag: none;
+}
+
+/* =========================
    GLOBAL MOBILE TAP FIX
 ========================= */
 html {
