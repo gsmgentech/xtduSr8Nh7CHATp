@@ -15,6 +15,19 @@ body.dark {
   --border:#24304a;
 }
 
+/* =========================
+   GLOBAL MOBILE TAP FIX
+========================= */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+
 body.dark .card {
   border: 1px solid var(--border);
   box-shadow: 0 12px 30px rgba(0,0,0,.55);
@@ -39,7 +52,31 @@ body{
   background:var(--bg);
   color:var(--text);
   overflow-x: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+
+@media (hover: none) and (pointer: coarse) {
+
+  /* Disable hover-only effects */
+  *:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Stop infinite animations that cause repaint */
+  *::before,
+  *::after {
+    animation-play-state: paused !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    overflow-anchor: none;
+  }
+}
+
 
 /* =========================
    MENU TOGGLE ICON
