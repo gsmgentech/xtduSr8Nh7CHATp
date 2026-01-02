@@ -52,8 +52,6 @@ body{
   background:var(--bg);
   color:var(--text);
   overflow-x: hidden;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 @media (hover: none) and (pointer: coarse) {
