@@ -319,3 +319,17 @@ document.getElementById('menuClearCache')?.addEventListener('click', () => {
   localStorage.clear()
   location.reload()
 })
+
+document.addEventListener('keydown', function(e) {
+  if (
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+    (e.ctrlKey && e.key === 'U')
+  ) {
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
