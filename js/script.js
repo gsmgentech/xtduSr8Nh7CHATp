@@ -333,3 +333,42 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('contextmenu', function(e) {
   e.preventDefault();
 });
+
+/* =========================
+   NAVBAR OVERSLIDE TRANSITION
+========================= */
+(() => {
+
+  // ENTER animation
+  window.addEventListener('pageshow', () => {
+    document.body.classList.add('slide-enter')
+
+    setTimeout(() => {
+      document.body.classList.remove('slide-enter')
+    }, 550)
+  })
+
+  // NAV only
+  document.addEventListener('click', e => {
+    const link = e.target.closest('.nav a')
+    if (!link) return
+
+    const href = link.getAttribute('href')
+    if (!href || href.startsWith('#')) return
+
+    // block same page
+    if (link.classList.contains('active')) {
+      e.preventDefault()
+      return
+    }
+
+    e.preventDefault()
+
+    document.body.classList.add('slide-exit')
+
+    setTimeout(() => {
+      location.href = href
+    }, 550)
+  })
+
+})()

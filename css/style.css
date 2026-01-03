@@ -1513,3 +1513,61 @@ body.dark .card.order-card {
   color: #f59e0b;      /* orange value */
   font-weight: 600;
 }
+
+/* =========================
+   OVERSLIDE PAGE TRANSITION
+========================= */
+
+body {
+  overflow-x: hidden;
+}
+
+/* EXIT */
+body.slide-exit {
+  animation: slideExit .55s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+/* ENTER */
+body.slide-enter {
+  animation: slideEnter .55s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+/* EXIT KEYFRAME */
+@keyframes slideExit {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-8%);
+    opacity: .9;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ENTER KEYFRAME */
+@keyframes slideEnter {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(6%);
+    opacity: .95;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body.slide-exit,
+  body.slide-enter {
+    animation: none !important;
+  }
+}
