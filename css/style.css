@@ -1515,48 +1515,49 @@ body.dark .card.order-card {
 }
 
 /* =========================
-   OVERSLIDE PAGE TRANSITION
+   CONTENT-ONLY OVERSLIDE
 ========================= */
 
-body {
-  overflow-x: hidden;
+/* target ONLY page content */
+.wrapper {
+  will-change: transform, opacity;
 }
 
 /* EXIT */
-body.slide-exit {
-  animation: slideExit .55s cubic-bezier(.22,.61,.36,1) forwards;
+.wrapper.slide-exit {
+  animation: contentExit .35s cubic-bezier(.25,.46,.45,.94) forwards;
 }
 
 /* ENTER */
-body.slide-enter {
-  animation: slideEnter .55s cubic-bezier(.22,.61,.36,1) forwards;
+.wrapper.slide-enter {
+  animation: contentEnter .35s cubic-bezier(.25,.46,.45,.94) forwards;
 }
 
 /* EXIT KEYFRAME */
-@keyframes slideExit {
+@keyframes contentExit {
   0% {
     transform: translateX(0);
     opacity: 1;
   }
   70% {
-    transform: translateX(-8%);
-    opacity: .9;
+    transform: translateX(-4%);
+    opacity: .96;
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(80%);
     opacity: 0;
   }
 }
 
 /* ENTER KEYFRAME */
-@keyframes slideEnter {
+@keyframes contentEnter {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-80%);
     opacity: 0;
   }
   60% {
-    transform: translateX(6%);
-    opacity: .95;
+    transform: translateX(3%);
+    opacity: .97;
   }
   100% {
     transform: translateX(0);
@@ -1564,10 +1565,11 @@ body.slide-enter {
   }
 }
 
-/* Reduced motion */
+/* reduced motion safety */
 @media (prefers-reduced-motion: reduce) {
-  body.slide-exit,
-  body.slide-enter {
+  .wrapper.slide-exit,
+  .wrapper.slide-enter {
     animation: none !important;
   }
 }
+

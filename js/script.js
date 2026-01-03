@@ -335,17 +335,26 @@ document.addEventListener('contextmenu', function(e) {
 });
 
 /* =========================
-   NAVBAR OVERSLIDE TRANSITION
+   CONTENT-ONLY NAV TRANSITION
 ========================= */
 (() => {
 
+  const TRANSITION_MS = 350
+
+  function getWrapper() {
+    return document.querySelector('.wrapper')
+  }
+
   // ENTER animation
   window.addEventListener('pageshow', () => {
-    document.body.classList.add('slide-enter')
+    const wrap = getWrapper()
+    if (!wrap) return
+
+    wrap.classList.add('slide-enter')
 
     setTimeout(() => {
-      document.body.classList.remove('slide-enter')
-    }, 550)
+      wrap.classList.remove('slide-enter')
+    }, TRANSITION_MS)
   })
 
   // NAV only
@@ -356,19 +365,22 @@ document.addEventListener('contextmenu', function(e) {
     const href = link.getAttribute('href')
     if (!href || href.startsWith('#')) return
 
-    // block same page
     if (link.classList.contains('active')) {
       e.preventDefault()
       return
     }
 
+    const wrap = getWrapper()
+    if (!wrap) return
+
     e.preventDefault()
 
-    document.body.classList.add('slide-exit')
+    wrap.classList.add('slide-exit')
 
     setTimeout(() => {
       location.href = href
-    }, 550)
+    }, TRANSITION_MS)
   })
 
 })()
+
