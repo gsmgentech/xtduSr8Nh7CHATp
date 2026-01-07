@@ -5,6 +5,9 @@
   <title>Payment | GTServer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f4fb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+
   <script>
     if (
       localStorage.getItem('theme') === 'dark' ||
@@ -16,97 +19,75 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <header class="header">
-    <img src="img/headergentechservernew.png" alt="GTServer">
-    <i class="fa-solid fa-ellipsis-vertical menu-toggle" id="menuToggle"></i>
-  </header>
+<header class="header">
+  <img src="img/headergentechservernew.png" alt="GTServer">
+  <i class="fa-solid fa-ellipsis-vertical menu-toggle" id="menuToggle"></i>
+</header>
 
 <div class="wrapper payment-wrap">
 
-  <h2 class="page-title"></h2>
-
-  <div class="summary" id="summary" hidden>
-    <div>
-      <div class="total" id="totalPrice"></div>
-      <div class="unit" id="unitWrap" hidden>
-        ₱ <span id="unitPrice"></span> / unit
-      </div>
-    </div>
+  <div class="page-title-wrap">
+    <h2 class="page-title">Payment Summary</h2>
   </div>
 
-  <div class="pay-modal" id="payModal" hidden>
-    <div class="pay-box">
-      <h3>InstaPay Transfer</h3>
+  <div class="summary">
+    <div class="row">
+      <span>Base Amount</span>
+      <strong>₱<span id="baseAmount">0.00</span></strong>
+    </div>
 
-      <div class="summary">
-        <div class="total">₱<span id="cPrice"></span></div>
-        <div class="unit">Amount to Pay</div>
-      </div>
+    <div class="row">
+      <span>Discount</span>
+      <strong>− ₱<span id="discountAmount">0.00</span></strong>
+    </div>
 
-      <img id="payQR" src="img/instapay.jpg" alt="InstaPay QR Code">
-
-      <div class="section">
-        <label for="refNumber">
-          Reference Number
-          <span class="hint">(Last 4 digits)</span>
-        </label>
-
-        <input
-          type="text"
-          id="refNumber"
-          inputmode="numeric"
-          maxlength="4"
-          placeholder="e.g., 1234"
-        >
-
-        <small class="help-text">
-          Use the last 4 digits from your InstaPay transaction receipt.
-        </small>
-
-        <small id="refError" style="color:#dc2626;font-size:12px;"></small>
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" id="cancelPay">Cancel</button>
-        <button type="button" id="confirmPay" disabled>
-          Confirm Payment
-        </button>
-      </div>
+    <div class="row total">
+      <span>Total to Pay</span>
+      <strong>₱<span id="finalAmount">0.00</span></strong>
     </div>
   </div>
-
-  <div id="toast" class="toast"></div>
 
   <div class="section">
-    <label>Email</label>
-    <input type="email" id="email" required>
+    <label>Discount / Voucher Code</label>
+    <div class="voucher-row">
+    <input id="voucher" type="text" placeholder="Voucher code" />
+    <button id="applyVoucher">Apply</button>
+  </div>
+    <small id="voucherMsg"></small>
   </div>
 
-  <div class="section" id="qtyWrap" hidden>
-    <label>Quantity</label>
-    <div class="qty">
-      <button type="button" id="minus">−</button>
-      <input id="quantity" value="1">
-    <button type="button" id="plus">+</button>
+  <div class="section">
+  <label>Payment Method</label>
+  <div class="payment-methods">
+    <div class="method active">
+      <i class="fa-solid fa-building-columns"></i>
+      <span>InstaPay</span>
+    </div>
+    <div class="method">
+      <i class="fa-brands fa-bitcoin"></i>
+      <span>Binance Pay</span>
+    </div>
+    <div class="method">
+      <i class="fa-brands fa-paypal"></i>
+      <span>PayPal</span>
     </div>
   </div>
-
-  <div id="dynamicFields"></div>
-  <div id="paymentMethods"></div>
-
-  <button class="pay-btn">Proceed to Payment</button>
-
 </div>
+  <button class="pay-btn" style="margin-top: -10px;">
+    Pay
+  </button>
+  <button class="back-btn" id="backBtn">Back</button>
 
-<script src="js/payment.js"></script>
-<script src="js/submit.js"></script>
-<script src="js/script.js?v=1.0.3" defer></script>
+<script src="js/app.payx.min.js?v=1.0.4"></script>
+<script src="js/app.core.min.js?v=1.0.4" defer></script>
+<script src="js/app.boot.min.js?v=1.0.4" defer></script>
+<script src="js/app.guard.min.js?v=1.0.4" defer></script>
+<script src="js/app.fx.min.js?v=1.0.4" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout | GTServer</title>
+
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f4fb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <img src="img/headergentechservernew.png" alt="GTServer">
+  <i class="fa-solid fa-ellipsis-vertical menu-toggle" id="menuToggle"></i>
+</header>
+
+<main class="wrapper checkout-wrap">
+
+  <div class="page-title-wrap">
+    <h2 class="page-title"></h2>
+  </div>
+
+  <div class="summary" id="summary" hidden>
+    <div>
+      <div class="total">
+        ₱ <span id="totalPrice"></span>
+      </div>
+      <div class="unit" id="unitWrap" hidden>
+        ₱ <span id="unitPrice"></span> / unit
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <label>Email</label>
+    <input type="email" id="email" required>
+    <div class="note">Enter a valid email address to receive your order details.</div>
+  </div>
+
+  <div class="section" id="qtyWrap" hidden>
+    <label>Quantity</label>
+    <div class="qty">
+      <button type="button" id="minus">−</button>
+      <input id="quantity" value="1">
+      <button type="button" id="plus">+</button>
+    </div>
+  </div>
+
+  <div id="dynamicFields"></div>
+
+  <button class="pay-btn normal-btn" id="continueBtn">Place Order</button>
+  <button class="back-btn" id="backBtn" >Back</button>
+
+  <div class="cart">🛒</div>
+
+  <div class="description">
+    ➤ Unlock service for all phone models locked to FIDO & ROGERS CANADA.<br><br>
+    ➤ 1. Make sure the device is locked to Fido or Rogers.<br><br>
+    ➤ 2. Order WW BLACKLIST STATUS - PRO to find the status of your device. Make sure it shows CLEAN.<br><br>
+    <div class="note" style="margin-bottom: 10px;">
+       Note: Results depend on what info is available in the carrier/source database.
+    </div>
+    <span class="sample-link" onclick="openModal()">📄 View Sample</span><br><br>
+    <span style="color: red; font-weight: bold;">
+       🔴 Please ensure all submitted information is accurate. <strong>Refunds will not be issued</strong> for incorrect or invalid submissions.
+    </span>
+  </div>
+</main>
+
+<script src="js/app.chk.min.js?v=1.0.6"></script>
+<script src="js/app.flow.min.js?v=1.0.6"></script>
+
+<script src="js/app.core.min.js?v=1.0.4" defer></script>
+<script src="js/app.boot.min.js?v=1.0.4" defer></script>
+<script src="js/app.guard.min.js?v=1.0.4" defer></script>
+<script src="js/app.fx.min.js?v=1.0.4" defer></script>
+
+</body>
+</html>

@@ -5,7 +5,7 @@
     "price": "₱1,500",
     "image": "img/samsung.png",
     "from": "imei",
-    "link": "payment.html?from=imei",
+    "link": "checkout.html?from=imei",
     "pricingType": "flat",
     "minQty": 1,
     "maxQty": 1,
@@ -18,7 +18,7 @@
     "price": "₱1,500",
     "image": "img/honor.png",
     "from": "imei",
-    "link": "payment.html?from=imei",
+    "link": "checkout.html?from=imei",
     "pricingType": "flat",
     "fields": ["serial"],
     "remarks": true
@@ -29,7 +29,7 @@
     "price": "₱1,800",
     "image": "img/honor.png",
     "from": "imei",
-    "link": "payment.html?from=imei",
+    "link": "checkout.html?from=imei",
     "pricingType": "flat",
     "fields": ["serial"],
     "remarks": true
@@ -40,9 +40,20 @@
     "price": "₱2,300",
     "image": "img/honor.png",
     "from": "imei",
-    "link": "payment.html?from=imei",
+    "link": "checkout.html?from=imei",
     "pricingType": "flat",
     "fields": ["serial"],
+    "remarks": true
+  },
+  {
+    "title": "PHILIPPINES GLOBE SIM UNLOCK",
+    "subtitle": "IPHONE XR & NEWER MODELS - CLEAN",
+    "price": "₱400",
+    "image": "img/Globe.png",
+    "from": "imei",
+    "link": "checkout.html?from=imei",
+    "pricingType": "flat",
+    "fields": ["imei"],
     "remarks": true
   }
 ]

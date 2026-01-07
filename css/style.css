@@ -1,4 +1,4 @@
-:root{
+:root {
   --bg:#f2f4fb;
   --card:#ffffff;
   --primary:#5b5ce2;
@@ -8,10 +8,10 @@
 }
 
 body.dark {
-  --bg:    #0b1220;
-  --card:  #141c2f;
-  --text:  #e5e7eb;
-  --muted: #9ca3af;
+  --bg:#0b1220;
+  --card:#141c2f;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
   --border:#24304a;
 }
 
@@ -251,6 +251,8 @@ body.dark .menu-item:hover {
   padding-right: 12px;
   padding-bottom: 100px; /* from 170px → 100px */
 }
+
+
 
 /* =========================
    CLEAR ORDERS MODAL INPUT
@@ -689,11 +691,9 @@ body.dark .price{
 }
 
 .payment-wrap {
-  min-height: calc(100vh - 56px); /* minus header */
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0; /* alisin extra space */
-  justify-content: space-between;
+  min-height: auto;              /* 🔥 mahalaga */
+  display: block;                /* 🔥 alisin flex */
+  padding-bottom: 140px;         /* 🔥 space for nav */
 }
 
 .payment-wrap > *:not(.pay-btn) {
@@ -726,7 +726,7 @@ body.dark .price{
   background: var(--card);
   border: 1px solid var(--border);
   padding: 18px 20px;
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
 .summary .total {
@@ -740,14 +740,24 @@ body.dark .price{
   color: #4b5563;
 }
 
+.section input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  font-size: 15px;
+  background: var(--card);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
 input[type="email"],
 .qty input {
   width: 100%;
   padding: 14px 16px;
-  border-radius: 12px;
+  border-radius: 5px;
   border: 1px solid #dbe3f0;
   font-size: 15px;
-  background: #fff;
 }
 
 .qty {
@@ -824,6 +834,12 @@ body.dark #cancelClear {
   color: #e5e7eb;
 }
 
+.payment-methods .method {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
 
 /* =========================
    PAYMENT BUTTON (STICKY)
@@ -832,19 +848,46 @@ body.dark #cancelClear {
 .pay-btn {
   margin: 16px 20px;
   width: calc(100% - 40px);
-  padding: 18px;
-  border-radius: 18px;
+  padding: 12px;
+  border-radius: 5px;
 
-  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  background-color: #177240;
   color: #fff;
   font-size: 17px;
   font-weight: 700;
 
   border: none;
 
-  position: sticky;
-  bottom: 90px;
+  position: relative;
+  bottom: auto;
   z-index: 20;
+
+  margin-top: 10px;
+  cursor: pointer;
+
+  backdrop-filter: blur(6px);
+}
+
+.back-btn {
+  margin: 16px 20px;
+  width: calc(100% - 40px);
+  padding: 12px;
+  border-radius: 5px;
+
+  background-color: #ec4040;
+
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+
+  border: none;
+
+  position: relative;
+  bottom: auto;
+  z-index: 20;
+
+  margin-top: -5px;
+  cursor: pointer;
 
   backdrop-filter: blur(6px);
 }
@@ -856,10 +899,26 @@ body.dark #cancelClear {
 }
 
 .wrapper.payment-wrap {
-  min-height: calc(100vh - 56px);
-  padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
+  min-height: auto;
+  display: block;
+  padding-bottom: 90px; /* space for bottom nav */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.wrapper.checkout-wrap {
+  min-height: auto;
+  display: block;
+  padding-bottom: 90px; /* space for bottom nav */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.payment-wrap .pay-btn,
+.payment-wrap .back-btn {
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .sub-header {
@@ -868,22 +927,6 @@ body.dark #cancelClear {
   padding: 12px 16px;
   border-bottom: 1px solid rgba(0,0,0,.06);
   background: var(--card-bg, #fff);
-}
-
-.back-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #4f46e5;
-}
-
-.back-btn i {
-  font-size: 14px;
 }
 
 .section input[type="text"],
@@ -1515,22 +1558,31 @@ body.dark .card.order-card {
 }
 
 /* =========================
+   CHECKOUT + PAYMENT WIDTH
+========================= */
+
+@media (min-width: 768px) {
+  .checkout-wrap,
+  .payment-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+
+/* =========================
    CONTENT-ONLY OVERSLIDE
 ========================= */
 
 /* target ONLY page content */
-.wrapper {
+.wrapper.slide-enter {
+  animation: contentEnter .35s ease forwards;
   will-change: transform, opacity;
 }
 
-/* EXIT */
 .wrapper.slide-exit {
-  animation: contentExit .35s cubic-bezier(.25,.46,.45,.94) forwards;
-}
-
-/* ENTER */
-.wrapper.slide-enter {
-  animation: contentEnter .35s cubic-bezier(.25,.46,.45,.94) forwards;
+  animation: contentExit .25s ease forwards;
+  will-change: transform, opacity;
 }
 
 /* EXIT KEYFRAME */
@@ -1572,4 +1624,461 @@ body.dark .card.order-card {
     animation: none !important;
   }
 }
+
+/* MAIN WRAP FIX */
+main {
+  padding-top: 56px; /* header height */
+  padding-bottom: 90px; /* bottom nav */
+}
+
+/* CONTAINER */
+main .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ROW LAYOUT */
+main .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* LEFT / RIGHT */
+main .left,
+main .right {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* TEXT ALIGN – MOBILE */
+main h1,
+main h2,
+main h3,
+main h4,
+main p,
+main ul,
+main ol {
+  text-align: center;
+}
+
+/* LIST CENTER FIX */
+main ul,
+main ol {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+/* NOTES / SMALL TEXT */
+main .note,
+main .small {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* DOWNLOADS */
+main .download-row {
+  align-items: center;
+}
+
+main .download-row .btn {
+  max-width: 320px;
+}
+
+/* =========================
+   DESKTOP ENHANCEMENT
+========================= */
+@media (min-width: 768px) {
+
+  main .row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  main .left {
+    flex: 1.2;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  main .right {
+    flex: 0.8;
+    max-width: 360px;
+  }
+
+  /* TEXT ALIGN DESKTOP */
+  main .left h1,
+  main .left h2,
+  main .left h3,
+  main .left h4,
+  main .left p {
+    text-align: left;
+  }
+
+  main .left ul,
+  main .left ol {
+    text-align: left;
+    list-style-position: outside;
+    padding-left: 20px;
+  }
+
+  /* STICKY DOWNLOADS (DESKTOP ONLY) */
+  main .right {
+    position: sticky;
+    top: 90px;
+  }
+}
+
+/* Download section button (non-conflicting) */
+.download-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  transition: all 0.25s ease;
+}
+
+/* Hover state */
+.download-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+}
+
+/* Active / click state */
+.download-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.3);
+}
+
+/* Optional: icon support if needed later */
+.download-btn-primary i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Dark mode menu item - refined interaction */
+#menuDark {
+  position: relative;
+  transition:
+    background 0.25s ease,
+    transform 0.12s ease,
+    box-shadow 0.25s ease;
+  border-radius: 10px;
+}
+
+#menuDark:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body:not(.dark) #menuDark:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+#menuDark:active {
+  transform: scale(0.965);
+}
+
+/* Icon animation */
+#menuDark i {
+  width: 18px;
+  text-align: center;
+  transition:
+    transform 0.35s cubic-bezier(.4,0,.2,1),
+    opacity 0.2s ease;
+}
+
+/* Rotate only on dark */
+body.dark #menuDark i {
+  transform: rotate(180deg);
+}
+
+/* Label subtle slide */
+#menuDark span {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+#menuDark:active span {
+  transform: translateX(2px);
+  opacity: 0.85;
+}
+
+.page-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0 28px;
+  margin-top: 0px;
+}
+
+.page-title-wrap .page-title {
+  margin: 0;
+}
+
+.title-back-btn {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.title-back-btn i {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.title-back-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.note {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.description {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 20px auto;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 520px;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 28px;
+}
+
+/* =========================
+   FIX AUTOFILL WHITE INPUT
+========================= */
+.checkout-wrap input:-webkit-autofill,
+.checkout-wrap input:-webkit-autofill:hover,
+.checkout-wrap input:-webkit-autofill:focus,
+.payment-wrap input:-webkit-autofill,
+.payment-wrap input:-webkit-autofill:hover,
+.payment-wrap input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--card) inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+  transition: background-color 9999s ease-out 0s;
+}
+
+/* =========================
+   APPLY VOUCHER BUTTON
+========================= */
+
+#applyVoucher {
+  margin-top: 10px;
+  padding: 10px 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(91, 92, 226, 0.15),
+    rgba(91, 92, 226, 0.05)
+  );
+
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+
+  border: 1px solid rgba(91, 92, 226, 0.35);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: 
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.12s ease,
+    box-shadow 0.2s ease;
+}
+
+/* hover */
+#applyVoucher:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(91, 92, 226, 0.25),
+    rgba(91, 92, 226, 0.12)
+  );
+  border-color: rgba(91, 92, 226, 0.55);
+  box-shadow: 0 6px 18px rgba(91, 92, 226, 0.25);
+}
+
+/* active (tap / click) */
+#applyVoucher:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(91, 92, 226, 0.2);
+}
+
+/* disabled (after success) */
+#applyVoucher:disabled {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  border-color: var(--border);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* success state (optional via JS class) */
+#applyVoucher.success {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 163, 74, 0.25),
+    rgba(22, 163, 74, 0.15)
+  );
+  border-color: rgba(22, 163, 74, 0.55);
+  color: #6ee7b7;
+}
+
+/* =========================
+   VOUCHER APPLIED CHECK ICON
+========================= */
+.voucher-applied {
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2316a34a' viewBox='0 0 24 24'%3E%3Cpath d='M9.00039 16.2L4.80039 12L3.40039 13.4L9.00039 19L21.0004 7L19.6004 5.6Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+}
+
+/* =========================
+   STRIKE-THROUGH BASE PRICE
+========================= */
+#baseAmount.striked {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* =========================
+   CENTER VOUCHER MESSAGE
+========================= */
+#voucherMsg {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+#voucherMsg.error {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+/* =========================
+   VOUCHER INPUT + APPLY (70/30)
+========================= */
+.voucher-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.voucher-row input {
+  flex: 7;              /* 70% */
+}
+
+.voucher-row button {
+  flex: 3;              /* 30% */
+  height: 44px;         /* match input height */
+  white-space: nowrap;
+}
+
+/* =========================
+   VOUCHER ROW – PERFECT ALIGN
+========================= */
+.voucher-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch; /* 🔑 */
+}
+
+/* SAME HEIGHT BASE */
+.voucher-row input,
+.voucher-row button {
+  height: 46px;                 /* 🔥 single source of truth */
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* INPUT */
+.voucher-row input {
+  flex: 7;
+  padding: 0 14px;
+}
+
+/* BUTTON */
+.voucher-row button {
+  flex: 3;
+  padding: 0;
+  display: flex;                /* 🔑 center text */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+/* =========================
+   HARD RESET – VOUCHER ROW
+========================= */
+.section .voucher-row input,
+.section .voucher-row button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: 46px !important;
+  min-height: 46px !important;
+
+  padding: 0 14px !important;
+  margin: 0 !important;
+
+  line-height: 46px !important;
+  box-sizing: border-box !important;
+  border-radius: 12px;
+}
+
+/* center button text perfectly */
+.section .voucher-row button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   APPLY / REMOVE BUTTON STATE
+========================= */
+#applyVoucher.remove-mode {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.25),
+    rgba(239, 68, 68, 0.15)
+  );
+  border-color: rgba(190, 31, 31, 0.6);
+  color: #fecaca;
+}
+
 
