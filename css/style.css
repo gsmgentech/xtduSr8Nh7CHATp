@@ -2081,4 +2081,223 @@ body.dark #menuDark i {
   color: #fecaca;
 }
 
+/* =========================
+   REMOVE THIS IF DONE
+========================= */
+/* Modal */
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.modal-box{
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+  font-family: Inter, sans-serif;
+}
+
+.dark .modal-box{
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.dark .modal-header{
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.modal-header h3{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-close{
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor:pointer;
+}
+
+.modal-body{
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.modal-footer{
+  padding: 14px 16px;
+  border-top: 1px solid rgba(0,0,0,.08);
+  display:flex;
+  justify-content:flex-end;
+  gap: 10px;
+}
+
+.dark .modal-footer{
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+/* Result formatting */
+.result-grid{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+.result-item{
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+}
+
+.dark .result-item{
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.result-item .label{
+  opacity: .85;
+  font-weight: 600;
+}
+
+.result-item .value{
+  text-align:right;
+  font-weight: 600;
+}
+
+/* Status pills */
+.status-pill{
+  display:inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+.status-ok{
+  background: rgba(34,197,94,.12);
+  color: #16a34a;
+  border-color: rgba(34,197,94,.35);
+}
+
+.status-unknown{
+  background: rgba(148,163,184,.14);
+  color: #64748b;
+  border-color: rgba(148,163,184,.35);
+}
+
+.status-blacklist{
+  background: rgba(239,68,68,.12);
+  color: #ef4444;
+  border-color: rgba(239,68,68,.35);
+}
+
+/* Error box */
+.error-box{
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(239,68,68,.35);
+  background: rgba(239,68,68,.08);
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.modal-box{
+  width: 100%;
+  max-width: 520px;
+
+  /* ✅ prevent sagad top/bottom */
+  max-height: calc(100vh - 40px);
+
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+
+  /* ✅ allow body scroll layout */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body{
+  padding: 16px;
+
+  /* ✅ THIS enables scrolling */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* ✅ body takes remaining height */
+  flex: 1;
+}
+
+/* optional: mas ok spacing sa phone */
+.modal-overlay{
+  padding: 20px 12px;
+  align-items: center; /* pwede rin flex-start kung gusto mo sa taas */
+}
+
+@media (max-width: 480px){
+  .modal-box{
+    max-width: 100%;
+    border-radius: 14px;
+  }
+}
+
+.blacklist-banner{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(239,68,68,.35);
+
+  color: #fecaca;
+  background: rgba(239,68,68,.18);
+}
+
+/* Icon styling */
+.blacklist-banner i{
+  font-size: 16px;
+  color: #ef4444;
+}
+
+/* ✅ Professional blinking (soft pulse) */
+@keyframes blacklistPulse {
+  0%   { opacity: 1; }
+  50%  { opacity: .45; }
+  100% { opacity: 1; }
+}
+
+.blacklist-banner{
+  animation: blacklistPulse 1.1s ease-in-out infinite;
+}
+
+/* dark mode */
+.dark .blacklist-banner{
+  background: rgba(239,68,68,.16);
+  border-bottom: 1px solid rgba(239,68,68,.30);
+}
+
+
 

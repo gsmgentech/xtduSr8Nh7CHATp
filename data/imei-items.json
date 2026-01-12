@@ -55,5 +55,16 @@
     "pricingType": "flat",
     "fields": ["imei"],
     "remarks": true
+  },
+  {
+    "title": "IMEI CHECKER",
+    "subtitle": "FOR SAMSUNG DEVICES",
+    "price": "₱1",
+    "image": "img/samsung.png",
+    "from": "imei",
+    "link": "imeichecker.html",
+    "pricingType": "flat",
+    "fields": ["imei"],
+    "remarks": true
   }
 ]
