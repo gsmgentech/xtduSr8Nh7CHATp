@@ -62,7 +62,7 @@
   <div id="imeiModal" class="modal-overlay" style="display:none;">
     <div class="modal-box">
 
-      <!-- ✅ BLACKLIST BANNER (TOP OF MODAL) -->
+      <!-- ✅ BLACKLIST BANNER -->
       <div id="blacklistBanner" class="blacklist-banner" style="display:none;">
         <i class="fa-solid fa-triangle-exclamation"></i>
         <span><strong>THIS DEVICE IS BLACKLISTED</strong> — Carrier status indicates blacklist.</span>
@@ -77,9 +77,19 @@
 
       <div class="modal-body" id="modalBody"></div>
 
-      <div class="modal-footer">
-        <button class="normal-btn" type="button" onclick="closeImeiModal()">Close</button>
+      <!-- ✅ ONLY ONE BUTTON (CENTERED) -->
+      <div class="modal-footer" style="display:flex; justify-content:center; padding:14px 16px;">
+        <button
+          id="removeBlacklistBtn"
+          type="button"
+          class="pay-btn normal-btn"
+          style="display:none; width: 100%; max-width: 260px; justify-content:center;"
+          onclick="goToRemoveBlacklist()">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          Remove Blacklist (USD 165)
+        </button>
       </div>
+
     </div>
   </div>
 
@@ -132,12 +142,23 @@
     if (b) b.style.display = "none";
   }
 
+  function showRemoveBlacklistButton() {
+    const btn = document.getElementById("removeBlacklistBtn");
+    if (btn) btn.style.display = "inline-flex";
+  }
+
+  function hideRemoveBlacklistButton() {
+    const btn = document.getElementById("removeBlacklistBtn");
+    if (btn) btn.style.display = "none";
+  }
+
   function openImeiModal(title, html) {
     document.getElementById("modalTitle").textContent = title;
     document.getElementById("modalBody").innerHTML = html;
 
-    // ✅ reset banner every open
+    // reset banner + button every time
     hideBlacklistBanner();
+    hideRemoveBlacklistButton();
 
     document.getElementById("imeiModal").style.display = "flex";
   }
@@ -161,7 +182,6 @@
   }
 
   function renderSamsungResult() {
-    // cleaned data (no duplicates)
     const data = [
       ["Manufacturer", "Samsung Electronics Vietnam Co., Ltd. (SEVT)"],
       ["Full Name", "MOBILE SM-S93BJ BLACK KDI"],
@@ -191,7 +211,6 @@
 
     let html = `<div class="result-grid">`;
 
-    // main info
     html += `<div style="font-weight:800;margin:2px 0 6px;">Device Information</div>`;
     data.forEach(([k, v]) => {
       html += `
@@ -201,7 +220,6 @@
         </div>`;
     });
 
-    // carrier status
     html += `<div style="font-weight:800;margin:14px 0 6px;">Carrier / Network Status</div>`;
     carrierStatus.forEach(([k, v]) => {
       html += `
@@ -222,6 +240,12 @@
         Invalid IMEI or Serial Number. Please verify the details and try again.
       </div>`
     );
+  }
+
+  // redirect for Remove Blacklist
+  function goToRemoveBlacklist() {
+    // Change to your real service page
+    window.location.href = "remove-blacklist.html";
   }
 
   // MAIN: Place Order button logic
@@ -264,14 +288,15 @@
       if (matched) {
         openImeiModal("Samsung IMEI Check Result", renderSamsungResult());
 
-        // ✅ since sample device includes KDDI Status = Blacklist
+        // Show banner + button for blacklist
         showBlacklistBanner();
+        showRemoveBlacklistButton();
       } else {
         showInvalidError();
       }
 
       return false;
-    }, true); // ✅ capture mode (runs before app scripts)
+    }, true); // capture mode
   });
 </script>
 
