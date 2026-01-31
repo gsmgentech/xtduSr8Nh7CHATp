@@ -92,5 +92,16 @@
     "pricingType": "flat",
     "fields": ["imei"],
     "remarks": true
+  },
+  {
+    "title": "SAMSUNG FRP REMOVAL",
+    "subtitle": "CHECK STATUS",
+    "price": "₱1",
+    "image": "img/samsung.png",
+    "from": "imei",
+    "link": "imeichecker2.html",
+    "pricingType": "flat",
+    "fields": ["imei"],
+    "remarks": true
   }
 ]
