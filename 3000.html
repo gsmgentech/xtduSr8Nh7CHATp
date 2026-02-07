@@ -27,14 +27,8 @@ if (localStorage.getItem('theme') === 'dark') {
   font-size:13px;
   font-weight:700;
   animation:pulse 1.1s ease-in-out infinite;
-  background:none !important;
-  background-image:none !important;
 }
-@keyframes pulse{
-  0%{opacity:1}
-  50%{opacity:.45}
-  100%{opacity:1}
-}
+@keyframes pulse{0%{opacity:1}50%{opacity:.45}100%{opacity:1}}
 .frp-anim{
   font-family:monospace;
   font-weight:800;
@@ -42,55 +36,43 @@ if (localStorage.getItem('theme') === 'dark') {
   color:#22c55e;
   min-height:24px;
 }
-.confirm-overlay{
+.confirm-overlay,
+.connect-overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.65);
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:999;
   opacity:0;
   pointer-events:none;
   transition:.35s;
+  z-index:999;
 }
-.confirm-overlay.show{
+.confirm-overlay.show,
+.connect-overlay.show{
   opacity:1;
   pointer-events:auto;
 }
-.confirm-box{
+.confirm-box,
+.connect-box{
   background:#020617;
   width:92%;
-  max-width:420px;
-  border-radius:16px;
-  padding:22px;
+  max-width:440px;
+  border-radius:18px;
+  padding:28px;
   transform:scale(.85);
   transition:.35s;
+  text-align:center;
 }
-.confirm-overlay.show .confirm-box{
+.confirm-overlay.show .confirm-box,
+.connect-overlay.show .connect-box{
   transform:scale(1);
-}
-.confirm-icon{
-  font-size:36px;
-  color:#22c55e;
-  text-align:center;
-  margin-bottom:12px;
-}
-.confirm-title{
-  text-align:center;
-  font-size:18px;
-  font-weight:800;
-  margin-bottom:8px;
-}
-.confirm-text{
-  text-align:center;
-  font-size:14px;
-  opacity:.8;
-  margin-bottom:20px;
 }
 .confirm-actions{
   display:flex;
   gap:10px;
+  margin-top:20px;
 }
 .confirm-actions button{
   flex:1;
@@ -104,9 +86,32 @@ if (localStorage.getItem('theme') === 'dark') {
   color:#022c22;
 }
 .confirm-no{
-  background:#020617;
-  color:#cbd5f5;
-  border:1px solid #1e293b;
+  background:#f87171;
+  color:#022c22;
+  border:1px solid rgba(248,113,113,.45);
+}
+.pro-spinner-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+.pro-spinner{
+  width:64px;
+  height:64px;
+  animation:pro-rotate 1.1s linear infinite;
+}
+@keyframes pro-rotate{to{transform:rotate(360deg)}}
+.pro-spinner-text{
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.3px;
+  opacity:.75;
+}
+.connect-title{
+  font-size:16px;
+  font-weight:800;
+  margin-top:4px;
 }
 </style>
 </head>
@@ -166,9 +171,8 @@ if (localStorage.getItem('theme') === 'dark') {
 
 <div id="confirmModal" class="confirm-overlay">
   <div class="confirm-box">
-    <div class="confirm-icon"><i class="fa-solid fa-wallet"></i></div>
-    <div class="confirm-title">Confirm Transaction</div>
-    <div class="confirm-text">₱3,000 will be credited to your balance</div>
+    <div class="connect-title">Confirm Transaction</div>
+    <div class="pro-spinner-text">₱3,000 will be credited to your balance</div>
     <div class="confirm-actions">
       <button class="confirm-no" onclick="closeConfirm()">Cancel</button>
       <button class="confirm-yes" onclick="confirmProceed()">Proceed</button>
@@ -176,34 +180,46 @@ if (localStorage.getItem('theme') === 'dark') {
   </div>
 </div>
 
+<div id="connectModal" class="connect-overlay">
+  <div class="connect-box">
+    <div class="pro-spinner-wrap">
+      <svg class="pro-spinner" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="spinGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#16a34a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="url(#spinGradient)" stroke-width="6" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="120"/>
+      </svg>
+      <div class="connect-title">Connecting to Samsung Secure Server</div>
+      <div class="pro-spinner-text">Establishing encrypted session and validating device credentials</div>
+    </div>
+  </div>
+</div>
+
 <script>
-let paused=false;
-let currentIndex=0;
-let revealTimeout=null;
-let rollingInterval=null;
+let paused=false,currentIndex=0,rollingInterval=null,revealTimeout=null,disconnects=0,maxDisconnects=0
 
 function openImeiModal(html){
-  document.getElementById("modalBody").innerHTML=html;
-  document.getElementById("imeiModal").style.display="flex";
+  document.getElementById("modalBody").innerHTML=html
+  document.getElementById("imeiModal").style.display="flex"
 }
 function closeImeiModal(){
-  document.getElementById("imeiModal").style.display="none";
+  document.getElementById("imeiModal").style.display="none"
 }
 
 function setBanner(type,text,icon){
-  const b=document.getElementById("statusBanner");
-  const t=document.getElementById("bannerText");
-  const i=document.getElementById("bannerIcon");
-  let bg,color,border;
+  const b=document.getElementById("statusBanner")
+  let bg,color,border
   if(type==="green"){bg="rgba(34,197,94,.22)";color="#dcfce7";border="rgba(34,197,94,.45)"}
   if(type==="red"){bg="rgba(239,68,68,.22)";color="#fecaca";border="rgba(239,68,68,.45)"}
   if(type==="yellow"){bg="rgba(234,179,8,.22)";color="#fef3c7";border="rgba(234,179,8,.45)"}
-  b.style.display="flex";
-  b.style.background=bg;
-  b.style.color=color;
-  b.style.borderBottom="1px solid "+border;
-  t.innerHTML="<strong>"+text+"</strong>";
-  i.className=icon;
+  b.style.display="flex"
+  b.style.background=bg
+  b.style.color=color
+  b.style.borderBottom="1px solid "+border
+  b.innerHTML=`<i class="${icon}"></i><strong>${text}</strong>`
 }
 
 function renderSamsungResult(){
@@ -214,59 +230,74 @@ function renderSamsungResult(){
     ["IMEI2","352396300373079"],
     ["Serial Number","R5CY12K92ED"],
     ["FRP PIN",`<span id="frpPin" class="frp-anim"></span>`]
-  ];
-  let html=`<div class="result-grid"><div style="font-weight:800;margin-bottom:6px;">Device Information</div>`;
-  data.forEach(([k,v])=>{
-    html+=`<div class="result-item"><div class="label">${k}</div><div class="value">${v}</div></div>`;
-  });
-  return html+`</div>`;
+  ]
+  let h=`<div class="result-grid"><div style="font-weight:800;margin-bottom:6px;">Device Information</div>`
+  data.forEach(([k,v])=>h+=`<div class="result-item"><div class="label">${k}</div><div class="value">${v}</div></div>`)
+  return h+`</div>`
 }
 
 function animateFRPPin(){
-  const finalPin="521422615512";
-  const el=document.getElementById("frpPin");
-  const delayPerDigit=25000;
-  const rollSpeed=90;
-  function startRolling(){
-    stopRolling();
-    rollingInterval=setInterval(()=>el.textContent=finalPin.slice(0,currentIndex)+Math.floor(Math.random()*10),rollSpeed);
-  }
-  function stopRolling(){
-    if(rollingInterval){clearInterval(rollingInterval);rollingInterval=null}
-  }
+  const pin="521422615512"
+  const el=document.getElementById("frpPin")
+  function roll(){rollingInterval=setInterval(()=>el.textContent=pin.slice(0,currentIndex)+Math.floor(Math.random()*10),90)}
+  function stop(){clearInterval(rollingInterval)}
   function next(){
-    if(currentIndex>=finalPin.length){stopRolling();el.textContent=finalPin;return}
-    if(paused){revealTimeout=setTimeout(next,1000);return}
-    startRolling();
-    revealTimeout=setTimeout(()=>{stopRolling();currentIndex++;el.textContent=finalPin.slice(0,currentIndex);next()},delayPerDigit);
+    if(currentIndex>=pin.length){stop();el.textContent=pin;return}
+    if(paused){setTimeout(next,1000);return}
+    roll()
+    setTimeout(()=>{stop();currentIndex++;el.textContent=pin.slice(0,currentIndex);next()},25000)
   }
-  next();
+  next()
 }
 
-function openConfirm(){
-  document.getElementById("confirmModal").classList.add("show");
+function randomDisconnectFlow(){
+  if(disconnects>=maxDisconnects){
+    paused=true
+    setBanner("red","DISCONNECTED FROM SAMSUNG SERVER","fa-solid fa-triangle-exclamation")
+    return
+  }
+  setTimeout(()=>{
+    paused=true
+    setBanner("red","DISCONNECTED FROM SAMSUNG SERVER","fa-solid fa-triangle-exclamation")
+    setTimeout(()=>{
+      paused=false
+      setBanner("yellow","RECONNECTING TO SAMSUNG SERVER","fa-solid fa-arrows-rotate")
+      setTimeout(()=>{
+        setBanner("green","CONNECTED TO SAMSUNG SERVER","fa-solid fa-circle-check")
+        disconnects++
+        randomDisconnectFlow()
+      },4000)
+    },3000)
+  },Math.floor(Math.random()*8000)+6000)
 }
-function closeConfirm(){
-  document.getElementById("confirmModal").classList.remove("show");
-}
+
+function openConfirm(){document.getElementById("confirmModal").classList.add("show")}
+function closeConfirm(){document.getElementById("confirmModal").classList.remove("show")}
+function openConnect(){document.getElementById("connectModal").classList.add("show")}
+function closeConnect(){document.getElementById("connectModal").classList.remove("show")}
+
 function confirmProceed(){
-  closeConfirm();
-  paused=false;
-  currentIndex=0;
-  openImeiModal(renderSamsungResult());
-  setBanner("green","CONNECTED TO SAMSUNG SERVER","fa-solid fa-circle-check");
-  animateFRPPin();
-  setTimeout(()=>{paused=true;setBanner("red","DISCONNECTED FROM SAMSUNG SERVER","fa-solid fa-triangle-exclamation")},30000);
-  setTimeout(()=>{setBanner("yellow","RECONNECTING FROM SAMSUNG SERVER","fa-solid fa-arrows-rotate")},40000);
-  setTimeout(()=>{paused=false;setBanner("green","CONNECTED FROM SAMSUNG SERVER","fa-solid fa-circle-check")},70000);
+  closeConfirm()
+  openConnect()
+  setTimeout(()=>{
+    closeConnect()
+    paused=false
+    currentIndex=0
+    disconnects=0
+    maxDisconnects=Math.floor(Math.random()*3)+3
+    openImeiModal(renderSamsungResult())
+    setBanner("green","CONNECTED TO SAMSUNG SERVER","fa-solid fa-circle-check")
+    animateFRPPin()
+    randomDisconnectFlow()
+  },120000)
 }
 
-document.getElementById("continueBtn").addEventListener("click",function(e){
-  e.preventDefault();
-  e.stopImmediatePropagation();
-  openConfirm();
-  return false;
-},true);
+document.getElementById("continueBtn").addEventListener("click",e=>{
+  e.preventDefault()
+  e.stopImmediatePropagation()
+  openConfirm()
+  return false
+},true)
 </script>
 
 <script src="js/app.chk.min.js?v=1.0.6"></script>
