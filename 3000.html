@@ -199,7 +199,7 @@ if (localStorage.getItem('theme') === 'dark') {
 </div>
 
 <script>
-let paused=false,currentIndex=0,rollingInterval=null,revealTimeout=null,disconnects=0,maxDisconnects=0
+let paused=false,currentIndex=0,rollingInterval=null
 
 function openImeiModal(html){
   document.getElementById("modalBody").innerHTML=html
@@ -251,11 +251,6 @@ function animateFRPPin(){
 }
 
 function randomDisconnectFlow(){
-  if(disconnects>=maxDisconnects){
-    paused=true
-    setBanner("red","DISCONNECTED FROM SAMSUNG SERVER","fa-solid fa-triangle-exclamation")
-    return
-  }
   setTimeout(()=>{
     paused=true
     setBanner("red","DISCONNECTED FROM SAMSUNG SERVER","fa-solid fa-triangle-exclamation")
@@ -264,7 +259,6 @@ function randomDisconnectFlow(){
       setBanner("yellow","RECONNECTING TO SAMSUNG SERVER","fa-solid fa-arrows-rotate")
       setTimeout(()=>{
         setBanner("green","CONNECTED TO SAMSUNG SERVER","fa-solid fa-circle-check")
-        disconnects++
         randomDisconnectFlow()
       },4000)
     },3000)
@@ -283,8 +277,6 @@ function confirmProceed(){
     closeConnect()
     paused=false
     currentIndex=0
-    disconnects=0
-    maxDisconnects=Math.floor(Math.random()*3)+3
     openImeiModal(renderSamsungResult())
     setBanner("green","CONNECTED TO SAMSUNG SERVER","fa-solid fa-circle-check")
     animateFRPPin()
