@@ -1,7 +1,7 @@
 [
   {
     "title": "SAMSUNG FRP REMOVAL",
-    "subtitle": "LEVEL 1 | ANDROID 10/11/12/13/14",
+    "subtitle": "LEVEL 1 | ANDROID 10/11/12",
     "price": "₱1,500",
     "image": "img/samsung.png",
     "from": "imei",
@@ -14,8 +14,8 @@
   },
   {
     "title": "SAMSUNG FRP REMOVAL",
-    "subtitle": "LEVEL 5 | ANDROID 15",
-    "price": "₱2,500",
+    "subtitle": "LEVEL 2 | ANDROID 13/14",
+    "price": "₱1,500",
     "image": "img/samsung.png",
     "from": "imei",
     "link": "checkout.html?from=imei",
@@ -27,7 +27,33 @@
   },
   {
     "title": "SAMSUNG FRP REMOVAL",
-    "subtitle": "LEVEL 4 | ANDROID 16",
+    "subtitle": "LEVEL 3 | ANDROID 15",
+    "price": "₱2,500",
+    "image": "img/samsung.png",
+    "from": "imei",
+    "link": "checkout.html?from=imei",
+    "pricingType": "flat",
+    "minQty": 1,
+    "maxQty": 1,
+    "fields": ["imei"],
+    "remarks": true
+  },
+  {
+    "title": "SAMSUNG FRP REMOVAL", 
+    "subtitle": "LEVEL 4 | ANDROID 15 | VIA PIN, PATTERN, OR PASSWORD",
+    "price": "₱3,000",
+    "image": "img/samsung.png",
+    "from": "imei",
+    "link": "3000.html",
+    "pricingType": "flat",
+    "minQty": 1,
+    "maxQty": 1,
+    "fields": ["imei"],
+    "remarks": true
+  },
+  {
+    "title": "SAMSUNG FRP REMOVAL",
+    "subtitle": "LEVEL 5 | ANDROID 16",
     "price": "₱200",
     "image": "img/samsung.png",
     "from": "imei",
