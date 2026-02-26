@@ -120,6 +120,17 @@
     "remarks": true
   },
   {
+    "title": "IMEI CHECKER",
+    "subtitle": "FOR VIVO DEVICES",
+    "price": "₱1",
+    "image": "img/vivo-logo.png",
+    "from": "imei",
+    "link": "imeicheckervivo.html",
+    "pricingType": "flat",
+    "fields": ["imei"],
+    "remarks": true
+  },
+  {
     "title": "SAMSUNG FRP REMOVAL",
     "subtitle": "CHECK STATUS",
     "price": "₱1",
