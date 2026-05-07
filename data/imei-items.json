@@ -31,7 +31,7 @@
     "price": "₱3,000",
     "image": "img/xiaomi.png",
     "from": "imei",
-    "link": "checkout.html?from=imei",
+    "link": "fakehistory.html?from=imei",
     "pricingType": "flat",
     "minQty": 1,
     "maxQty": 1,
