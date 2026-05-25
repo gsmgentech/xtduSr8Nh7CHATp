@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders | GTServer</title>
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f4fb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      !localStorage.getItem('theme')
+    ) {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .txn-page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 28px auto 90px;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #111827;
+    }
+
+    .dark .txn-page {
+      color: #e5e7eb;
+    }
+
+    .txn-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 16px;
+      background: rgba(245, 158, 11, 0.10);
+      color: #92400e;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .dark .txn-notice {
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .txn-hero {
+      display: grid;
+      grid-template-columns: 1.5fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .txn-card {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .dark .txn-card {
+      background: rgba(15, 23, 42, 0.88);
+      border-color: rgba(148, 163, 184, 0.18);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .txn-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .txn-eyebrow {
+      margin: 0 0 6px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .dark .txn-eyebrow {
+      color: #94a3b8;
+    }
+
+    .txn-title {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 34px);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .txn-subtitle {
+      margin: 10px 0 0;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    .dark .txn-subtitle {
+      color: #94a3b8;
+    }
+
+    .txn-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.12);
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dark .txn-badge {
+      background: rgba(59, 130, 246, 0.18);
+      color: #93c5fd;
+    }
+
+    .txn-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .txn-summary-item {
+      padding: 14px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .dark .txn-summary-item {
+      background: rgba(30, 41, 59, 0.78);
+      border-color: rgba(148, 163, 184, 0.14);
+    }
+
+    .txn-summary-label {
+      margin: 0 0 6px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .dark .txn-summary-label {
+      color: #94a3b8;
+    }
+
+    .txn-summary-value {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .txn-amount-card {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .txn-amount {
+      margin: 8px 0 4px;
+      font-size: clamp(34px, 7vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+    }
+
+    .txn-muted {
+      margin: 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .dark .txn-muted {
+      color: #94a3b8;
+    }
+
+    .txn-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-top: 18px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.13);
+      color: #b45309;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .dark .txn-status-pill {
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.16);
+    }
+
+    .txn-section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .txn-section-title h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .txn-timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .txn-entry {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .txn-time {
+      color: #475569;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.4;
+      padding-top: 4px;
+    }
+
+    .dark .txn-time {
+      color: #cbd5e1;
+    }
+
+    .txn-time span {
+      display: block;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .txn-entry-body {
+      position: relative;
+      padding: 0 0 18px 24px;
+      border-left: 2px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .txn-entry:last-child .txn-entry-body {
+      padding-bottom: 0;
+      border-left-color: transparent;
+    }
+
+    .txn-dot {
+      position: absolute;
+      top: 2px;
+      left: -8px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 3px solid #ffffff;
+      background: #f59e0b;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.18);
+    }
+
+    .dark .txn-dot {
+      border-color: #0f172a;
+    }
+
+    .txn-dot.cancelled {
+      background: #ef4444;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.16);
+    }
+
+    .txn-dot.refund {
+      background: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.16);
+    }
+
+    .txn-entry-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .dark .txn-entry-card {
+      background: rgba(30, 41, 59, 0.72);
+      border-color: rgba(148, 163, 184, 0.14);
+    }
+
+    .txn-entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .txn-entry-head h3 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .txn-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.13);
+      color: #b45309;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .dark .txn-tag {
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.15);
+    }
+
+    .txn-description {
+      margin: 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .dark .txn-description {
+      color: #94a3b8;
+    }
+
+    .txn-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .txn-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 9px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      color: #475569;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .dark .txn-meta span {
+      background: rgba(15, 23, 42, 0.58);
+      border-color: rgba(148, 163, 184, 0.14);
+      color: #cbd5e1;
+    }
+
+    .status-pending {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.18);
+      color: #ffb020;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .status-pending .pending-loader {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 176, 32, 0.25);
+      border-top-color: #ffb020;
+      border-right-color: #ffb020;
+      animation: pendingSpin 0.75s linear infinite;
+    }
+
+    @keyframes pendingSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .txn-page {
+        width: min(100% - 24px, 1120px);
+        margin-top: 18px;
+      }
+
+      .txn-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .txn-summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .txn-card {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .txn-title-row,
+      .txn-entry-head,
+      .txn-section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .txn-entry {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .txn-time {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        padding-top: 0;
+      }
+
+      .txn-time span {
+        display: inline;
+      }
+
+      .txn-entry-body {
+        margin-left: 7px;
+        padding-left: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <img src="img/headergentechservernew.png" alt="GTServer">
+    <i class="fa-solid fa-ellipsis-vertical menu-toggle" id="menuToggle"></i>
+  </header>
+
+  <nav class="nav">...</nav>
+
+  <main class="txn-page">
+    <section class="txn-hero">
+      <div class="txn-card">
+        <div class="txn-title-row">
+          <div>
+            <p class="txn-eyebrow">Transaction History</p>
+            <h1 class="txn-title">Mi Account Removal Order</h1>
+            <p class="txn-subtitle">Current activity log for the Mi Account Removal service request, including the cancellation status and refund request updates.</p>
+          </div>
+        </div>
+
+        <div class="txn-summary-grid">
+          <div class="txn-summary-item">
+            <p class="txn-summary-label">Order ID</p>
+            <p class="txn-summary-value">GT-MI-20430</p>
+          </div>
+          <div class="txn-summary-item">
+            <p class="txn-summary-label">Service Price</p>
+            <p class="txn-summary-value">$22.00 USD</p>
+          </div>
+          <div class="txn-summary-item">
+            <p class="txn-summary-label">Latest Status</p>
+            <p class="txn-summary-value">Completed</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="txn-card txn-amount-card">
+        <div>
+          <p class="txn-eyebrow">Refund Amount</p>
+          <p class="txn-amount">$22.00</p>
+          <p class="txn-muted">The refund request was reviewed and rejected because the Mi Account Removal service was completed successfully.</p>
+        </div>
+        <span class="status-pending">
+          <span class="pending-loader"></span>
+          Refund Rejected
+        </span>
+      </aside>
+    </section>
+
+    <section class="txn-card">
+      <div class="txn-section-title">
+        <h2>Activity Timeline</h2>
+        <span class="txn-badge"><i class="fa-solid fa-shield-halved"></i> Status Monitoring</span>
+      </div>
+
+      <div class="txn-timeline">
+        <article class="txn-entry">
+          <div class="txn-time">11:48 PM <span>Monday</span></div>
+          <div class="txn-entry-body">
+            <span class="txn-dot cancelled"></span>
+            <div class="txn-entry-card">
+              <div class="txn-entry-head">
+                <h3>Mi Account Removal Request</h3>
+                <span class="txn-tag" style="color:rgb(0, 255, 0);">Success</span>
+              </div>
+              <p class="txn-description">Mi Account Removal for Unlock code 44VY-GNCO-U6EU-5KQ</p>
+              <div class="txn-meta">
+                <span><i class="fa-solid fa-box"></i> Service: Mi Account Removal Philippines</span>
+                <span><i class="fa-solid fa-dollar-sign"></i> Price: $22.00 USD</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="txn-entry">
+          <div class="txn-time">12:12 AM <span>Today</span></div>
+          <div class="txn-entry-body">
+            <span class="txn-dot refund"></span>
+            <div class="txn-entry-card">
+              <div class="txn-entry-head">
+                <h3>Request In Process</h3>
+                <span class="txn-tag" style="color:rgb(255, 174, 0);">In Process</span>
+              </div>
+              <div class="txn-meta">
+                <span><i class="fa-solid fa-box"></i> Service: Mi Account Removal Philippines</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!--article class="txn-entry">
+          <div class="txn-time">11:17 PM <span>Today</span></div>
+          <div class="txn-entry-body">
+            <span class="txn-dot refund"></span>
+            <div class="txn-entry-card">
+              <div class="txn-entry-head">
+                <h3>Refund Request Rejected</h3>
+                <span class="txn-tag" style="color:rgb(255, 0, 0);">Rejected</span>
+              </div>
+              <p class="txn-description">Refund request rejected due to successful account removal.</p>
+              <div class="txn-meta">
+                <span><i class="fa-solid fa-rotate-left"></i> Refund Type: Service Refund</span>
+                <span><i class="fa-solid fa-money-bill-transfer"></i> Amount: $22.00 USD</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="txn-entry">
+          <div class="txn-time">11:17 PM <span>Today</span></div>
+          <div class="txn-entry-body">
+            <span class="txn-dot"></span>
+            <div class="txn-entry-card">
+              <div class="txn-entry-head">
+                <h3>Mi Account Removal Request Completed</h3>
+                <span class="txn-tag" style="color:rgb(0, 255, 0);">Success</span>
+              </div>
+              <p class="txn-description">Mi Account successfully removed. Please factory reset your device to complete the process.</p>
+              <div class="txn-meta">
+                <span><i class="fa-solid fa-box"></i> Service: Mi Account Removal Philippines</span>
+                <span><i class="fa-solid fa-dollar-sign"></i> Price: $22.00 USD</span>
+              </div>
+            </div>
+          </div>
+        </article-->
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.core.min.js?v=1.0.4" defer></script>
+  <script src="js/app.boot.min.js?v=1.0.4" defer></script>
+  <script src="js/app.guard.min.js?v=1.0.4" defer></script>
+  <script src="js/app.fx.min.js?v=1.0.4" defer></script>
+  <script src="js/app.log.min.js?v=1.0.4" defer></script>
+</body>
+</html>
